@@ -152,7 +152,7 @@ components:
 
 IPS works while Perth sleeps and hands the building back at seven. The page is that shift: the ground scrubs from indigo dusk through deep night, swings violet before dawn and breaks into an apricot sunrise and a cream morning. The October 2026 revision replaced the earlier calm "Turndown" mood (grey slate, single brass accent, engraved Tenor Sans, slow fades) at the client's request: it read as sleepy. The story, chapters, hours, 3D floors and trust content are unchanged; colour, type and motion now carry energy.
 
-Density stays editorial: one idea per viewport, the hour hanging in a margin column beside each heading. What changed is voltage: heavy condensed capitals, two saturated accents, motion that snaps.
+Density stays editorial: one idea per viewport, the hour hanging in a margin column beside each heading. What changed is voltage: heavy condensed capitals, two saturated accents, motion that snaps. Revision 3 ("Live Ops") adds working software on top: a WebGL night map of Perth on the cover and at 00:00, a client portal at 04:30 and a measured engine readout at the close.
 
 **Key Characteristics:**
 - The ground colour is the clock: indigo (#333D6D) → night (#1A2042, #151A38) → violet pre-dawn (#4E2D8A) → apricot dawn (#FFCF95) → cream morning (#FFF0D9), blended live on scroll.
@@ -211,9 +211,23 @@ Fast, decisive, then still. One sharp out-ease, cubic-bezier(.16,1,.3,1), plus a
 - **Service rows:** active row name turns apricot and shifts 10px; a 3px apricot rule snaps across the bottom.
 - **3D:** cool lilac-indigo ambient with a violet rim; work lamps and sign-off rings in apricot; machine accents apricot.
 
+## Live Ops layer (October 2026, revision 3)
+
+The pitch is also proof that Cre8tive Sync can be IPS's developers, so the page now runs software rather than illustrating it. Three working systems, each in its own chapter:
+
+- **Perth night map** (cover and 00:00): one metro model rendered by two WebGL cameras. About 12,000 city lights (lilac, cream, a few apricot) snapped to a loose street grid, freeways carrying apricot traffic pulses, coast and river banks as lilac hairlines, faint 10 km range rings around the CBD. The 184 ledger sites sit in their suburbs: a violet ring while waiting, then a white flare, a shock ring and a steady apricot lamp once signed off. Eleven crews arc between their sites with fading trails. Lights are additive points on the live ground; never draw a filled land mass or a basemap.
+  - Cover: the lights boot outward from the CBD (2.6s), then a whole night plays in 22s, holds at dawn and restarts. This is the page's one autoplay loop, and it is allowed because it is a running simulation with a visible clock, not decoration. The status bar on the horizon line (clock, sites signed off, crews out) and the horizon fill track it. Scrolling away dives the camera in.
+  - 00:00 chapter: the same model scrubbed by the scroll clock, framed between the copy and the sign-off feed, with the latest sign-off called out on the map.
+  - Place names fade out wherever they would cross copy. Always label it "simulated" or "illustrative" and "sample data".
+- **Client portal** (04:30): the turndown card inside a night-coloured app frame, with one tab per sample site. Switching site replays the night: tasks tick in order with their times, the crew note lands, the signature draws, and only then can the clean be rated. A rating of 3 or below opens an issue picker and logs a ticket shown as a night panel. The paper card drops its tape and tilt inside the frame.
+- **Engine readout** (closing pitch): a four-column ledger of measured facts about the page (live frame rate, map points, 3D scenes, one hand-written file). Only numbers the page can measure or prove.
+
+Reduced motion: the cover map renders one still frame at 04:00, the night map follows the scroll without easing, and the portal shows each site already signed.
+
 ## Don'ts
 - Don't go back to grey slate or desaturated grounds; every dark ground is from the indigo family.
 - Don't use grey secondary text; tint it lilac (dark) or indigo (light).
 - Don't set headlines in sentence case or light weights.
-- Don't bounce, overshoot, spring or autoplay loops.
+- Don't bounce, overshoot or spring. The only autoplay loops are the cover simulation and the social post previews.
 - Don't use alarm red for emphasis.
+- Don't present simulated figures as IPS performance data; every live number is either measured from the page or labelled sample data.

@@ -24,3 +24,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 ## Revision, 7 Oct 2026: Night Shift
 
 User feedback: the Turndown build read as sleepy. Asked for energetic colour and kinetic, high-energy type while keeping the midnight story. User supplied the palette: #333D6D indigo, #723EC3 violet, #FFCF95 apricot, #FFF0D9 cream. Grounds now run indigo -> violet pre-dawn -> apricot dawn -> cream morning; Tenor Sans replaced by Archivo heavy condensed caps; kinetic word snap, scroll-velocity lean, highlighter swipe, scrubbed violet tape band. Still no bounce. DESIGN.md rewritten to match.
+
+## Revision, 8 Oct 2026: Live Ops
+
+User feedback: the page felt flat. Cre8tive Sync is pitching to be IPS's dedicated developers, so the proposal should work as a showreel of programming capability: powerful and disruptive. Of three overdrive directions (Live Ops, Cinematic flythrough, Kinetic type engine) the user chose Live Ops. Added: a WebGL Perth night map (cover autoplay simulation with a status bar on the horizon, plus a 00:00 version scrubbed by scroll and synced to the ledger), a client portal prototype at 04:30 (site tabs, replayed sign-off, rating to issue ticket), and a measured "running on this page" readout at the close. Pitch copy now positions Cre8tive Sync as designers and engineers who stay on as developers. Palette, type, story and IPS claims unchanged; all simulated data labelled.

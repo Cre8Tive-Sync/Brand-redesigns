@@ -134,9 +134,31 @@ html.ground-live .tone-dark,html.ground-live .tone-light{--on-dark:var(--fg-live
 .cover__meta{margin-top:2rem;max-width:46ch}
 .cover__by{display:flex;gap:28px;flex-wrap:wrap;margin-top:2.6rem;color:var(--on-dark-2)}
 .cover__by b{color:var(--on-dark);font-weight:600}
-.horizon{position:absolute;left:0;right:0;bottom:clamp(72px,11vh,110px);padding:0 var(--gutter)}
+/* the cover runs a whole night across Perth behind the title */
+.cover__map{position:absolute;inset:0;z-index:0}
+.cover__map canvas{width:100%!important;height:100%!important}
+.cover__map::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,var(--ground) 0%,color-mix(in srgb,var(--ground) 72%,transparent) 28%,transparent 58%),linear-gradient(0deg,var(--ground) 0%,color-mix(in srgb,var(--ground) 60%,transparent) 16%,transparent 36%)}
+.cover__in{position:relative;z-index:1}
+.horizon{position:absolute;z-index:1;left:0;right:0;bottom:clamp(72px,11vh,110px);padding:0 var(--gutter)}
+.ops{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 26px;max-width:var(--max);margin:0 auto 16px;color:var(--on-dark-2);font-size:.86rem}
+.ops b{font-family:var(--display);font-weight:800;font-stretch:75%;font-variant-numeric:tabular-nums lining-nums;color:var(--on-dark);font-size:1.15rem;letter-spacing:.01em;margin-right:.3em}
+.ops .ops__clock{font-size:1.7rem;color:var(--acc);line-height:.8}
+.ops__tag{display:flex;align-items:center;gap:9px;margin-right:auto}
+.ops__tag i{width:7px;height:7px;border-radius:50%;background:var(--acc)}
 .horizon__line{height:1px;background:var(--hair-d);position:relative;max-width:var(--max);margin:0 auto}
-.horizon__fill{position:absolute;inset:0;background:var(--acc);transform-origin:left;transform:scaleX(1)}
+.horizon__fill{position:absolute;inset:0;background:var(--acc);transform-origin:left;transform:scaleX(var(--night-p,1))}
+.horizon__fill::after{content:"";position:absolute;right:-5px;top:-4px;width:9px;height:9px;border-radius:50%;background:var(--acc);box-shadow:0 0 14px var(--acc);transform:scaleX(calc(1 / max(var(--night-p,1),.001)));transform-origin:50% 50%}
+@media (max-width:700px){
+  .cover{justify-content:flex-end}
+  .cover__map{bottom:auto;height:56svh}
+  .cover__map::after{background:linear-gradient(0deg,var(--ground) 0%,color-mix(in srgb,var(--ground) 55%,transparent) 30%,transparent 62%)}
+  .cover__in{padding-top:33svh;padding-bottom:204px}
+  .cover h1{font-size:2.8rem}
+  .cover__meta{margin-top:1.2rem;font-size:1rem}
+  .cover__by{margin-top:1.4rem;gap:2px 18px;font-size:.92rem}
+  .ops{font-size:.76rem;gap:2px 16px;margin-bottom:12px}
+  .ops__tag{flex-basis:100%;font-size:.72rem}
+}
 .horizon__ticks{display:flex;justify-content:space-between;max-width:var(--max);margin:12px auto 0;font-size:.74rem;letter-spacing:.08em;color:var(--on-dark-2);font-variant-numeric:tabular-nums}
 .horizon__ticks span:nth-child(even){opacity:.55}
 @media (max-width:700px){.horizon__ticks span{display:none}.horizon__ticks span:nth-child(3n+1){display:block}}
@@ -311,8 +333,24 @@ html.ground-live .tone-dark,html.ground-live .tone-light{--on-dark:var(--fg-live
 
 /* ---- across Perth: the ledger, scrubbed ---- */
 .night{position:relative;height:300svh}
-.night__pin{position:sticky;top:72px;height:calc(100svh - 72px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,80px);align-items:center;max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.night__stick{position:sticky;top:72px;height:calc(100svh - 72px);overflow:hidden}
+.night__map{position:absolute;inset:0}
+.night__map canvas{width:100%!important;height:100%!important}
+.night__map::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,var(--ground) 0%,color-mix(in srgb,var(--ground) 62%,transparent) 30%,transparent 46%,transparent 66%,color-mix(in srgb,var(--ground) 80%,transparent) 84%)}
+.night__pin{position:relative;z-index:1;height:100%;display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.86fr) minmax(250px,.6fr);gap:clamp(20px,3vw,48px);align-items:center;max-width:var(--max);margin:0 auto;padding:0 var(--gutter);pointer-events:none}
+.night__pin > *{pointer-events:auto}
+.night__feed{grid-column:3}
+.night h2{font-size:clamp(2.3rem,4.4vw,4.1rem)}
 .night__copy .lede{margin-top:1.4rem}
+/* map furniture: place names and the latest sign-off, pinned to the 3D map */
+.map__lbl,.map__call{position:absolute;left:0;top:0;pointer-events:none;white-space:nowrap;will-change:transform;transition:opacity .4s}
+.map__lbl{font-family:var(--display);font-weight:700;font-stretch:88%;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:#D9C9F2;opacity:.62}
+.map__lbl--sea{font-style:italic;letter-spacing:.3em;opacity:.4}
+.map__call{display:flex;align-items:center;gap:10px;font-size:.8rem;color:#FFF0D9}
+.map__call i{width:18px;height:18px;border-radius:50%;border:1.5px solid #FFCF95;flex:none;box-shadow:0 0 16px rgba(255,207,149,.7)}
+.map__call span{display:flex;align-items:center;gap:8px;padding:6px 11px;background:rgba(21,26,56,.88);border:1px solid rgba(255,207,149,.45);border-radius:2px}
+.map__call time{font-family:var(--display);font-weight:800;font-stretch:75%;font-variant-numeric:tabular-nums;font-size:1rem;color:#FFCF95}
+.map__call svg{width:13px;height:13px;color:#FFCF95}
 .clock{margin-top:clamp(28px,5vh,56px)}
 .clock__t{font-size:clamp(5rem,12vw,10rem);line-height:.82;color:var(--acc)}
 .clock__c{margin-top:16px;display:flex;align-items:baseline;gap:12px;color:var(--on-dark-2);font-size:.95rem}
@@ -323,6 +361,7 @@ html.ground-live .tone-dark,html.ground-live .tone-light{--on-dark:var(--fg-live
 .ledger ol{list-style:none;margin:0;padding:0;position:absolute;left:0;right:0;top:36%;will-change:transform}
 .ledger li{height:52px;display:grid;grid-template-columns:4.2rem minmax(0,1fr) auto;gap:16px;align-items:center;border-bottom:1px solid rgba(255,240,217,.07);font-size:.95rem;color:var(--on-dark-2);transition:color .5s}
 .ledger li time{font-variant-numeric:tabular-nums;font-size:.9rem}
+.ledger li span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .ledger li small{color:var(--on-dark-2);opacity:.8;margin-left:10px;font-size:.86rem}
 .ledger li svg{width:14px;height:14px;color:var(--acc-hi);opacity:0;transition:opacity .5s}
 .ledger li.s{color:var(--on-dark)}
@@ -330,11 +369,16 @@ html.ground-live .tone-dark,html.ground-live .tone-light{--on-dark:var(--fg-live
 .night__note{margin-top:12px;font-size:.78rem;color:var(--on-dark-2)}
 @media (max-width:860px){
   .night{height:260svh}
-  .night__pin{top:64px;height:calc(100svh - 64px);grid-template-columns:1fr;align-content:center;gap:18px}
+  .night__stick{top:64px;height:calc(100svh - 64px)}
+  .night__pin{grid-template-columns:1fr;grid-template-rows:auto 1fr auto;align-items:start;gap:0;padding-top:28px;padding-bottom:14px}
+  .night h2{font-size:clamp(1.9rem,8vw,2.6rem)}
   .night__copy .lede{display:none}
-  .clock{margin-top:16px}
-  .clock__t{font-size:4.2rem}
-  .ledger{height:38svh}
+  .clock{margin-top:12px}
+  .clock__t{font-size:3.6rem}
+  .night__feed{grid-column:1;grid-row:3}
+  .ledger{height:150px}
+  .night__map::after{background:linear-gradient(180deg,var(--ground) 0%,color-mix(in srgb,var(--ground) 50%,transparent) 30%,transparent 44%,transparent 66%,var(--ground) 86%)}
+  .map__lbl{font-size:.64rem}
 }
 
 /* ---- 04:30 sign-off: the turndown card ---- */
@@ -367,6 +411,62 @@ html.ground-live .tone-dark,html.ground-live .tone-light{--on-dark:var(--fg-live
 .rate__out{margin-top:10px;font-size:.84rem;color:var(--acc-deep);min-height:1.4em}
 .turndown__note{margin-top:14px;font-size:.74rem;color:var(--ink-2)}
 @media (max-width:860px){.sign__grid{grid-template-columns:1fr}.turndown{transform:none}}
+
+/* the portal: the turndown card as working software, one tab per site */
+.portal{--on-dark:#FFF0D9;--on-dark-2:#D9C9F2;--hair-d:rgba(255,240,217,.14);position:relative;justify-self:center;width:100%;max-width:600px;background:#151A38;color:var(--on-dark);border:1px solid var(--hair-d);border-radius:2px;padding:10px;box-shadow:0 2px 3px rgba(0,0,0,.2),0 70px 110px -50px rgba(10,8,30,.9)}
+.portal__bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:6px 8px 14px;font-size:.8rem;color:var(--on-dark-2)}
+.portal__brand{display:flex;align-items:center;gap:10px;color:var(--on-dark);font-weight:500}
+.portal__brand svg{width:12px;height:21px}
+.portal__brand b{font-family:var(--display);font-weight:900;font-stretch:125%;letter-spacing:.04em;font-size:1rem}
+.portal__live{display:flex;align-items:center;gap:8px;font-variant-numeric:tabular-nums}
+.portal__live i{width:7px;height:7px;border-radius:50%;background:#FFCF95}
+.portal__sites{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;padding:0 0 10px}
+.portal__sites button{min-width:0;text-align:left;background:transparent;border:1px solid var(--hair-d);border-radius:2px;color:var(--on-dark-2);padding:9px 12px 10px;font:inherit;font-size:.76rem;line-height:1.35;cursor:pointer;font-variant-numeric:tabular-nums;transition:background .4s var(--ease),border-color .4s,color .4s}
+.portal__sites button b{display:block;color:var(--on-dark);font-weight:600;font-size:.84rem;white-space:nowrap;transition:color .4s}
+.portal__sites button:hover{border-color:rgba(255,240,217,.4)}
+.portal__sites button[aria-selected="true"]{background:#FFCF95;border-color:#FFCF95;color:#4A4F78}
+.portal__sites button[aria-selected="true"] b{color:#1A2042}
+.portal .turndown{transform:none;max-width:none;box-shadow:none;padding:clamp(22px,3vw,34px)}
+.portal .turndown::after{display:none}
+.portal .turndown h3{margin:18px 0 4px}
+.portal__foot{margin-top:12px;padding:0 6px 4px;font-size:.76rem;color:var(--on-dark-2)}
+.td-sub{color:var(--ink-2);font-size:.92rem;font-variant-numeric:tabular-nums}
+.tdl{list-style:none;margin:16px 0 0;padding:0;border-top:1px solid var(--hair-l)}
+.tdl li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:center;padding:7px 0;border-bottom:1px solid var(--hair-l);font-size:.9rem;line-height:1.35;color:rgba(30,36,72,.58);transition:color .45s var(--ease)}
+.tdl li.t{color:var(--ink)}
+.tdl time{display:flex;align-items:center;gap:6px;font-variant-numeric:tabular-nums;font-size:.84rem;font-weight:600;color:var(--violet);opacity:0;transform:translateX(-10px);transition:opacity .3s,transform .5s var(--ease)}
+.tdl li.t time{opacity:1;transform:none}
+.tdl svg{width:13px;height:13px}
+.turndown .td-dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 18px;margin:16px 0 12px}
+.td-dl dt{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2)}
+.td-dl dd{margin:3px 0 0;font-weight:500;font-size:.92rem;font-variant-numeric:tabular-nums}
+.td-note{font-style:italic;font-size:.94rem;line-height:1.45;transition:opacity .6s var(--ease)}
+.td-note .caps{font-style:normal;color:var(--ink-2);margin-right:.7em;font-size:.72rem}
+.portal .turndown__sig{margin-top:16px;padding-top:14px}
+.turndown__sig path{stroke-dasharray:1;stroke-dashoffset:1}
+.turndown.signed .turndown__sig path{stroke-dashoffset:0;transition:stroke-dashoffset 1.3s cubic-bezier(.65,0,.35,1)}
+.td-signed{transition:opacity .5s var(--ease) .9s}
+.turndown:not(.signed) .td-signed{opacity:0;transition-delay:0s}
+.turndown.pending .td-note{opacity:0}
+.portal .rate{display:flex;align-items:center;justify-content:space-between;gap:10px 16px;flex-wrap:wrap;margin-top:16px;padding-top:14px}
+.portal .rate__btns{margin-top:0}
+.portal .rate button{width:38px;height:38px}
+.portal .rate button[disabled]{opacity:.4;cursor:not-allowed}
+.portal .rate__out{flex-basis:100%;margin-top:0;min-height:0}
+.portal .rate__out:empty{display:none}
+.issue{display:none;margin-top:14px;padding:16px 16px 18px;border:1px solid rgba(114,62,195,.35);border-radius:2px;background:rgba(114,62,195,.06)}
+.issue.show{display:block}
+.issue > p{font-size:.9rem;font-weight:600}
+.issue .chips{margin-top:10px}
+.issue .chips label{font-size:.8rem;padding:7px 11px}
+.issue__go{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:14px}
+.issue__go .btn{padding:.85em 1.2em;font-size:.82rem}
+.issue__msg{font-size:.84rem;color:var(--alarm)}
+.issue__msg:empty{display:none}
+.ticket{display:none;margin-top:14px;padding:14px 16px;background:#1A2042;color:#FFF0D9;border-radius:2px;font-size:.88rem;line-height:1.5}
+.ticket.show{display:block}
+.ticket b{font-family:var(--display);font-weight:800;font-stretch:78%;text-transform:uppercase;font-size:1.25rem;color:#FFCF95;display:block;letter-spacing:.01em}
+@media (max-width:560px){.turndown .td-dl{grid-template-columns:1fr 1fr}.portal{padding:6px}.portal .turndown{padding:20px 18px}.portal__sites{grid-template-columns:1fr 1fr}.portal__live{display:none}}
 
 /* ---- 06:00 dawn ---- */
 .dawn{padding:clamp(120px,15vw,210px) 0 clamp(90px,10vw,140px)}
@@ -501,6 +601,15 @@ fieldset.field{border:0;padding:0;min-width:0}
 .deliver{list-style:none;margin:0;padding:0;border-top:1px solid var(--hair-d)}
 .deliver li{padding:15px 0;border-bottom:1px solid var(--hair-d);color:var(--on-dark-2)}
 .deliver b{color:var(--on-dark);font-weight:600}
+/* what is running on this page: measured, not claimed */
+.engine{margin-top:clamp(80px,9vw,120px)}
+.engine h3{color:var(--on-dark)}
+.engine ul{list-style:none;margin:22px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--hair-d)}
+.engine li{padding:22px 24px 4px 0;display:grid;gap:10px;align-content:start}
+.engine li + li{padding-left:24px;border-left:1px solid var(--hair-d)}
+.engine b{font-family:var(--display);font-weight:800;font-stretch:75%;font-variant-numeric:tabular-nums lining-nums;font-size:clamp(2.4rem,4.4vw,3.8rem);line-height:.86;color:var(--acc-hi)}
+.engine span{color:var(--on-dark-2);font-size:.94rem;max-width:26ch}
+@media (max-width:860px){.engine ul{grid-template-columns:1fr 1fr}.engine li:nth-child(3){padding-left:0;border-left:0}.engine li:nth-child(n+3){border-top:1px solid var(--hair-d)}}
 .close__sig{margin-top:80px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--on-dark-2);font-size:.86rem}
 .close--end{margin-top:0}
 .close--end .soft{color:var(--on-dark-2)}
@@ -655,12 +764,14 @@ fieldset.field{border:0;padding:0;min-width:0}
 <main>
 <!-- ============ COVER ============ -->
 <header class="cover tone-dark" id="top" data-ground="#1A2042" style="--g:#1A2042">
+  <div class="cover__map" id="coverMap" aria-hidden="true"></div>
   <div class="wrap cover__in">
     <h1 class="h-xl">IPS, <em>prepared overnight.</em></h1>
-    <p class="lede cover__meta soft cv">A brand redesign proposal for IPS Facility Services, Perth. What is holding the brand back today, and the story it could tell tomorrow.</p>
-    <div class="cover__by cv"><span>Prepared by <b>Cre8tive Sync</b></span><span>October 2026</span></div>
+    <p class="lede cover__meta soft cv">A brand and website proposal for IPS Facility Services, Perth: what is holding the brand back today, and the site we would design, build and run for it tomorrow.</p>
+    <div class="cover__by cv"><span>Designed and engineered by <b>Cre8tive Sync</b></span><span>October 2026</span></div>
   </div>
-  <div class="horizon" aria-hidden="true">
+  <div class="horizon" id="horizon" aria-hidden="true">
+    <p class="ops" id="ops" hidden><span class="ops__tag"><i></i>A simulated night across Perth · sample data</span><span><b class="ops__clock" id="opsClock">18:00</b></span><span><b id="opsSigned">0</b>sites signed off</span><span><b id="opsCrews">0</b>crews out</span></p>
     <div class="horizon__line"><div class="horizon__fill"></div></div>
     <div class="horizon__ticks"><span>18:00</span><span>19:00</span><span>20:00</span><span>21:00</span><span>22:00</span><span>23:00</span><span>00:00</span><span>01:00</span><span>02:00</span><span>03:00</span><span>04:00</span><span>05:00</span><span>06:00</span></div>
   </div>
@@ -845,6 +956,8 @@ fieldset.field{border:0;padding:0;min-width:0}
 
   <!-- 22:30 → 04:30: across Perth -->
   <section class="night tone-dark" id="night" data-ground="#151A38" style="--g:#151A38" data-time="23:00" data-time-end="04:30" aria-labelledby="night-h">
+    <div class="night__stick">
+    <div class="night__map" id="nightMap" aria-hidden="true"></div>
     <div class="night__pin">
       <div class="night__copy">
         <h2 class="h-l" id="night-h">While Perth sleeps, 180+ sites get done.</h2>
@@ -854,13 +967,14 @@ fieldset.field{border:0;padding:0;min-width:0}
           <p class="clock__c">Sites signed off tonight <b id="clockN">0</b> <span class="num">of 180+</span></p>
         </div>
       </div>
-      <div>
+      <div class="night__feed">
         <div class="ledger" role="img" aria-label="Sign-off ledger: sample sites across Perth being signed off through the night">
           <div class="ledger__now"><span>Now</span></div>
           <ol id="ledger"></ol>
         </div>
-        <p class="night__note">Illustrative ledger. Suburbs and times are sample data.</p>
+        <p class="night__note">Illustrative map and ledger. Sites, suburbs and times are sample data.</p>
       </div>
+    </div>
     </div>
   </section>
 
@@ -874,36 +988,64 @@ fieldset.field{border:0;padding:0;min-width:0}
           <p class="lede soft rv">We propose a turndown report for every site: the night's work checked against your list before you are awake. You can already rate every clean, and problems come straight to us, not into a queue.</p>
         </div>
       </div>
-      <figure class="turndown rv" style="margin:0" aria-label="Example turndown report (illustrative)">
-        <div class="turndown__top">
-          <span class="logo"><svg aria-hidden="true"><use href="#fob"/></svg><span class="logo__w"><b>IPS</b></span></span>
-          <small>Turndown report<br>Tuesday night</small>
+      <div class="portal rv" id="portal" role="region" aria-label="IPS client portal prototype, sample data">
+        <div class="portal__bar">
+          <span class="portal__brand"><svg aria-hidden="true"><use href="#fob"/></svg><b>IPS</b> Client portal</span>
+          <span class="portal__live"><i aria-hidden="true"></i>Tuesday night · 4 sites</span>
         </div>
-        <h3>Level 3, West Perth</h3>
-        <p style="color:var(--ink-2);font-size:.95rem">Office · 6 of 6 tasks complete</p>
-        <dl>
-          <div><dt>Crew</dt><dd>Police-cleared, 2</dd></div>
-          <div><dt>Completed</dt><dd>22:35</dd></div>
-          <div><dt>Alarm set</dt><dd>22:36</dd></div>
-          <div><dt>Keys</dt><dd>Secured</dd></div>
-          <div class="turndown__hand"><dt>Crew note</dt><dd>The plant by the window looked thirsty. Watered it.</dd></div>
-        </dl>
-        <div class="turndown__sig">
-          <div>
-            <svg viewBox="0 0 140 44" aria-hidden="true"><path d="M4 30c8-16 14-22 18-18s-6 20-2 20 10-22 16-22-4 22 2 22 8-14 12-14 2 12 6 12 10-10 16-14c4-3 6 2 4 6s-2 6 4 4 14-10 22-14 14-4 30-6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <small>Crew lead signature</small>
+        <div class="portal__sites" role="tablist" aria-label="Your sites" id="portalTabs">
+          <button type="button" role="tab" id="site-0" aria-controls="tdCard" aria-selected="true" tabindex="0"><b>West Perth</b>Office · 22:36</button>
+          <button type="button" role="tab" id="site-1" aria-controls="tdCard" aria-selected="false" tabindex="-1"><b>Subiaco</b>Medical · 21:19</button>
+          <button type="button" role="tab" id="site-2" aria-controls="tdCard" aria-selected="false" tabindex="-1"><b>Joondalup</b>School · 21:03</button>
+          <button type="button" role="tab" id="site-3" aria-controls="tdCard" aria-selected="false" tabindex="-1"><b>Belmont</b>Strata · 02:11</button>
+        </div>
+        <figure class="turndown signed" id="tdCard" role="tabpanel" aria-labelledby="site-0" style="margin:0">
+          <div class="turndown__top">
+            <span class="logo"><svg aria-hidden="true"><use href="#fob"/></svg><span class="logo__w"><b>IPS</b></span></span>
+            <small>Turndown report<br><span id="tdRef">Ref. WP-0312</span></small>
           </div>
-          <small class="num" style="text-align:right">Ref. WP-0312<br>Signed 22:36</small>
-        </div>
-        <div class="rate">
-          <p>How was last night's clean?</p>
-          <div class="rate__btns" role="group" aria-label="Rate this clean out of 5">
-            <button type="button" aria-pressed="false">1</button><button type="button" aria-pressed="false">2</button><button type="button" aria-pressed="false">3</button><button type="button" aria-pressed="false">4</button><button type="button" aria-pressed="false">5</button>
+          <h3 id="tdName">Level 3, West Perth</h3>
+          <p class="td-sub" id="tdSub">Office · 6 of 6 tasks complete</p>
+          <ol class="tdl" id="tdTasks">
+            <li class="t"><span>Empty bins, replace liners</span><time>21:04 <svg aria-hidden="true"><use href="#i-tick"/></svg></time></li>
+            <li class="t"><span>Kitchen benches, sink &amp; appliances</span><time>21:19 <svg aria-hidden="true"><use href="#i-tick"/></svg></time></li>
+            <li class="t"><span>Washrooms sanitised, consumables restocked</span><time>21:41 <svg aria-hidden="true"><use href="#i-tick"/></svg></time></li>
+            <li class="t"><span>Desks &amp; high-touch points wiped</span><time>22:02 <svg aria-hidden="true"><use href="#i-tick"/></svg></time></li>
+            <li class="t"><span>Vacuum &amp; mop all floors</span><time>22:27 <svg aria-hidden="true"><use href="#i-tick"/></svg></time></li>
+            <li class="t"><span>Lights off, alarm set, keys secured</span><time>22:35 <svg aria-hidden="true"><use href="#i-tick"/></svg></time></li>
+          </ol>
+          <dl class="td-dl" id="tdChecks">
+            <div><dt>Crew</dt><dd>Police-cleared, 2</dd></div>
+            <div><dt>Alarm set</dt><dd>22:36</dd></div>
+            <div><dt>Keys</dt><dd>Secured</dd></div>
+          </dl>
+          <p class="td-note"><span class="caps">Crew note</span><span id="tdNote">The plant by the window looked thirsty. Watered it.</span></p>
+          <div class="turndown__sig">
+            <div>
+              <svg viewBox="0 0 140 44" aria-hidden="true"><path pathLength="1" d="M4 30c8-16 14-22 18-18s-6 20-2 20 10-22 16-22-4 22 2 22 8-14 12-14 2 12 6 12 10-10 16-14c4-3 6 2 4 6s-2 6 4 4 14-10 22-14 14-4 30-6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <small>Crew lead signature</small>
+            </div>
+            <small class="num td-signed" id="tdSigned" style="text-align:right">Signed 22:36</small>
           </div>
-          <p class="rate__out" id="rateOut" aria-live="polite"></p>
-        </div>
-        <p class="turndown__note">Illustrative report. A proposed sign-off format, for IPS to confirm.</p>
-      </figure>
+          <div class="rate">
+            <p>How was last night's clean?</p>
+            <div class="rate__btns" role="group" aria-label="Rate this clean out of 5">
+              <button type="button" aria-pressed="false">1</button><button type="button" aria-pressed="false">2</button><button type="button" aria-pressed="false">3</button><button type="button" aria-pressed="false">4</button><button type="button" aria-pressed="false">5</button>
+            </div>
+            <p class="rate__out" id="rateOut" aria-live="polite"></p>
+          </div>
+          <div class="issue" id="issue">
+            <p>What needs another look?</p>
+            <div class="chips" id="issueChips"></div>
+            <div class="issue__go">
+              <button type="button" class="btn btn--night" id="issueSend">Send to my account manager <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+              <span class="issue__msg" id="issueMsg" aria-live="polite"></span>
+            </div>
+          </div>
+          <div class="ticket" id="ticket" role="status" tabindex="-1"></div>
+        </figure>
+        <p class="portal__foot">Working prototype with sample data. A proposed sign-off format, for IPS to confirm.</p>
+      </div>
     </div>
   </section>
 
@@ -1293,17 +1435,28 @@ fieldset.field{border:0;padding:0;min-width:0}
     <div class="wrap close__grid">
       <div>
         <h2 class="h-l rv">Let's get IPS ready for the morning.</h2>
-        <p class="lede soft rv">First we lock the front door, then we launch what is distinctive. The site clean-up can start this week.</p>
+        <p class="lede soft rv">First we lock the front door, then we launch what is distinctive. The site clean-up can start this week. After launch, the team that wrote this page stays on as your developers: building, securing and improving it every month.</p>
         <a class="btn rv" href="#top">Talk to Cre8tive Sync <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </div>
       <ul class="deliver rv">
         <li><b>Week 1:</b> malware clean-up, WordPress hardening, real contact details live</li>
         <li><b>Brand identity:</b> fob mark, wordmark, the hour palette, type, guidelines</li>
-        <li><b>New website:</b> the night-shift story, 3D floor, quote flow, service pages</li>
+        <li><b>New website:</b> the night-shift story, the Perth night map, 3D floor, quote flow, service pages</li>
+        <li><b>Client portal:</b> turndown reports, ratings and issue tickets, built on your real sites</li>
+        <li><b>Dedicated development:</b> one team for hosting, security patches, speed and new features</li>
         <li><b>Real photography:</b> your crews and your sites at night, no AI stand-ins</li>
         <li><b>Rollout:</b> fleet, door hangers, turndown reports, crew ID, stationery</li>
         <li><b>Proof engine:</b> named Google reviews and case studies</li>
         <li><b>Launch week:</b> three animated posts, captions and a posting schedule</li>
+      </ul>
+    </div>
+    <div class="wrap engine rv" role="group" aria-labelledby="eng-h">
+      <h3 class="h-s" id="eng-h">Running on this page, right now</h3>
+      <ul>
+        <li><b id="engFps" class="num">60</b><span>frames a second, measured live in your browser</span></li>
+        <li><b id="engPts" class="num">13,000+</b><span>points of light in the Perth night map, drawn on your graphics card</span></li>
+        <li><b id="engScenes" class="num">4</b><span>real-time 3D scenes, no plug-ins, no video files</span></li>
+        <li><b class="num">1</b><span>hand-written file. No template, no page builder.</span></li>
       </ul>
     </div>
     <div class="wrap close__sig"><span>Cre8tive Sync · Brand redesign proposal for IPS Facility Services</span><span>Audit data captured 7 October 2026</span></div>
@@ -1500,9 +1653,9 @@ function reveals() {
 function opening() {
   if (reduce || !gsap) return;
   const tl = gsap.timeline({ defaults: { ease: 'expo.out' } });
-  tl.from('.horizon__fill', { scaleX: 0, duration: 1.4, ease: 'power4.inOut' }, 0)
-    .from('.cover .cv', { y: 30, opacity: 0, stagger: .08, duration: .9 }, .45)
-    .from('.horizon__ticks span', { y: 10, opacity: 0, stagger: .03, duration: .6 }, .5);
+  tl.from('.cover .cv', { y: 30, opacity: 0, stagger: .08, duration: .9 }, .45)
+    .from('.horizon__ticks span', { y: 10, opacity: 0, stagger: .03, duration: .6 }, .5)
+    .from('.ops > span', { y: 14, opacity: 0, stagger: .07, duration: .8 }, 1.6);
   gsap.to('.cover__in', { yPercent: -14, opacity: .2, ease: 'none', scrollTrigger: { trigger: '.cover', start: 'top top', end: 'bottom top', scrub: true } });
   gsap.from('.chap--first .ch__b > .hl', { y: 30, opacity: 0, stagger: .08, duration: .9, delay: .35, ease: 'expo.out', scrollTrigger: { trigger: '.chap--first', start: 'top 75%' } });
 }
@@ -1575,13 +1728,81 @@ function syncAct() {
   actLinks.forEach(a => a.setAttribute('aria-current', a.dataset.act === id));
 }
 
-/* ---------- rating + form ---------- */
-function rating() {
-  const out = $('#rateOut');
-  $$('.rate button').forEach((b, i, all) => b.addEventListener('click', () => {
-    all.forEach((x, j) => x.setAttribute('aria-pressed', j <= i));
-    out.textContent = i < 3 ? `Rated ${i + 1} of 5. Your account manager will call you this morning.` : `Rated ${i + 1} of 5. Thank you, the crew will see this.`;
+/* ---------- the client portal: four sample sites, each night replayed as it was signed off ---------- */
+const SITES = [
+  { name: 'Level 3, West Perth', kind: 'Office', ref: 'WP-0312', signed: '22:36', note: 'The plant by the window looked thirsty. Watered it.',
+    checks: [['Crew', 'Police-cleared, 2'], ['Alarm set', '22:36'], ['Keys', 'Secured']],
+    tasks: [['Empty bins, replace liners', '21:04'], ['Kitchen benches, sink & appliances', '21:19'], ['Washrooms sanitised, consumables restocked', '21:41'], ['Desks & high-touch points wiped', '22:02'], ['Vacuum & mop all floors', '22:27'], ['Lights off, alarm set, keys secured', '22:35']] },
+  { name: 'Medical centre, Subiaco', kind: 'Medical', ref: 'SB-0207', signed: '21:19', note: 'Waiting room reset. Chairs squared, magazines straightened anyway.',
+    checks: [['Crew', 'Police-cleared, 2'], ['Alarm set', '21:19'], ['Keys', 'Secured']],
+    tasks: [['Waiting room reset, chairs wiped', '19:42'], ['Consult rooms: benches & handles', '20:05'], ['Bins emptied, liners replaced', '20:21'], ['Washrooms sanitised, consumables restocked', '20:44'], ['Hard floors mopped', '21:10'], ['Alarm set, keys secured', '21:18']] },
+  { name: 'Primary school, Joondalup', kind: 'Education', ref: 'JD-0418', signed: '21:03', note: 'Twenty-eight desks, one chewing-gum census, whiteboards left for the teachers.',
+    checks: [['Crew', 'Police-cleared, 3'], ['Alarm set', '21:03'], ['Gates', 'Locked']],
+    tasks: [['Classrooms 1 to 6: bins & desks', '18:52'], ['Staff room benches & fridge', '19:20'], ['Amenities sanitised & restocked', '19:58'], ['Carpets vacuumed, hard floors mopped', '20:46'], ['Windows & doors checked', '20:55'], ['Gates locked, alarm set', '21:02']] },
+  { name: 'Strata, Belmont', kind: 'Strata', ref: 'BL-0129', signed: '02:11', note: 'Lift buttons, letterboxes, bin store. The bits residents only notice when they are missed.',
+    checks: [['Crew', 'Police-cleared, 1'], ['Doors', 'Checked 02:10'], ['Report', 'Sent to manager']],
+    tasks: [['Lift buttons, mirrors & doors', '00:42'], ['Letterboxes & lobby glass', '00:58'], ['Bin store rotated & hosed', '01:20'], ['Stairwells swept', '01:41'], ['Car park litter pick', '02:03'], ['Common doors checked & locked', '02:10']] }
+];
+function portal() {
+  const box = $('#portal'), card = $('#tdCard'), tabs = $$('#portalTabs [role=tab]');
+  const tasksEl = $('#tdTasks'), sub = $('#tdSub'), out = $('#rateOut'), rateBtns = $$('.rate button', card);
+  const issue = $('#issue'), chips = $('#issueChips'), msg = $('#issueMsg'), ticket = $('#ticket');
+  const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+  const stamp = () => { const d = new Date(); return String(d.getHours()).padStart(2, '0') + ':' + String(d.getMinutes()).padStart(2, '0'); };
+  let cur = 0, run = 0;
+  function show(i, animate) {
+    const s = SITES[i], my = ++run;
+    cur = i;
+    tabs.forEach((t, j) => { t.setAttribute('aria-selected', j === i); t.tabIndex = j === i ? 0 : -1; });
+    card.setAttribute('aria-labelledby', tabs[i].id);
+    $('#tdName').textContent = s.name; $('#tdRef').textContent = 'Ref. ' + s.ref; $('#tdNote').textContent = s.note;
+    $('#tdSigned').textContent = 'Signed ' + s.signed;
+    $('#tdChecks').innerHTML = s.checks.map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join('');
+    tasksEl.innerHTML = s.tasks.map(([n, t]) => `<li><span>${esc(n)}</span><time>${t} <svg aria-hidden="true"><use href="#i-tick"/></svg></time></li>`).join('');
+    const lis = [...tasksEl.children], n = lis.length;
+    const tickTo = k => { lis.forEach((li, j) => li.classList.toggle('t', j < k)); sub.textContent = `${s.kind} · ${k} of ${n} tasks complete`; };
+    // the rating and any open ticket belong to the site they were left on
+    rateBtns.forEach(b => { b.setAttribute('aria-pressed', false); b.disabled = !!animate; });
+    out.textContent = ''; issue.classList.remove('show'); ticket.classList.remove('show'); msg.textContent = '';
+    chips.innerHTML = s.tasks.map(([n2], j) => `<input type="checkbox" id="iss${j}" value="${esc(n2)}"><label for="iss${j}">${esc(n2)}</label>`).join('') + `<input type="checkbox" id="issX" value="Something else"><label for="issX">Something else</label>`;
+    if (!animate || reduce) { tickTo(n); card.classList.remove('pending'); card.classList.add('signed'); rateBtns.forEach(b => b.disabled = false); return; }
+    card.classList.add('pending'); card.classList.remove('signed'); tickTo(0);
+    const later = (ms, f) => setTimeout(() => { if (my === run) f(); }, ms);
+    lis.forEach((_, k) => later(420 + k * 340, () => tickTo(k + 1)));
+    const end = 420 + n * 340;
+    later(end + 150, () => card.classList.remove('pending'));
+    later(end + 450, () => card.classList.add('signed'));
+    later(end + 1300, () => rateBtns.forEach(b => b.disabled = false));
+  }
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => { if (i !== cur) show(i, true); });
+    t.addEventListener('keydown', e => {
+      const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (!d) return;
+      e.preventDefault(); const j = (cur + d + tabs.length) % tabs.length; tabs[j].focus(); show(j, true);
+    });
+  });
+  rateBtns.forEach((b, i) => b.addEventListener('click', () => {
+    rateBtns.forEach((x, j) => x.setAttribute('aria-pressed', j <= i));
+    ticket.classList.remove('show'); msg.textContent = '';
+    if (i < 3) { out.textContent = `Rated ${i + 1} of 5. Tell us what was missed and it goes straight to your account manager.`; issue.classList.add('show'); }
+    else { out.textContent = `Rated ${i + 1} of 5. Thank you, the crew will see this.`; issue.classList.remove('show'); }
   }));
+  chips.addEventListener('change', () => { msg.textContent = ''; });
+  $('#issueSend').addEventListener('click', () => {
+    const picked = $$('input:checked', chips).map(c => c.value);
+    if (!picked.length) { msg.textContent = 'Pick at least one item so the crew knows where to look.'; return; }
+    const ref = 'IPS-' + (2600 + Math.floor(Math.random() * 400));
+    ticket.innerHTML = `<b>Ticket ${ref}</b>Logged at ${stamp()} for ${esc(SITES[cur].name)}: ${esc(picked.join(', ').toLowerCase())}. Your account manager has it and will call you this morning. It is on tonight's task list too.`;
+    issue.classList.remove('show'); ticket.classList.add('show'); ticket.focus();
+    if (!reduce && gsap) gsap.from(ticket, { y: 12, opacity: 0, duration: .7, ease: 'expo.out' });
+  });
+  // the first visit replays the night once the portal is on screen
+  card.classList.add('signed');
+  if ('IntersectionObserver' in window && !reduce) {
+    const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { io.disconnect(); show(0, true); } }, { threshold: .35 });
+    io.observe(box);
+  } else show(0, false);
 }
 function form() {
   const f = $('#qform'), done = $('#fdone');
@@ -2146,6 +2367,381 @@ function svcScene() {
   });
 }
 
+/* ---------- Perth at night: one metro model, drawn twice ---------- */
+// geography is approximate (km from the CBD, x east, z south); sites and crews are the sample ledger above
+const LON0 = 115.858, LAT0 = -31.953, KX = 94.46, KZ = 110.57;
+const geo = ([lon, lat]) => [(lon - LON0) * KX, (LAT0 - lat) * KZ];
+const SUB_GEO = { 'Perth CBD': [115.858, -31.953], 'West Perth': [115.842, -31.948], 'Subiaco': [115.826, -31.948], 'Osborne Park': [115.81, -31.9], 'Northbridge': [115.857, -31.945], 'East Perth': [115.875, -31.957], 'Victoria Park': [115.897, -31.977], 'Belmont': [115.93, -31.955], 'Welshpool': [115.95, -32.0], 'Malaga': [115.89, -31.86], 'Balcatta': [115.83, -31.87], 'Joondalup': [115.766, -31.745], 'Wangara': [115.83, -31.79], 'Fremantle': [115.757, -32.053], 'Cannington': [115.935, -32.017], 'Midland': [116.01, -31.89], 'Nedlands': [115.805, -31.98], 'Leederville': [115.835, -31.935], 'Canning Vale': [115.92, -32.08], 'Rockingham': [115.745, -32.28] };
+// eleven crews, each working a patch of neighbouring suburbs
+const CREW_OF = { 'Perth CBD': 0, 'Northbridge': 0, 'West Perth': 1, 'Subiaco': 1, 'Osborne Park': 2, 'Leederville': 2, 'East Perth': 3, 'Victoria Park': 3, 'Belmont': 4, 'Welshpool': 4, 'Malaga': 5, 'Balcatta': 5, 'Joondalup': 6, 'Wangara': 6, 'Fremantle': 7, 'Nedlands': 7, 'Cannington': 8, 'Canning Vale': 8, 'Midland': 9, 'Rockingham': 10 };
+const COAST = [[115.585, -31.5], [115.64, -31.58], [115.7, -31.66], [115.735, -31.75], [115.745, -31.81], [115.752, -31.87], [115.755, -31.92], [115.752, -31.97], [115.748, -32.02], [115.742, -32.06], [115.755, -32.11], [115.765, -32.16], [115.77, -32.21], [115.752, -32.25], [115.712, -32.27], [115.69, -32.3], [115.72, -32.37]];
+// rivers: centre line with half-width in km
+const SWAN = [[115.745, -32.056, .2], [115.757, -32.04, .25], [115.77, -32.028, .3], [115.787, -32.017, .45], [115.805, -32.008, 1], [115.825, -32, 1.5], [115.843, -31.99, 1.2], [115.852, -31.975, .6], [115.865, -31.965, .55], [115.88, -31.962, .35], [115.893, -31.95, .2], [115.9, -31.937, .18], [115.915, -31.93, .15], [115.935, -31.92, .13], [115.955, -31.905, .12], [115.975, -31.895, .1], [116, -31.885, .08]];
+const CANNING = [[115.845, -32.005, .5], [115.86, -32.018, .4], [115.875, -32.028, .3], [115.895, -32.03, .2], [115.915, -32.032, .12], [115.935, -32.04, .1]];
+const ROADS = [
+  [[115.855, -31.948], [115.835, -31.92], [115.815, -31.88], [115.8, -31.83], [115.785, -31.77], [115.77, -31.7], [115.74, -31.62]],
+  [[115.862, -31.963], [115.855, -31.99], [115.85, -32.03], [115.855, -32.08], [115.85, -32.14], [115.82, -32.2], [115.79, -32.26], [115.775, -32.32]],
+  [[115.875, -31.955], [115.92, -31.955], [115.96, -31.935], [116.01, -31.895], [116.06, -31.88]],
+  [[115.94, -31.79], [115.935, -31.86], [115.94, -31.93], [115.955, -31.98], [115.98, -32.04], [115.99, -32.12]],
+  [[116.01, -31.88], [115.99, -31.96], [115.96, -32.03], [115.9, -32.07], [115.85, -32.07]],
+  [[115.86, -31.95], [115.8, -31.975], [115.765, -32.01], [115.752, -32.05]],
+  [[115.8, -31.86], [115.87, -31.855], [115.95, -31.86], [116, -31.875]]
+];
+const PLACES = [['Joondalup', 115.766, -31.745], ['Perth', 115.858, -31.953], ['Fremantle', 115.757, -32.053], ['Midland', 116.01, -31.89], ['Cannington', 115.935, -32.017], ['Rockingham', 115.745, -32.28], ['Indian Ocean', 115.66, -31.99, 'sea']];
+
+let METRO = null;
+function metro() {
+  if (METRO) return METRO;
+  const r = rng(31953);
+  const coast = COAST.map(geo);
+  const coastX = z => { for (let i = 1; i < coast.length; i++) { const [x0, z0] = coast[i - 1], [x1, z1] = coast[i]; if (z <= z1) return x0 + (x1 - x0) * clamp((z - z0) / (z1 - z0)); } return coast[coast.length - 1][0]; };
+  const rivers = [SWAN, CANNING].map(l => l.map(([lon, lat, w]) => [...geo([lon, lat]), w]));
+  const wet = (x, z) => {
+    for (const l of rivers) for (let i = 1; i < l.length; i++) {
+      const [ax, az, aw] = l[i - 1], [bx, bz, bw] = l[i], dx = bx - ax, dz = bz - az;
+      const t = clamp(((x - ax) * dx + (z - az) * dz) / (dx * dx + dz * dz));
+      if (Math.hypot(x - ax - dx * t, z - az - dz * t) < aw + (bw - aw) * t) return true;
+    }
+    return false;
+  };
+  const land = (x, z) => x > coastX(z) + .25 && !wet(x, z);
+
+  // city lights: denser towards the CBD and the suburb centres, snapped to a loose street grid
+  const pos = [], col = [], size = [], seed = [], road = [];
+  const push = (x, z, c, s, rd) => { pos.push(x, 0, z); col.push(c[0], c[1], c[2]); size.push(s); seed.push(r()); road.push(rd); };
+  const LILAC = [.85, .79, .96], CREAM = [1, .94, .85], AMBER = [1, .78, .52];
+  const hubs = Object.values(SUB_GEO).map(geo);
+  let n = 0, tries = 0;
+  while (n < 12500 && tries < 320000) {
+    tries++;
+    let x, z;
+    if (r() < .32) { const h = hubs[Math.floor(r() * hubs.length)], a = r() * 6.283, d = Math.sqrt(-2 * Math.log(r() + 1e-9)) * 1.5; x = h[0] + Math.cos(a) * d; z = h[1] + Math.sin(a) * d; }
+    else { x = -16 + r() * 36; z = -30 + r() * 72; }
+    const scarp = 1 - smooth(clamp((x - 12 - Math.sin(z * .3) * 1.5) / 6));
+    const ends = 1 - smooth(clamp((Math.abs(z - 6) - 30) / 8));
+    const p = (.16 + .84 * Math.exp(-Math.hypot(x, z - 2) / 10)) * scarp * ends;
+    if (r() > p || !land(x, z)) continue;
+    if (r() < .55) { x = Math.round(x / .3) * .3 + (r() - .5) * .05; z = Math.round(z / .3) * .3 + (r() - .5) * .05; }
+    const k = r();
+    push(x, z, k < .7 ? LILAC : k < .93 ? CREAM : AMBER, 2 + r() * 2.6, -1);
+    n++;
+  }
+  // freeways: brighter, carrying traffic pulses
+  ROADS.forEach(line => {
+    const P = line.map(geo); let acc = 0;
+    for (let i = 1; i < P.length; i++) {
+      const [ax, az] = P[i - 1], [bx, bz] = P[i], L = Math.hypot(bx - ax, bz - az), steps = Math.ceil(L / .08);
+      for (let s = 0; s < steps; s++) { const t = s / steps; push(ax + (bx - ax) * t + (r() - .5) * .06, az + (bz - az) * t + (r() - .5) * .06, r() < .5 ? CREAM : AMBER, 2.4 + r() * 1.4, acc + L * t); }
+      acc += L;
+    }
+  });
+  const cityGeo = new THREE.BufferGeometry();
+  cityGeo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+  cityGeo.setAttribute('aColor', new THREE.Float32BufferAttribute(col, 3));
+  cityGeo.setAttribute('aSize', new THREE.Float32BufferAttribute(size, 1));
+  cityGeo.setAttribute('aSeed', new THREE.Float32BufferAttribute(seed, 1));
+  cityGeo.setAttribute('aRoad', new THREE.Float32BufferAttribute(road, 1));
+
+  // the ledger's sites, placed in their suburbs, each with the minute it is signed off
+  const sites = LOG.map(e => {
+    const [cx, cz] = geo(SUB_GEO[e.sub]); let x = cx, z = cz, k = 0;
+    do { const a = r() * 6.283, d = .3 + r() * 1.5; x = cx + Math.cos(a) * d; z = cz + Math.sin(a) * d; } while (!land(x, z) && ++k < 14);
+    return { x, z, m: e.m, crew: CREW_OF[e.sub] };
+  });
+  const siteGeo = new THREE.BufferGeometry();
+  siteGeo.setAttribute('position', new THREE.Float32BufferAttribute(sites.flatMap(s => [s.x, .02, s.z]), 3));
+  siteGeo.setAttribute('aSign', new THREE.Float32BufferAttribute(sites.map(s => s.m), 1));
+  siteGeo.setAttribute('aSeed', new THREE.Float32BufferAttribute(sites.map(() => r()), 1));
+  const crews = [];
+  sites.forEach(s => (crews[s.crew] = crews[s.crew] || []).push(s));
+
+  // shorelines: the coast, then both banks of each river
+  const shores = [coast];
+  rivers.forEach(l => [-1, 1].forEach(side => shores.push(l.map(([x, z, w], i) => {
+    const a = l[Math.max(0, i - 1)], b = l[Math.min(l.length - 1, i + 1)], dx = b[0] - a[0], dz = b[1] - a[1], L = Math.hypot(dx, dz) || 1;
+    return [x - dz / L * w * side, z + dx / L * w * side];
+  }))));
+  METRO = { cityGeo, siteGeo, sites, crews: crews.filter(Boolean), shores, count: pos.length / 3 + sites.length };
+  return METRO;
+}
+
+const MAP_VS = `
+attribute vec3 aColor; attribute float aSize, aSeed, aRoad;
+uniform float uTime, uPx, uScale, uBoot, uFar;
+varying vec3 vCol; varying float vA;
+void main() {
+  vec4 mv = modelViewMatrix * vec4(position, 1.0);
+  gl_Position = projectionMatrix * mv;
+  float d = length(position.xz);
+  float boot = smoothstep(uBoot, uBoot - 5.0, d);
+  float front = smoothstep(3.0, 0.0, abs(d - uBoot)) * step(uBoot, 80.0);
+  float tw = 0.7 + 0.3 * sin(uTime * (0.5 + aSeed * 1.6) + aSeed * 40.0);
+  float traffic = aRoad < 0.0 ? 0.0 : pow(0.5 + 0.5 * sin(aRoad * 1.1 - uTime * 2.4 + aSeed * 0.6), 14.0);
+  vA = ((aRoad < 0.0 ? 0.52 : 0.5) * tw + traffic * 1.2) * boot + front * 0.9;
+  vA *= 1.0 - smoothstep(uFar * 0.5, uFar, -mv.z) * 0.8;
+  vCol = mix(aColor, vec3(1.0, 0.84, 0.62), traffic);
+  gl_PointSize = aSize * uPx * uScale / -mv.z * (1.0 + traffic * 0.5 + front);
+}`;
+const MAP_FS = `
+varying vec3 vCol; varying float vA;
+void main() {
+  vec2 p = gl_PointCoord * 2.0 - 1.0; float r2 = dot(p, p);
+  if (r2 > 1.0) discard;
+  float a = exp(-r2 * 5.0) * vA;
+  gl_FragColor = vec4(vCol * a, a);
+}`;
+const SITE_VS = `
+attribute float aSign, aSeed;
+uniform float uNow, uPx, uScale, uShow, uFar;
+varying float vAge, vSeed, vFade;
+void main() {
+  vec4 mv = modelViewMatrix * vec4(position, 1.0);
+  gl_Position = projectionMatrix * mv;
+  vAge = uNow - aSign; vSeed = aSeed;
+  float s = vAge < 0.0 ? 1.0 : 1.0 + 3.2 * exp(-vAge / 16.0);
+  gl_PointSize = 30.0 * s * uPx * uScale / -mv.z;
+  vFade = uShow * (1.0 - smoothstep(uFar * 0.55, uFar, -mv.z) * 0.6);
+}`;
+const SITE_FS = `
+uniform float uTime;
+varying float vAge, vSeed, vFade;
+void main() {
+  vec2 p = gl_PointCoord * 2.0 - 1.0; float r = length(p);
+  if (r > 1.0) discard;
+  vec3 col; float a;
+  if (vAge < 0.0) {
+    // waiting: a violet ring that warms as its minute comes up
+    float soon = smoothstep(-45.0, 0.0, vAge);
+    col = mix(vec3(0.6, 0.44, 0.95), vec3(0.85, 0.75, 1.0), soon);
+    a = (1.0 - smoothstep(0.0, 0.1, abs(r - 0.32))) * (0.4 + 0.5 * soon) + exp(-r * r * 60.0) * 0.3;
+  } else {
+    // signed off: a white flare and a shock ring, settling into a steady apricot lamp
+    float flare = exp(-vAge / 12.0);
+    float wave = (1.0 - smoothstep(0.0, 0.07, abs(r - clamp(vAge / 20.0, 0.0, 0.96)))) * flare;
+    float breathe = 0.82 + 0.18 * sin(uTime * 1.4 + vSeed * 30.0);
+    col = mix(vec3(1.0, 0.81, 0.58), vec3(1.0, 0.98, 0.93), flare * 0.75);
+    a = exp(-r * r * 26.0) * breathe + exp(-r * r * 6.0) * (0.16 + 0.55 * flare) + wave;
+  }
+  a *= vFade;
+  gl_FragColor = vec4(col * a, a);
+}`;
+const HEAD_VS = `
+attribute float aOn;
+uniform float uPx, uScale, uTime;
+varying float vOn;
+void main() {
+  vec4 mv = modelViewMatrix * vec4(position, 1.0);
+  gl_Position = projectionMatrix * mv;
+  vOn = aOn;
+  gl_PointSize = (aOn > 0.5 ? 26.0 + 6.0 * sin(uTime * 5.0) : 18.0) * uPx * uScale / -mv.z * step(-9000.0, position.y);
+}`;
+const HEAD_FS = `
+varying float vOn;
+void main() {
+  vec2 p = gl_PointCoord * 2.0 - 1.0; float r2 = dot(p, p);
+  if (r2 > 1.0) discard;
+  float a = exp(-r2 * 14.0) + exp(-r2 * 3.0) * 0.35;
+  vec3 col = mix(vec3(1.0, 0.97, 0.92), vec3(1.0, 0.72, 0.42), vOn * 0.6);
+  gl_FragColor = vec4(col * a, a);
+}`;
+
+let scenes = 0;
+function metroMap(host, cfg) {
+  const M = metro();
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 1.6));
+  renderer.setClearColor(0x000000, 0);
+  host.prepend(renderer.domElement);
+  const scene = new THREE.Scene();
+  const cam = new THREE.PerspectiveCamera(34, 1, .5, 400);
+  const U = { uTime: { value: 0 }, uPx: { value: renderer.getPixelRatio() }, uScale: { value: 55 }, uBoot: { value: cfg.boot && !reduce ? 0 : 99 }, uFar: { value: 150 }, uNow: { value: 0 }, uShow: { value: 1 } };
+  const glow = { blending: THREE.CustomBlending, blendSrc: THREE.OneFactor, blendDst: THREE.OneFactor, blendEquation: THREE.AddEquation, transparent: true, depthWrite: false, depthTest: false };
+
+  // range rings around the CBD, then the shorelines
+  const ringM = new THREE.LineBasicMaterial({ color: 0x8f7cd0, transparent: true, opacity: 0 });
+  [10, 20, 30, 40].forEach(rad => { const pts = []; for (let i = 0; i < 160; i++) { const a = i / 160 * Math.PI * 2; pts.push(new THREE.Vector3(Math.cos(a) * rad, 0, Math.sin(a) * rad)); } scene.add(new THREE.LineLoop(new THREE.BufferGeometry().setFromPoints(pts), ringM)); });
+  const shoreM = new THREE.LineBasicMaterial({ color: 0xa892e0, transparent: true, opacity: 0 });
+  M.shores.forEach(l => scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(l.map(([x, z]) => new THREE.Vector3(x, 0, z))), shoreM)));
+  scene.add(new THREE.Points(M.cityGeo, new THREE.ShaderMaterial({ uniforms: U, vertexShader: MAP_VS, fragmentShader: MAP_FS, ...glow })));
+  const sitesPts = new THREE.Points(M.siteGeo, new THREE.ShaderMaterial({ uniforms: U, vertexShader: SITE_VS, fragmentShader: SITE_FS, ...glow }));
+  sitesPts.renderOrder = 2; scene.add(sitesPts);
+
+  // crews: a van and a fading trail each, arcing between the sites on their list
+  const NC = M.crews.length, TR = 28;
+  const trailPos = new Float32Array(NC * (TR - 1) * 6), trailCol = new Float32Array(NC * (TR - 1) * 8);
+  const trailGeo = new THREE.BufferGeometry();
+  trailGeo.setAttribute('position', new THREE.BufferAttribute(trailPos, 3));
+  trailGeo.setAttribute('color', new THREE.BufferAttribute(trailCol, 4));
+  const trail = new THREE.LineSegments(trailGeo, new THREE.LineBasicMaterial({ vertexColors: true, transparent: true, depthWrite: false, depthTest: false }));
+  trail.frustumCulled = false; trail.renderOrder = 3; scene.add(trail);
+  const headPos = new Float32Array(NC * 3), headOn = new Float32Array(NC);
+  const headGeo = new THREE.BufferGeometry();
+  headGeo.setAttribute('position', new THREE.BufferAttribute(headPos, 3));
+  headGeo.setAttribute('aOn', new THREE.BufferAttribute(headOn, 1));
+  const heads = new THREE.Points(headGeo, new THREE.ShaderMaterial({ uniforms: U, vertexShader: HEAD_VS, fragmentShader: HEAD_FS, ...glow }));
+  heads.frustumCulled = false; heads.renderOrder = 4; scene.add(heads);
+  const crewAt = (list, m) => {
+    const first = list[0], last = list[list.length - 1];
+    if (m < first.m - 30 || m > last.m + 25) return null;
+    let i = -1; while (i + 1 < list.length && list[i + 1].m <= m) i++;
+    if (i < 0) return [first.x, 0, first.z, 1];
+    if (i === list.length - 1) return [last.x, 0, last.z, 0];
+    const a = list[i], b = list[i + 1], u = (m - a.m) / Math.max(1, Math.min((b.m - a.m) * .45, 18));
+    if (u >= 1) return [b.x, 0, b.z, 1];
+    const e = u * u * (3 - 2 * u), d = Math.hypot(b.x - a.x, b.z - a.z);
+    return [a.x + (b.x - a.x) * e, Math.sin(Math.PI * e) * Math.min(4.5, d * .3), a.z + (b.z - a.z) * e, 0];
+  };
+  const TRAIL_COL = [1, .86, .66];
+  function paintCrews(m) {
+    let out = 0;
+    M.crews.forEach((list, c) => {
+      const h = crewAt(list, m);
+      if (h) { out++; headPos.set([h[0], h[1] + .05, h[2]], c * 3); headOn[c] = h[3]; } else { headPos.set([0, -1e4, 0], c * 3); headOn[c] = 0; }
+      let prev = h;
+      for (let j = 1; j < TR; j++) {
+        const p = h ? crewAt(list, m - j * .9) || prev : null, o = (c * (TR - 1) + j - 1);
+        if (h && p && prev) { trailPos.set([prev[0], prev[1] + .05, prev[2], p[0], p[1] + .05, p[2]], o * 6); }
+        else trailPos.fill(0, o * 6, o * 6 + 6);
+        const a0 = h ? Math.pow(1 - (j - 1) / TR, 1.6) * .9 : 0, a1 = h ? Math.pow(1 - j / TR, 1.6) * .9 : 0;
+        trailCol.set([...TRAIL_COL, a0, ...TRAIL_COL, a1], o * 8);
+        prev = p;
+      }
+    });
+    trailGeo.attributes.position.needsUpdate = trailGeo.attributes.color.needsUpdate = true;
+    headGeo.attributes.position.needsUpdate = headGeo.attributes.aOn.needsUpdate = true;
+    return out;
+  }
+
+  // place names, pinned to the map
+  const v3 = new THREE.Vector3();
+  const labels = PLACES.map(([name, lon, lat, kind]) => {
+    const el = document.createElement('span'); el.className = 'map__lbl' + (kind ? ' map__lbl--' + kind : ''); el.textContent = name; host.appendChild(el);
+    const [x, z] = geo([lon, lat]); return { el, x, z, base: kind ? .4 : .62 };
+  });
+  const project = (x, y, z) => { v3.set(x, y, z).project(cam); return [(v3.x * .5 + .5) * W, (-v3.y * .5 + .5) * H, v3.z < 1 && Math.abs(v3.x) < 1.1 && Math.abs(v3.y) < 1.1]; };
+
+  let W = 1, H = 1, mobile = false;
+  const resize = () => {
+    W = host.clientWidth; H = host.clientHeight; if (!W || !H) return;
+    mobile = innerWidth < 861;
+    renderer.setSize(W, H, false);
+    const wide = mobile ? 1 : cfg.shift || 1;
+    cam.aspect = W * wide / H;
+    if (wide !== 1) cam.setViewOffset(W * wide, H, 0, 0, W, H); else cam.clearViewOffset();
+    cam.updateProjectionMatrix();
+    dirty = true;
+  };
+  let dirty = true, visible = false;
+  new IntersectionObserver(([en]) => { visible = en.isIntersecting; }).observe(host);
+  resize(); addEventListener('resize', resize);
+  const ptr = { x: 0, y: 0 }, psm = { x: 0, y: 0 };
+  addEventListener('pointermove', e => { ptr.x = e.clientX / innerWidth - .5; ptr.y = e.clientY / innerHeight - .5; });
+  const clock = new THREE.Clock();
+  let lastK = -1, lastM = -1;
+  renderer.setAnimationLoop(() => {
+    const dt = Math.min(clock.getDelta(), .05);
+    if (!visible) return;
+    const t = clock.elapsedTime;
+    psm.x += (ptr.x - psm.x) * .04; psm.y += (ptr.y - psm.y) * .04;
+    const m = cfg.now(dt);
+    if (reduce && !dirty && m === lastM) return;
+    dirty = false; lastM = m;
+    U.uTime.value = t; U.uNow.value = m;
+    if (cfg.boot && !reduce) U.uBoot.value = Math.min(99, 82 * (1 - Math.pow(1 - clamp(t / 2.8), 3)));
+    U.uShow.value = cfg.show ? cfg.show() : 1;
+    const lineA = clamp(U.uBoot.value / 40);
+    ringM.opacity = .1 * lineA; shoreM.opacity = .34 * lineA;
+    const out = paintCrews(m);
+    cfg.camera(cam, { t, mobile, px: psm.x, py: psm.y });
+    cam.updateMatrixWorld();
+    // the count: sites are in time order, so walk forward from the last frame's answer
+    let k = lastK < 0 || M.sites[Math.max(0, lastK - 1)]?.m > m ? 0 : lastK;
+    while (k < M.sites.length && M.sites[k].m <= m) k++;
+    lastK = k;
+    // names stay inside the open part of the map, never under the copy
+    labels.forEach(l => { const [x, y, ok] = project(l.x, 0, l.z), [a, b] = mobile ? [.04, .96] : cfg.open || [0, 1], u = x / W; l.el.style.opacity = ok ? (l.base * smooth(clamp((u - a) / .05)) * smooth(clamp((b - u) / .05))).toFixed(3) : 0; l.el.style.transform = `translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,0) translate(-50%,-50%)`; });
+    if (cfg.frame) cfg.frame({ m, k, out, project, site: M.sites[k - 1] });
+    renderer.render(scene, cam);
+  });
+  scenes++;
+  return { count: M.count };
+}
+
+/* cover: the whole night plays on its own, once the lights have come up */
+function coverMap() {
+  const host = $('#coverMap'), ops = $('#ops'), horizon = $('#horizon');
+  const oClock = $('#opsClock'), oSigned = $('#opsSigned'), oCrews = $('#opsCrews');
+  const BOOT = 2.6, RUN = 22, HOLD = 4.5, FADE = 1.2, CYC = RUN + HOLD + FADE;
+  let sim = 0;
+  const phase = () => Math.max(0, sim - BOOT) % CYC;
+  const map = metroMap(host, {
+    boot: true, shift: 1.5, open: [.44, .97],
+    now: dt => {
+      if (reduce) return 600;
+      sim += dt;
+      return sim < BOOT ? 0 : Math.min(720, phase() / RUN * 720);
+    },
+    show: () => { if (reduce) return 1; const c = phase(); return c > RUN + HOLD ? 1 - (c - RUN - HOLD) / FADE : sim > BOOT + CYC && c < .5 ? c / .5 : 1; },
+    camera: (cam, s) => {
+      const dive = clamp(scrollY / innerHeight);
+      const az = -.34 + (reduce ? 0 : Math.sin(s.t * .045) * .07) + s.px * .08;
+      const el = (s.mobile ? .86 : .5) - dive * .1 + s.py * .04;
+      const R = (s.mobile ? 82 : 47) * (1 - dive * .28);
+      const tx = s.mobile ? 1 : 2, tz = s.mobile ? 6 : 1;
+      cam.position.set(tx + Math.sin(az) * Math.cos(el) * R, Math.sin(el) * R, tz + Math.cos(az) * Math.cos(el) * R);
+      cam.lookAt(tx, 0, tz);
+    },
+    frame: ({ m, k, out }) => {
+      horizon.style.setProperty('--night-p', (m / 720).toFixed(4));
+      oClock.textContent = fmt(m);
+      oSigned.textContent = k >= LOG.length ? '180+' : Math.min(180, Math.round(k / LOG.length * 180));
+      oCrews.textContent = out;
+    }
+  });
+  ops.hidden = false;
+  return map;
+}
+
+/* 23:00 to 04:30: the map follows the scroll clock and calls out each sign-off */
+function nightMap() {
+  const host = $('#nightMap');
+  const call = document.createElement('div'); call.className = 'map__call'; call.innerHTML = '<i></i><span><time></time><b></b><small></small><svg aria-hidden="true"><use href="#i-tick"/></svg></span>'; host.appendChild(call);
+  const cT = call.querySelector('time'), cB = call.querySelector('b'), cS = call.querySelector('small');
+  let sm = null, shownK = -1;
+  return metroMap(host, {
+    shift: 1.12, open: [.43, .71],
+    now: () => { sm = sm === null || reduce ? nowMin : sm + (nowMin - sm) * .14; return sm; },
+    camera: (cam, s) => {
+      const r = nightEl.getBoundingClientRect(), p = clamp(-r.top / Math.max(1, r.height - innerHeight));
+      const az = -.16 + p * .3 + s.px * .05, el = (s.mobile ? 1.12 : .92) + s.py * .03, R = (s.mobile ? 96 : 66) - p * 9;
+      const tx = s.mobile ? 0 : 1, tz = s.mobile ? 7 : 5;
+      cam.position.set(tx + Math.sin(az) * Math.cos(el) * R, Math.sin(el) * R, tz + Math.cos(az) * Math.cos(el) * R);
+      cam.lookAt(tx, 0, tz);
+    },
+    frame: ({ k, project, site }) => {
+      if (!site) { call.style.opacity = 0; return; }
+      if (k !== shownK) { const e = LOG[k - 1]; cT.textContent = fmt(e.m); cB.textContent = e.type; cS.textContent = e.sub; shownK = k; }
+      const [x, y, ok] = project(site.x, 0, site.z);
+      call.style.opacity = ok ? 1 : 0;
+      call.style.transform = `translate3d(${(x - 9).toFixed(1)}px,${(y - 9).toFixed(1)}px,0)`;
+    }
+  });
+}
+
+/* ---------- what is running on this page ---------- */
+function engine(points) {
+  const fpsEl = $('#engFps'), sec = $('.close--end');
+  if (points) $('#engPts').textContent = points.toLocaleString('en-AU');
+  $('#engScenes').textContent = scenes;
+  let on = false, frames = 0, t0 = 0;
+  new IntersectionObserver(([e]) => { on = e.isIntersecting; frames = 0; t0 = performance.now(); }).observe(sec);
+  const loop = now => {
+    if (on) { frames++; if (now - t0 > 700) { fpsEl.textContent = Math.round(frames * 1000 / (now - t0)); frames = 0; t0 = now; } }
+    requestAnimationFrame(loop);
+  };
+  requestAnimationFrame(loop);
+}
+
 /* ---------- boot ---------- */
 measure();
 const pnav = $('.pnav');
@@ -2164,10 +2760,14 @@ tick();
 reveals();
 opening();
 spamCount();
-rating();
+portal();
 form();
-try { floorScene(); } catch (err) { console.warn('3D floor unavailable', err); }
-try { svcScene(); } catch (err) { console.warn('3D service rooms unavailable', err); }
+let mapPoints = 0;
+try { mapPoints = coverMap().count; } catch (err) { console.warn('Cover map unavailable', err); }
+try { floorScene(); scenes++; } catch (err) { console.warn('3D floor unavailable', err); }
+try { svcScene(); scenes++; } catch (err) { console.warn('3D service rooms unavailable', err); }
+try { mapPoints = nightMap().count; } catch (err) { console.warn('Night map unavailable', err); }
+engine(mapPoints);
 addEventListener('load', () => { ScrollTrigger && ScrollTrigger.refresh(); measure(); tick(); });
 document.fonts && document.fonts.ready.then(() => { ScrollTrigger && ScrollTrigger.refresh(); measure(); tick(); });
 </script>
