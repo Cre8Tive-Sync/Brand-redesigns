@@ -1,0 +1,600 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-07T14:00:00+08:00",
+  "title": "Design System: IPS Facility Services",
+  "extensions": {
+    "colorMeta": {
+      "dusk": {
+        "role": "primary",
+        "displayName": "Dusk Slate",
+        "canonical": "oklch(31.1% 0.050 265)",
+        "tonalRamp": [
+          "#030A1E",
+          "#18233B",
+          "#333F59",
+          "#515E77",
+          "#717D97",
+          "#939FB7",
+          "#B9C4DB",
+          "#E4EFFF"
+        ]
+      },
+      "handover": {
+        "role": "neutral",
+        "displayName": "Handover Blue",
+        "canonical": "oklch(25.3% 0.049 268)",
+        "tonalRamp": [
+          "#04091E",
+          "#1A233C",
+          "#353F58",
+          "#535D76",
+          "#737D95",
+          "#959EB6",
+          "#BBC4DA",
+          "#E6EEFF"
+        ]
+      },
+      "shift": {
+        "role": "neutral",
+        "displayName": "Shift Navy",
+        "canonical": "oklch(20.2% 0.034 265)",
+        "tonalRamp": [
+          "#050A19",
+          "#1C2434",
+          "#384050",
+          "#565E6E",
+          "#767D8D",
+          "#979EAE",
+          "#BDC4D2",
+          "#E8EFFC"
+        ]
+      },
+      "night": {
+        "role": "primary",
+        "displayName": "Night",
+        "canonical": "oklch(18.8% 0.028 265)",
+        "tonalRamp": [
+          "#060B17",
+          "#1E2431",
+          "#39404D",
+          "#575E6B",
+          "#777D8A",
+          "#989FAB",
+          "#BEC4D0",
+          "#E9EFF9"
+        ]
+      },
+      "midnight": {
+        "role": "neutral",
+        "displayName": "Midnight",
+        "canonical": "oklch(16.9% 0.025 265)",
+        "tonalRamp": [
+          "#070B15",
+          "#1F242F",
+          "#3A404B",
+          "#585E69",
+          "#787D89",
+          "#999EA9",
+          "#BFC4CE",
+          "#EAEFF8"
+        ]
+      },
+      "sign-off": {
+        "role": "neutral",
+        "displayName": "Sign-off Blue",
+        "canonical": "oklch(27.8% 0.048 263)",
+        "tonalRamp": [
+          "#030A1D",
+          "#18233B",
+          "#334058",
+          "#515E76",
+          "#717E95",
+          "#939FB5",
+          "#B9C5DA",
+          "#E5EFFF"
+        ]
+      },
+      "dawn-mist": {
+        "role": "neutral",
+        "displayName": "Dawn Mist",
+        "canonical": "oklch(86.9% 0.019 238)",
+        "tonalRamp": [
+          "#070C0F",
+          "#1F2529",
+          "#394146",
+          "#565F65",
+          "#757F86",
+          "#95A0A8",
+          "#BAC6CF",
+          "#E4F1F9"
+        ]
+      },
+      "morning-linen": {
+        "role": "neutral",
+        "displayName": "Morning Linen",
+        "canonical": "oklch(95.9% 0.005 118)",
+        "tonalRamp": [
+          "#0B0B0A",
+          "#242423",
+          "#3F403E",
+          "#5D5E5B",
+          "#7D7E7B",
+          "#9E9F9C",
+          "#C4C4C1",
+          "#EEEFEB"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "oklch(98.4% 0.004 106)",
+        "tonalRamp": [
+          "#0B0B0A",
+          "#242423",
+          "#40403E",
+          "#5E5E5C",
+          "#7D7D7B",
+          "#9E9E9C",
+          "#C4C4C2",
+          "#EFEFEC"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "oklch(21.0% 0.029 266)",
+        "tonalRamp": [
+          "#060B17",
+          "#1E2432",
+          "#39404E",
+          "#575E6C",
+          "#777D8B",
+          "#989EAC",
+          "#BEC4D1",
+          "#E9EFFA"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Ink Soft",
+        "canonical": "oklch(43.0% 0.034 263)",
+        "tonalRamp": [
+          "#050B17",
+          "#1C2433",
+          "#374051",
+          "#545E71",
+          "#747E90",
+          "#959FB1",
+          "#BBC4D6",
+          "#E6EFFF"
+        ]
+      },
+      "on-dark": {
+        "role": "neutral",
+        "displayName": "On Dark",
+        "canonical": "oklch(94.1% 0.008 254)",
+        "tonalRamp": [
+          "#0A0B0D",
+          "#222426",
+          "#3E4042",
+          "#5B5E61",
+          "#7B7D81",
+          "#9B9FA3",
+          "#C1C4C9",
+          "#EBEFF4"
+        ]
+      },
+      "on-dark-soft": {
+        "role": "neutral",
+        "displayName": "On Dark Soft",
+        "canonical": "oklch(76.4% 0.024 258)",
+        "tonalRamp": [
+          "#070B12",
+          "#1F242C",
+          "#3A404A",
+          "#575E69",
+          "#757E8A",
+          "#969FAD",
+          "#BBC5D4",
+          "#E6EFFD"
+        ]
+      },
+      "brass": {
+        "role": "secondary",
+        "displayName": "Brass",
+        "canonical": "oklch(68.4% 0.087 75)",
+        "tonalRamp": [
+          "#190600",
+          "#361E00",
+          "#553A0B",
+          "#775727",
+          "#9A7642",
+          "#BE9760",
+          "#E3BD89",
+          "#FFE8B8"
+        ]
+      },
+      "brass-hi": {
+        "role": "secondary",
+        "displayName": "Brass Highlight",
+        "canonical": "oklch(78.1% 0.077 78)",
+        "tonalRamp": [
+          "#160800",
+          "#322001",
+          "#513C19",
+          "#715933",
+          "#94784D",
+          "#B8996A",
+          "#DFBF8D",
+          "#FFEABB"
+        ]
+      },
+      "brass-deep": {
+        "role": "secondary",
+        "displayName": "Brass Deep",
+        "canonical": "oklch(44.8% 0.068 75)",
+        "tonalRamp": [
+          "#180600",
+          "#351F00",
+          "#543A12",
+          "#745830",
+          "#937853",
+          "#B49A76",
+          "#D9C09E",
+          "#FFEBCC"
+        ]
+      },
+      "alarm": {
+        "role": "tertiary",
+        "displayName": "Alarm",
+        "canonical": "oklch(52.1% 0.158 30)",
+        "tonalRamp": [
+          "#2E0000",
+          "#530000",
+          "#7A0B02",
+          "#A32F21",
+          "#C75343",
+          "#E97968",
+          "#FFA391",
+          "#FFD1BF"
+        ]
+      },
+      "alarm-hi": {
+        "role": "tertiary",
+        "displayName": "Alarm Highlight",
+        "canonical": "oklch(67.2% 0.143 31)",
+        "tonalRamp": [
+          "#280000",
+          "#4C0000",
+          "#711F14",
+          "#983C2E",
+          "#C15949",
+          "#E97A67",
+          "#FFA390",
+          "#FFD0BE"
+        ]
+      },
+      "hairline-on-dark": {
+        "role": "neutral",
+        "displayName": "Hairline on Dark",
+        "canonical": "rgba(232,236,241,.16)"
+      },
+      "hairline-on-light": {
+        "role": "neutral",
+        "displayName": "Hairline on Light",
+        "canonical": "rgba(18,24,38,.15)"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Chapter-opening statements; cover and hero override size only."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Every chapter heading, sentence case."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Sub-section heads, service rows, turndown card title."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "Paragraph under each heading, soft colour, max 52ch."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Reading text at 18px with stylistic set 01."
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "Stationery buttons; the nav button runs at .86rem."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Tracked uppercase names of fields, columns and values; never an eyebrow above a heading."
+      },
+      "hour": {
+        "displayName": "Margin Hour",
+        "purpose": "The time stamp in the margin ledger column, level with the heading."
+      },
+      "figure": {
+        "displayName": "Figure",
+        "purpose": "Proof and offer numbers, light weight, tabular."
+      },
+      "clock": {
+        "displayName": "Clock",
+        "purpose": "The running night clock; also the alarm-red spam count."
+      }
+    },
+    "shadows": [
+      {
+        "name": "turndown-drop",
+        "value": "0 2px 2px rgba(0,0,0,.12), 0 40px 70px -30px rgba(0,0,0,.6)",
+        "purpose": "Turndown card on dark grounds."
+      },
+      {
+        "name": "form-drop",
+        "value": "0 1px 2px rgba(18,24,38,.08), 0 40px 70px -46px rgba(18,24,38,.45)",
+        "purpose": "Quote form on light grounds."
+      },
+      {
+        "name": "specimen-drop",
+        "value": "0 30px 60px -36px rgba(13,19,32,.7)",
+        "purpose": "Dark evidence panel on a light ground."
+      },
+      {
+        "name": "stationery-rule",
+        "value": "inset 0 0 0 4px var(--bg), inset 0 0 0 5px var(--rule)",
+        "purpose": "Structural double rule on buttons, not elevation."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-settle",
+        "value": "cubic-bezier(.22, 1, .36, 1)",
+        "purpose": "The only CSS easing: long out-curve, no overshoot."
+      },
+      {
+        "name": "ease-settle-gsap",
+        "value": "expo.out",
+        "purpose": "GSAP equivalent for arrivals, the opening and counters."
+      },
+      {
+        "name": "horizon-draw",
+        "value": "power3.inOut, 2.6s",
+        "purpose": "Cover horizon line drawing 18:00 to 06:00; the single in-out curve, still without overshoot."
+      },
+      {
+        "name": "duration-state",
+        "value": "0.4s",
+        "purpose": "Hover, border and colour changes."
+      },
+      {
+        "name": "duration-button",
+        "value": "0.5s fill; 0.6s arrow travel of 5px",
+        "purpose": "Button hover."
+      },
+      {
+        "name": "duration-step",
+        "value": "0.7s",
+        "purpose": "Task-list step opacity changes."
+      },
+      {
+        "name": "duration-rule",
+        "value": "0.9s",
+        "purpose": "Brass rule drawing under a service row on hover."
+      },
+      {
+        "name": "reveal",
+        "value": "opacity 1.2s, translateY 18px over 1.4s, blur 6px over 1.2s",
+        "purpose": "Content arriving on scroll; content on screen at load is never hidden."
+      },
+      {
+        "name": "ground-blend",
+        "value": "smoothstep over 55% of viewport, probe at 62%",
+        "purpose": "Live ground colour blend between hour grounds; ink flips at relative luminance 0.2."
+      },
+      {
+        "name": "smooth-scroll",
+        "value": "Lenis lerp 0.085; anchor travel 1.6s",
+        "purpose": "Scroll smoothing so scrubbed scenes stay continuous."
+      },
+      {
+        "name": "lamp-light",
+        "value": "rest #FFCF94, worked #FFA94D, point-light intensity up to 9",
+        "purpose": "3D floor: rooms light while worked, dim when done, leave a brass ring."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "transitions 0.01ms; reveals shown; 3D redrawn statically on scroll",
+        "purpose": "prefers-reduced-motion handling."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "nav-collapse",
+        "value": "1060px"
+      },
+      {
+        "name": "single-column",
+        "value": "860px"
+      },
+      {
+        "name": "horizon-ticks",
+        "value": "700px"
+      },
+      {
+        "name": "proposal-nav",
+        "value": "620px"
+      },
+      {
+        "name": "compact-nav",
+        "value": "560px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button (linen)",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Linen stationery button with a 4px band and 1px brass inner rule; the main action on dark grounds.",
+      "html": "<div class=\"ds-dusk\"><a class=\"ds-btn\" href=\"#\">Get a quote <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 12h15M14 6.5l5.5 5.5-5.5 5.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"square\"/></svg></a></div>",
+      "css": ".ds-dusk{background:#24304A;padding:28px}.ds-btn{--bg:var(--linen,#F1F2EE);--rule:var(--brass,#B9925A);display:inline-flex;align-items:center;gap:.9em;background:var(--bg);color:var(--night,#0D1320);font-family:\"Hanken Grotesk\",system-ui,sans-serif;font-weight:600;font-size:.95rem;letter-spacing:.02em;padding:1.05em 1.5em;border:0;border-radius:2px;text-decoration:none;cursor:pointer;box-shadow:inset 0 0 0 4px var(--bg),inset 0 0 0 5px var(--rule);transition:background .5s cubic-bezier(.22,1,.36,1),box-shadow .5s cubic-bezier(.22,1,.36,1)}.ds-btn svg{width:1.1em;height:1.1em;transition:transform .6s cubic-bezier(.22,1,.36,1)}.ds-btn:hover{--bg:#fff}.ds-btn:hover svg{transform:translateX(5px)}.ds-btn:focus-visible{outline:2px solid #D3B27F;outline-offset:4px}"
+    },
+    {
+      "name": "Night Button",
+      "kind": "button",
+      "refersTo": "button-night",
+      "description": "Night-filled stationery button for light grounds and paper; hover eases to dusk.",
+      "html": "<div class=\"ds-linen\"><button class=\"ds-btn-night\" type=\"button\">Request my quote <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 12h15M14 6.5l5.5 5.5-5.5 5.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"square\"/></svg></button></div>",
+      "css": ".ds-linen{background:#F1F2EE;padding:28px}.ds-btn-night{--bg:var(--night,#0D1320);display:inline-flex;align-items:center;gap:.9em;background:var(--bg);color:var(--linen,#F1F2EE);font-family:\"Hanken Grotesk\",system-ui,sans-serif;font-weight:600;font-size:.95rem;letter-spacing:.02em;padding:1.05em 1.5em;border:0;border-radius:2px;cursor:pointer;box-shadow:inset 0 0 0 4px var(--bg),inset 0 0 0 5px var(--brass,#B9925A);transition:background .5s cubic-bezier(.22,1,.36,1),box-shadow .5s cubic-bezier(.22,1,.36,1)}.ds-btn-night svg{width:1.1em;height:1.1em;transition:transform .6s cubic-bezier(.22,1,.36,1)}.ds-btn-night:hover{--bg:var(--dusk,#24304A)}.ds-btn-night:hover svg{transform:translateX(5px)}.ds-btn-night:focus-visible{outline:2px solid #6B4F26;outline-offset:4px}"
+    },
+    {
+      "name": "Quiet Link",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Secondary action: brass underline that takes the text colour on hover.",
+      "html": "<div class=\"ds-dark\"><a class=\"ds-link\" href=\"#\">Book a free trial clean</a></div>",
+      "css": ".ds-dark{background:#24304A;padding:24px;color:#E8ECF1;font-family:\"Hanken Grotesk\",system-ui,sans-serif}.ds-link{color:inherit;font-weight:500;text-decoration:underline;text-decoration-thickness:1px;text-decoration-color:#B9925A;text-underline-offset:.4em;transition:text-decoration-color .4s cubic-bezier(.22,1,.36,1)}.ds-link:hover{text-decoration-color:currentColor}.ds-link:focus-visible{outline:2px solid #D3B27F;outline-offset:4px}"
+    },
+    {
+      "name": "Margin Hour Heading",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Chapter grammar: the hour hangs in the margin column level with a sentence-case Tenor headline, brass hairline beneath.",
+      "html": "<div class=\"ds-ch\"><div class=\"ds-ch__t\">21:00</div><div><h2 class=\"ds-ch__h\">Room by room, from a written list.</h2><p class=\"ds-ch__p\">Each site has its own task list, and each visit is ticked off against it.</p></div></div>",
+      "css": ".ds-ch{display:grid;grid-template-columns:96px minmax(0,1fr);column-gap:24px;background:#0F1626;color:#E8ECF1;padding:32px;font-family:\"Hanken Grotesk\",system-ui,sans-serif}.ds-ch__t{font-weight:300;font-variant-numeric:tabular-nums;font-size:1rem;letter-spacing:.06em;color:#A9B3C2;padding-top:.7em;position:relative}.ds-ch__t::after{content:\"\";position:absolute;left:0;right:12%;top:2.35em;height:1px;background:#B9925A;opacity:.75}.ds-ch__h{font-family:\"Tenor Sans\",\"Gill Sans\",sans-serif;font-weight:400;font-size:2.4rem;line-height:1.05;letter-spacing:-.012em;margin:0;text-wrap:balance}.ds-ch__p{margin:1.4rem 0 0;color:#A9B3C2;font-size:1.1rem;line-height:1.6;max-width:52ch}"
+    },
+    {
+      "name": "Turndown Card",
+      "kind": "card",
+      "refersTo": "turndown-card",
+      "description": "Signature sign-off report: paper card, inner brass rule, long soft drop, slight tilt, rating keys.",
+      "html": "<div class=\"ds-stage\"><figure class=\"ds-td\"><div class=\"ds-td__top\"><b>IPS</b><small>Turndown report<br>Tuesday night</small></div><h3>Level 3, West Perth</h3><dl><div><dt>Crew</dt><dd>Police-cleared, 2</dd></div><div><dt>Completed</dt><dd>22:35</dd></div><div><dt>Alarm set</dt><dd>22:36</dd></div><div><dt>Keys</dt><dd>Secured</dd></div></dl><div class=\"ds-td__rate\"><button type=\"button\">1</button><button type=\"button\">2</button><button type=\"button\">3</button><button type=\"button\" aria-pressed=\"true\">4</button><button type=\"button\">5</button></div></figure></div>",
+      "css": ".ds-stage{background:#1C2840;padding:48px 32px}.ds-td{position:relative;margin:0 auto;max-width:420px;background:#FAFAF7;color:#121826;padding:36px;border-radius:2px;box-shadow:0 2px 2px rgba(0,0,0,.12),0 40px 70px -30px rgba(0,0,0,.6);transform:rotate(-1.2deg);font-family:\"Hanken Grotesk\",system-ui,sans-serif}.ds-td::before{content:\"\";position:absolute;inset:10px;border:1px solid #B9925A;pointer-events:none}.ds-td__top{display:flex;justify-content:space-between;padding-bottom:18px;border-bottom:1px solid rgba(18,24,38,.15)}.ds-td__top b{font-family:\"Tenor Sans\",\"Gill Sans\",sans-serif;font-weight:400;font-size:1.15rem;letter-spacing:.14em}.ds-td__top small{text-align:right;color:#465063;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;line-height:1.5}.ds-td h3{font-family:\"Tenor Sans\",\"Gill Sans\",sans-serif;font-weight:400;font-size:1.9rem;line-height:1.1;margin:22px 0 0}.ds-td dl{display:grid;grid-template-columns:1fr 1fr;gap:16px 24px;margin:22px 0}.ds-td dt{font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#465063}.ds-td dd{margin:4px 0 0;font-weight:500;font-variant-numeric:tabular-nums}.ds-td__rate{display:flex;gap:6px;padding-top:18px;border-top:1px solid rgba(18,24,38,.15)}.ds-td__rate button{width:40px;height:40px;border-radius:2px;border:1px solid rgba(18,24,38,.15);background:transparent;font:500 .95rem \"Hanken Grotesk\",system-ui,sans-serif;color:#121826;cursor:pointer;transition:background .4s cubic-bezier(.22,1,.36,1),border-color .4s}.ds-td__rate button:hover{border-color:#121826}.ds-td__rate button[aria-pressed=\"true\"]{background:#121826;color:#F1F2EE;border-color:#121826}.ds-td__rate button:focus-visible{outline:2px solid #6B4F26;outline-offset:4px}"
+    },
+    {
+      "name": "Underline Field",
+      "kind": "input",
+      "refersTo": "field-input",
+      "description": "Boxless field on paper: uppercase data label, underline that turns brass-deep on focus, alarm on error.",
+      "html": "<div class=\"ds-paper\"><label class=\"ds-field\"><span>Suburb</span><input placeholder=\"e.g. Osborne Park\"></label><label class=\"ds-field ds-err\"><span>Email</span><input value=\"you@\"><em>Check the email address.</em></label></div>",
+      "css": ".ds-paper{background:#FAFAF7;padding:32px;font-family:\"Hanken Grotesk\",system-ui,sans-serif;color:#121826;display:grid;gap:22px}.ds-field{display:flex;flex-direction:column}.ds-field span{font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#465063}.ds-field input{font:inherit;font-size:1.02rem;color:#121826;background:transparent;border:0;border-bottom:1px solid rgba(18,24,38,.4);border-radius:0;padding:10px 0;caret-color:#6B4F26;transition:border-color .4s,box-shadow .4s}.ds-field input::placeholder{color:#6B7384}.ds-field input:hover{border-bottom-color:#121826}.ds-field input:focus{outline:0;border-bottom-color:#6B4F26;box-shadow:0 1px 0 #6B4F26}.ds-err input{border-bottom-color:#B23A2B;box-shadow:0 1px 0 #B23A2B}.ds-field em{font-style:normal;font-size:.84rem;color:#B23A2B;margin-top:6px}"
+    },
+    {
+      "name": "Site-type Chips",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Radio chips: hairline squares, selected fills night.",
+      "html": "<div class=\"ds-chips\"><button class=\"ds-chip\" type=\"button\">Office</button><button class=\"ds-chip\" type=\"button\" aria-pressed=\"true\">Medical</button><button class=\"ds-chip\" type=\"button\">Strata</button></div>",
+      "css": ".ds-chips{display:flex;flex-wrap:wrap;gap:8px;background:#FAFAF7;padding:24px}.ds-chip{padding:9px 14px;border:1px solid rgba(18,24,38,.15);border-radius:2px;background:transparent;cursor:pointer;font:500 .88rem \"Hanken Grotesk\",system-ui,sans-serif;letter-spacing:.01em;color:#121826;transition:background .4s cubic-bezier(.22,1,.36,1),color .4s,border-color .4s}.ds-chip:hover{border-color:#121826}.ds-chip[aria-pressed=\"true\"]{background:#0D1320;color:#F1F2EE;border-color:#0D1320}.ds-chip:focus-visible{outline:2px solid #6B4F26;outline-offset:3px}"
+    },
+    {
+      "name": "Task List",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Numbered written list: pending at 26%, current at 100%, finished ghosted to 58% with a brass completion time and tick.",
+      "html": "<ol class=\"ds-tasks\"><li class=\"done\"><span>Empty bins, replace liners</span><time>21:04 <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4.5 12.5l4.8 4.8L19.5 7\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"/></svg></time></li><li class=\"done\"><span>Kitchen benches, sink &amp; appliances</span><time>21:19 <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4.5 12.5l4.8 4.8L19.5 7\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"/></svg></time></li><li class=\"now\"><span>Washrooms sanitised, consumables restocked</span><time>21:41 <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4.5 12.5l4.8 4.8L19.5 7\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"/></svg></time></li><li><span>Desks &amp; high-touch points wiped</span><time>22:02 <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4.5 12.5l4.8 4.8L19.5 7\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"/></svg></time></li></ol>",
+      "css": ".ds-tasks{list-style:none;margin:0;padding:24px;counter-reset:t;background:#0F1626;color:#E8ECF1;font-family:\"Hanken Grotesk\",system-ui,sans-serif}.ds-tasks li{display:grid;grid-template-columns:2.2rem minmax(0,1fr) auto;gap:14px;align-items:baseline;padding:13px 0;border-bottom:1px solid rgba(232,236,241,.16);opacity:.26;transition:opacity .7s cubic-bezier(.22,1,.36,1)}.ds-tasks li::before{counter-increment:t;content:counter(t,decimal-leading-zero);font-size:.8rem;font-variant-numeric:tabular-nums;color:#A9B3C2}.ds-tasks li.now{opacity:1}.ds-tasks li.done{opacity:.58}.ds-tasks time{display:flex;align-items:center;gap:8px;font-size:.86rem;font-variant-numeric:tabular-nums;color:#D3B27F;opacity:0;transition:opacity .6s cubic-bezier(.22,1,.36,1)}.ds-tasks time svg{width:13px;height:13px}.ds-tasks li.done time{opacity:1}"
+    },
+    {
+      "name": "Night Ledger",
+      "kind": "custom",
+      "refersTo": "ledger-row",
+      "description": "52px hairline rows of time, site and suburb that slide in place under a brass Now line; signed rows brighten and show a brass tick.",
+      "html": "<div class=\"ds-ledger\"><div class=\"ds-ledger__now\"><span>Now</span></div><ol><li class=\"s\"><time>02:14</time><span>Medical centre<small>Subiaco</small></span><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4.5 12.5l4.8 4.8L19.5 7\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"/></svg></li><li class=\"s\"><time>02:18</time><span>Office<small>West Perth</small></span><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4.5 12.5l4.8 4.8L19.5 7\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"/></svg></li><li><time>02:23</time><span>Gym<small>Osborne Park</small></span><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4.5 12.5l4.8 4.8L19.5 7\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"/></svg></li><li><time>02:29</time><span>Strata<small>East Perth</small></span><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4.5 12.5l4.8 4.8L19.5 7\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"/></svg></li></ol></div>",
+      "css": ".ds-ledger{position:relative;background:#0A0F1A;color:#A9B3C2;font-family:\"Hanken Grotesk\",system-ui,sans-serif;padding:28px 24px;border-top:1px solid rgba(232,236,241,.16);border-bottom:1px solid rgba(232,236,241,.16)}.ds-ledger ol{list-style:none;margin:0;padding:0}.ds-ledger li{height:52px;display:grid;grid-template-columns:4.2rem minmax(0,1fr) auto;gap:16px;align-items:center;border-bottom:1px solid rgba(232,236,241,.07);font-size:.95rem;transition:color .5s}.ds-ledger time{font-variant-numeric:tabular-nums;font-size:.9rem}.ds-ledger small{opacity:.8;margin-left:10px;font-size:.86rem}.ds-ledger li svg{width:14px;height:14px;color:#D3B27F;opacity:0;transition:opacity .5s}.ds-ledger li.s{color:#E8ECF1}.ds-ledger li.s svg{opacity:1}.ds-ledger__now{position:absolute;left:24px;right:24px;top:132px;height:1px;background:#B9925A;opacity:.7}.ds-ledger__now span{position:absolute;right:0;top:-20px;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:#D3B27F}"
+    },
+    {
+      "name": "Site Nav",
+      "kind": "nav",
+      "refersTo": "site-nav",
+      "description": "Sticky translucent nav over the live ground: fob mark, spaced Tenor wordmark, quiet links, compact linen button.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav__logo\" href=\"#\"><svg viewBox=\"0 0 22 38\" aria-hidden=\"true\"><path d=\"M11 1.5c3.6 0 6 2.3 6 5.6v4.2l3.4 3.8V33a3.5 3.5 0 0 1-3.5 3.5H5.1A3.5 3.5 0 0 1 1.6 33V15.1L5 11.3V7.1c0-3.3 2.4-5.6 6-5.6z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.3\"/><circle cx=\"11\" cy=\"7.4\" r=\"2.1\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.3\"/><path d=\"M6.2 30.5h9.6\" stroke=\"currentColor\" stroke-width=\"1.3\"/></svg><span><b>IPS</b><i>Facility Services</i></span></a><ul><li><a href=\"#\">Trust</a></li><li><a href=\"#\">How we work</a></li><li><a href=\"#\">Services</a></li></ul><a class=\"ds-nav__btn\" href=\"#\">Get a quote</a></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;justify-content:space-between;gap:20px;height:72px;padding:0 24px;background:rgba(36,48,74,.88);color:#E8ECF1;border-bottom:1px solid rgba(232,236,241,.12);backdrop-filter:blur(10px);font-family:\"Hanken Grotesk\",system-ui,sans-serif}.ds-nav__logo{display:flex;align-items:center;gap:14px;color:inherit;text-decoration:none}.ds-nav__logo svg{width:22px;height:38px}.ds-nav__logo span{display:flex;flex-direction:column;line-height:1}.ds-nav__logo b{font-family:\"Tenor Sans\",\"Gill Sans\",sans-serif;font-weight:400;font-size:1.5rem;letter-spacing:.14em}.ds-nav__logo i{font-style:normal;font-size:.6rem;font-weight:600;letter-spacing:.32em;margin-top:5px;text-transform:uppercase;opacity:.8}.ds-nav ul{display:flex;gap:6px;list-style:none;margin:0;padding:0}.ds-nav ul a{display:block;padding:10px 14px;font-size:.88rem;font-weight:500;color:inherit;text-decoration:none;opacity:.78;transition:opacity .4s}.ds-nav ul a:hover{opacity:1}.ds-nav a:focus-visible{outline:2px solid #D3B27F;outline-offset:4px}.ds-nav__btn{background:#F1F2EE;color:#0D1320;font-weight:600;font-size:.86rem;letter-spacing:.02em;padding:.78em 1.15em;border-radius:2px;text-decoration:none;box-shadow:inset 0 0 0 4px #F1F2EE,inset 0 0 0 5px #B9925A;transition:background .5s cubic-bezier(.22,1,.36,1)}.ds-nav__btn:hover{background:#fff;box-shadow:inset 0 0 0 4px #fff,inset 0 0 0 5px #B9925A}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Turndown",
+    "overview": "A five-star hotel prepares a suite overnight and hands it back at dawn; IPS does that for whole buildings. The system is built from the material of that ritual: the colour of the sky through an office window across one night shift, a brass key fob, hotel stationery with a ruled border, a room-number plate, and a written list ticked off in order. The page does not decorate the night; it is the night. As the reader scrolls, the ground moves from dusk through midnight to dawn mist and morning linen, and every chapter is stamped with the hour it happens.\n\nDensity is calm and editorial: generous section spacing, one idea per viewport, text set in a left column with the hour hanging in a margin ledger beside it. Structure is carried by hairlines rather than boxes. The only objects that leave the page plane are paper ones (the turndown card, the quote form), and they cast the long soft shadow of a card laid on a pillow. Motion is slow, scrubbed by scroll and settles without overshoot; the visitor sets the pace of the night.\n\nThe world refuses the cleaning category's blue-and-white crew photo with sparkles, and the safety-sign cartoon register this redesign replaced: no pictograms, no uppercase signage headlines, no bounce, no cream.",
+    "keyCharacteristics": [
+      "The ground colour is the clock: seven hour grounds from dusk (#24304A) to morning linen (#F1F2EE), blended live on scroll.",
+      "Ink flips with the ground; text never sits on the wrong side of dusk or dawn.",
+      "Brass is the single accent and means \"signed off\": fob, sign-off ticks, hairline rules.",
+      "Tenor Sans in sentence case for headlines; Hanken Grotesk with tabular figures for reading and time.",
+      "Hairline ledgers instead of cards; stationery double rules instead of fills.",
+      "One long out-ease, no overshoot; light appears only where work happens."
+    ],
+    "rules": [
+      {
+        "name": "The Ground Is the Clock Rule",
+        "body": "Each chapter declares its hour ground; a scroll script blends between adjacent grounds with a smoothstep over 55% of the viewport, probing at 62% of the viewport height, and paints the result on the root. New chapters take the ground of the hour they depict, in order. Never paint a section a colour outside the hour sequence.",
+        "section": "colors"
+      },
+      {
+        "name": "The Ink Flips Rule",
+        "body": "When the live ground's relative luminance passes 0.2, all text, brass-as-text and hairline tokens switch from the dark set (on-dark, brass-hi, light hairline) to the light set (ink, brass-deep, dark hairline), and the nav button swaps to night. Paper objects pin their own ink and never flip.",
+        "section": "colors"
+      },
+      {
+        "name": "The Signed-Off Brass Rule",
+        "body": "Brass means one thing: signed off, held or ruled. It appears as a 1px line, a tick, a fob or a ring. It is never a section ground, a button fill or a body-text colour.",
+        "section": "colors"
+      },
+      {
+        "name": "The Alarm Is Real Rule",
+        "body": "Alarm red appears only where something is actually wrong. It is never used for emphasis or urgency marketing.",
+        "section": "colors"
+      },
+      {
+        "name": "The Sentence-Case Plate Rule",
+        "body": "Tenor Sans is set at weight 400, in sentence case, tracked -1.2%, with balanced wrapping. It is never bolded and never set in capitals for headlines; capitals read as signage. The only tracked-capital Tenor settings are the IPS wordmark (0.14em) and client name marks (0.24em).",
+        "section": "typography"
+      },
+      {
+        "name": "The Tabular Time Rule",
+        "body": "Every time, count and figure uses tabular lining numerals so a moving clock never jitters. Times are written 24-hour, HH:MM.",
+        "section": "typography"
+      },
+      {
+        "name": "The Label Names Data Rule",
+        "body": "Tracked uppercase Hanken labels a field, a column or a value. It never sits above a heading to introduce it; the hour in the margin column does that job.",
+        "section": "typography"
+      },
+      {
+        "name": "The Paper Object Rule",
+        "body": "Only things that would be paper in the hotel (a card, a form, a printed specimen) get a shadow, and it is always long, soft and offset downward. Rows, panels, nav and buttons stay flat.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Light Means Work Rule",
+        "body": "In the 3D floor, all light is warm lamp light (#FFCF94 at rest, warming to #FFA94D while a room is worked) against a cool moonlit ambient. A room lights while its task is active, dims once done, and leaves a small brass ring on the floor as its sign-off. Light never appears as decoration.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** give every new chapter an hour and the ground colour of that hour, in sequence from dusk (#24304A) to morning linen (#F1F2EE).",
+      "**Do** hang the hour in the margin column level with the heading, with its brass hairline beneath.",
+      "**Do** set headlines in Tenor Sans 400, sentence case, tracked -1.2%.",
+      "**Do** set every time and number with tabular lining figures, in 24-hour HH:MM.",
+      "**Do** separate content with 1px hairlines and ruled rows; reserve paper fills and shadows for stationery objects.",
+      "**Do** draw the stationery double rule on buttons (4px band then 1px brass) and inside paper objects (1px brass, 10px inset).",
+      "**Do** move everything on one long out-ease, cubic-bezier(.22, 1, .36, 1), over 0.4s for state changes and 1.2 to 1.4s for arrivals; tie scenes to scroll where they tell time.",
+      "**Do** let rows and lists change in place: ghost finished steps, slide the ledger, light a tick. Nothing pops in.",
+      "**Do** honour reduced motion: drop transitions, show revealed content immediately, and render the 3D floor statically on scroll."
+    ],
+    "donts": [
+      "**Don't** use brass as a fill for sections or buttons, or as a body-text colour; it is a line, a tick, a fob or a ring.",
+      "**Don't** use cream or any warm off-white ground; the light grounds are cool linen (#F1F2EE) and mist (#C9D6DF).",
+      "**Don't** set headlines in capitals or bold.",
+      "**Don't** put a tracked uppercase label above a heading as an eyebrow or kicker.",
+      "**Don't** use pictograms or illustrative icon sets. The only drawn marks are the fob, the arrow, the tick, the signature and dimensioned spec drawings, all in one line weight.",
+      "**Don't** round shapes beyond 2px or use pills; circles are for indicator dots and rings only.",
+      "**Don't** bounce, overshoot, spring or loop; things arrive and stay arrived.",
+      "**Don't** light the 3D scene, or glow any UI, where no work is happening.",
+      "**Don't** use alarm red for anything that is not a real problem."
+    ]
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "title": "Choose the visual world for IPS",
+  "question": "The roll assigned Safety Signage. Keep it, take an alternate, or re-roll.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "Wet Floor: The Safety-Sign Standard",
+      "kicker": "THE ROLL",
+      "lineage": "Australian workplace safety signage and the yellow wet-floor A-frame",
+      "thesis": "IPS becomes the safety sign: black-on-caution-yellow, pictograms and standard sign grammar that make trust visible.",
+      "palette": ["#FFC20E", "#111111", "#F4F1EA", "#00843D", "#0057A8"],
+      "materials": ["3D yellow A-frame sign (hero asset)", "reflective pictograms", "sign-panel grammar: warning, safe, mandatory"],
+      "viewport": "A giant 3D caution-yellow A-frame unfolds and spins in mid-air, with the headline set as sign panels. Get Quote is a yellow sign-plate button.",
+      "risk": "Can read as construction or industrial if the type and spacing go clumsy; it needs editorial restraint.",
+      "raised": [
+        {"from": "risograph-web-system", "raise": "Strict ink count: only the five signage colours, flat with no tints or gradients, held across the whole page."},
+        {"from": "food-fermentation-culinary-theater-pickling-brine-calendar", "raise": "Every service carries a timestamp, like a cleaning log signed off at 02:14."},
+        {"from": "scientific-notation-oscilloscope-signal-bench", "raise": "Measured grid: every panel and number snaps to a visible ruler grid, like sign spec sheets."},
+        {"from": "textiles-weave-drape-fashion-drawcord-transforming-cape", "raise": "One control transforms the whole: pulling the yellow quote tab unfolds the A-frame into the form."}
+      ],
+      "comp": ".impeccable/mocks/decision/assigned.webp"
+    },
+    {
+      "id": "model-pick",
+      "label": "Colour-Code System",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "the cleaning industry's red/yellow/blue/green colour-coded cloths and buckets",
+      "thesis": "The industry's own colour code, red for toilets, yellow for basins, blue for general, green for kitchens, becomes the brand system.",
+      "palette": ["#E63228", "#FFD200", "#1E5BD8", "#22A05A", "#F6F6F2"],
+      "materials": ["3D microfibre cloths and buckets", "colour-zoned floor plans"],
+      "viewport": "Four 3D colour-coded buckets orbit, cloths fly in and wipe the headline clean.",
+      "risk": "Familiar: four primaries are where many service brands land, and it could look like kids' branding.",
+      "comp": ".impeccable/mocks/decision/model-pick.webp"
+    },
+    {
+      "id": "risograph-web-system",
+      "label": "Risograph",
+      "verdict": "declined",
+      "lineage": "Riso spot-ink print",
+      "palette": ["#FF48B0", "#0078BF", "#FFE800", "#F2EBDD"],
+      "materials": ["misregistered spot ink", "halftone grain"],
+      "thesis": "Cleaning services as fluoro zine.",
+      "viewport": "Ink-layered hero with misregistered stats.",
+      "case": "Fuses poorly: facility managers buying trust don't identify with zine culture.",
+      "risk": "Reads as a hobby, not a contractor.",
+      "kept": "Total commitment to a strict ink count.",
+      "hero": "https://impeccable.style/worlds/cards/risograph-web-system-hero.webp"
+    },
+    {
+      "id": "food-fermentation-culinary-theater-pickling-brine-calendar",
+      "label": "Brine Calendar",
+      "verdict": "declined",
+      "lineage": "seasonal pickling jars",
+      "palette": ["#E8F0EA", "#F06B5A", "#9E1B3B", "#7A9A3A"],
+      "materials": ["jar glass", "kraft labels"],
+      "thesis": "Services as a maturing shelf of jars.",
+      "viewport": "Jar shelf of services.",
+      "case": "Fuses poorly: the metaphor fights the product.",
+      "risk": "Confusing for B2B buyers.",
+      "kept": "Day-count and timestamp logging on every entry.",
+      "hero": "https://impeccable.style/worlds/cards/food-fermentation-culinary-theater-pickling-brine-calendar-hero.webp"
+    },
+    {
+      "id": "scientific-notation-oscilloscope-signal-bench",
+      "label": "Oscilloscope",
+      "verdict": "declined",
+      "lineage": "CRT signal bench",
+      "palette": ["#0A0F0A", "#39FF6A", "#FFB000"],
+      "materials": ["phosphor trace", "graticule"],
+      "thesis": "Cleanliness as a measured signal.",
+      "viewport": "Phosphor graticule with hygiene trace.",
+      "case": "Fuses poorly: neon-on-black is the AI default and off-audience.",
+      "risk": "Generic tech look.",
+      "kept": "Everything measured against a visible grid.",
+      "hero": "https://impeccable.style/worlds/cards/scientific-notation-oscilloscope-signal-bench-hero.webp"
+    },
+    {
+      "id": "textiles-weave-drape-fashion-drawcord-transforming-cape",
+      "label": "Drawcord Cape",
+      "verdict": "declined",
+      "lineage": "transforming fashion",
+      "palette": ["#0B0B0B", "#C9A23A", "#4A4F57"],
+      "materials": ["black silk", "gold cord"],
+      "thesis": "One pull transforms the whole.",
+      "viewport": "Black semicircle rising into a shell.",
+      "case": "Fuses poorly: luxury fashion is off-audience for contract cleaning.",
+      "risk": "Pretentious for the buyer.",
+      "kept": "A single control that transforms the whole surface.",
+      "hero": "https://impeccable.style/worlds/cards/textiles-weave-drape-fashion-drawcord-transforming-cape-hero.webp"
+    }
+  ],
+  "reroll": {"registers": ["safer", "bolder"]},
+  "buildPath": {"value": "code", "toggle": false},
+  "canon": true,
+  "canonCard": {
+    "label": "The category standard",
+    "thesis": "A clean blue-and-white commercial cleaning site, executed impeccably.",
+    "palette": ["#FFFFFF", "#0B2540", "#1A8FE3"],
+    "materials": ["clean grid", "crew photography"],
+    "viewport": "Photo hero of a crew in a bright office, stats bar, service grid.",
+    "risk": "Indistinguishable from every Perth competitor by design.",
+    "comp": ".impeccable/mocks/decision/canon.webp"
+  },
+  "steer": true
+}

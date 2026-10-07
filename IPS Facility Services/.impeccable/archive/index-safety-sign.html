@@ -1,0 +1,1541 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IPS, Re-signed</title>
+<meta name="description" content="A brand redesign proposal for IPS Facility Services, Perth, prepared by Cre8tive Sync.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --yellow:#FFC20E;
+  --ink:#111111;
+  --white:#F3F3F1;
+  --green:#00843D;
+  --blue:#0057A8;
+  --red:#D7262D;
+  --ink-2:#2A2A2A;
+  --ink-soft:#3B3A36;
+  --rule:rgba(17,17,17,.14);
+  --gutter:clamp(16px,4vw,56px);
+  --max:1360px;
+  --r-plate:14px;
+  --display:"Archivo",system-ui,sans-serif;
+  --label:"Barlow Condensed","Archivo",sans-serif;
+  --ease-out:cubic-bezier(.16,1,.3,1);
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{margin:0;background:var(--white);color:var(--ink);font-family:var(--display);font-stretch:100%;font-size:17px;line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img,svg,canvas{display:block;max-width:100%}
+a{color:inherit;text-underline-offset:.22em;text-decoration-thickness:2px}
+::selection{background:var(--yellow);color:var(--ink)}
+.on-ink ::selection,.on-ink::selection{background:var(--yellow);color:var(--ink)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:4px}
+.on-yellow :focus-visible{outline-color:var(--ink)}
+.on-ink :focus-visible{outline-color:var(--yellow)}
+html{scrollbar-color:var(--ink) var(--yellow)}
+::-webkit-scrollbar{width:12px}
+::-webkit-scrollbar-track{background:var(--yellow)}
+::-webkit-scrollbar-thumb{background:var(--ink);border:3px solid var(--yellow);border-radius:8px}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.num{font-variant-numeric:tabular-nums lining-nums}
+
+/* type */
+.d-xl,.d-l,.d-m,.d-s{font-family:var(--display);font-stretch:125%;font-weight:900;line-height:.92;letter-spacing:-.025em;margin:0;text-wrap:balance;text-transform:uppercase}
+.d-xl{font-size:clamp(2.3rem,9.2vw,6rem)}
+.d-l{font-size:clamp(2.4rem,6.4vw,5rem)}
+.d-m{font-size:clamp(1.9rem,4.2vw,3.4rem)}
+.d-s{font-size:clamp(1.35rem,2.4vw,1.9rem);line-height:1}
+.lab{font-family:var(--label);font-weight:600;text-transform:uppercase;letter-spacing:.12em;font-size:.86rem;line-height:1.2}
+.lede{font-size:clamp(1.08rem,1.5vw,1.3rem);line-height:1.5;max-width:56ch;margin:0}
+p{max-width:68ch}
+
+/* sign plates (buttons) */
+.plate{--bg:var(--ink);--fg:var(--yellow);display:inline-flex;align-items:center;gap:.7em;background:var(--bg);color:var(--fg);font-family:var(--display);font-stretch:125%;font-weight:800;text-transform:uppercase;letter-spacing:.02em;font-size:1rem;padding:1.05em 1.5em;border-radius:var(--r-plate);text-decoration:none;border:0;cursor:pointer;position:relative;box-shadow:inset 0 0 0 3px var(--bg),inset 0 0 0 5px var(--fg);transition:transform .35s var(--ease-out),box-shadow .35s var(--ease-out)}
+.plate:hover{transform:translateY(-3px);box-shadow:inset 0 0 0 3px var(--bg),inset 0 0 0 5px var(--fg),0 14px 22px -12px rgba(17,17,17,.55)}
+.plate:active{transform:translateY(0)}
+.plate svg{width:1.15em;height:1.15em}
+.plate.ghost{--bg:var(--yellow);--fg:var(--ink)}
+.plate.white{--bg:var(--white);--fg:var(--ink)}
+.plate.green{--bg:var(--green);--fg:#fff}
+.plate[disabled]{opacity:.55;cursor:not-allowed;transform:none}
+
+/* hazard tape */
+.tape{--h:64px;position:relative;height:var(--h);background:var(--yellow);color:var(--ink);overflow:hidden;display:flex;align-items:center;border-block:10px solid transparent;border-image:repeating-linear-gradient(-45deg,var(--ink) 0 14px,var(--yellow) 14px 28px) 10}
+.tape__track{display:flex;gap:2.4rem;white-space:nowrap;font-family:var(--display);font-stretch:125%;font-weight:900;text-transform:uppercase;font-size:1.3rem;letter-spacing:.02em;will-change:transform}
+.tape__track span{display:inline-flex;align-items:center;gap:2.4rem}
+.tape__track svg{width:1.7rem;height:1.55rem;flex:none}
+
+/* =========== ACT NAV =========== */
+.actnav{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:60;display:flex;align-items:center;gap:4px;background:var(--ink);color:var(--white);padding:6px;border-radius:16px;box-shadow:0 18px 30px -16px rgba(0,0,0,.6);font-family:var(--label);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.82rem}
+.actnav__brand{padding:0 12px 0 10px;color:var(--yellow);white-space:nowrap}
+.actnav a{padding:9px 14px;border-radius:11px;text-decoration:none;color:#d9d7cf;transition:background .3s,color .3s;white-space:nowrap}
+.actnav a:hover{color:#fff}
+.actnav a[aria-current="true"]{background:var(--yellow);color:var(--ink)}
+@media (max-width:620px){.actnav__brand{display:none}.actnav a{padding:9px 11px}}
+
+/* =========== COVER =========== */
+.cover{position:relative;min-height:100svh;background:var(--ink);color:var(--white);display:grid;place-items:center;overflow:hidden;isolation:isolate}
+.cover__tapes{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.cover__tapes .tape{position:absolute;left:-20%;width:140%;--h:72px}
+.cover__tapes .t1{top:22%;transform:rotate(-9deg)}
+.cover__tapes .t2{bottom:16%;transform:rotate(6deg)}
+.cover__inner{text-align:center;padding:0 var(--gutter)}
+.cover h1{font-size:clamp(2.4rem,10vw,6rem)}
+.cover h1 .y{color:var(--yellow)}
+.nw{display:inline-block;white-space:nowrap}
+.cover__meta{margin:1.6rem auto 0;color:#cfcdc4;max-width:46ch;font-size:1.05rem}
+.cover__by{display:flex;gap:1.2rem;justify-content:center;margin-top:2rem;flex-wrap:wrap}
+.cover__by .lab{color:#a9a79e}
+.cover__by strong{color:var(--white);font-weight:600}
+.cover__mark{width:clamp(84px,10vw,120px);margin:0 auto 1.6rem}
+.scrollcue{position:absolute;bottom:88px;left:50%;transform:translateX(-50%);color:#a9a79e;display:flex;flex-direction:column;align-items:center;gap:8px}
+.scrollcue i{width:2px;height:42px;background:linear-gradient(var(--yellow),transparent);display:block;animation:cue 1.8s var(--ease-out) infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* =========== AUDIT =========== */
+.audit{padding:clamp(96px,14vw,180px) 0 clamp(80px,10vw,140px);background:var(--white);position:relative}
+.audit__head{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(24px,5vw,80px);align-items:end}
+.audit__head h2 .r{color:var(--red)}
+.danger-sign{width:min(100%,360px);justify-self:end}
+.spam{margin-top:clamp(64px,8vw,110px);display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,4vw,64px);align-items:center}
+.spam__count{font-family:var(--display);font-stretch:125%;font-weight:900;font-size:clamp(6rem,22vw,15rem);line-height:.8;color:var(--red);letter-spacing:-.05em}
+.spam__count small{display:block;font-size:clamp(1rem,1.6vw,1.25rem);letter-spacing:0;line-height:1.35;color:var(--ink);font-weight:700;font-stretch:100%;margin-top:1rem;text-transform:none;max-width:30ch}
+.specimen{background:var(--ink);color:#e9e7df;border-radius:var(--r-plate);padding:24px 24px 20px;font-family:ui-monospace,"Cascadia Mono",Consolas,monospace;font-size:.84rem;line-height:1.65;position:relative;overflow:hidden;box-shadow:0 30px 50px -30px rgba(0,0,0,.6)}
+.specimen__bar{display:flex;justify-content:space-between;gap:1rem;font-family:var(--label);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.8rem;color:#a9a79e;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid #333}
+.specimen mark{background:var(--red);color:#fff;padding:0 .2em;border-radius:3px}
+.specimen code{display:block;white-space:pre-wrap}
+.specimen__foot{margin-top:14px;padding-top:12px;border-top:1px solid #333;font-family:var(--display);font-size:.92rem;color:#fff}
+.log{margin-top:clamp(72px,9vw,120px)}
+.log h3{margin-bottom:28px}
+.log table{width:100%;border-collapse:collapse;font-size:1rem}
+.log th{font-family:var(--label);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;text-align:left;padding:0 16px 12px 0;border-bottom:3px solid var(--ink);color:var(--ink-soft)}
+.log td{padding:22px 16px 22px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+.log td:first-child{width:130px}
+.log td:nth-child(2){font-weight:700;width:34%}
+.log td:nth-child(2) span{display:block;font-weight:400;color:var(--ink-soft);margin-top:4px;font-size:.95rem}
+.log td:last-child{color:var(--ink-soft)}
+.sev{display:inline-block;font-family:var(--label);font-weight:700;letter-spacing:.1em;font-size:.78rem;padding:.42em .7em .36em;border-radius:6px;text-transform:uppercase}
+.sev.crit{background:var(--red);color:#fff}
+.sev.high{background:var(--yellow);color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+.sev.med{background:var(--ink);color:var(--white)}
+.assets{margin-top:clamp(80px,10vw,140px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(24px,5vw,80px);align-items:start}
+.assets ul{list-style:none;margin:0;padding:0;border-top:3px solid var(--ink)}
+.assets li{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:16px 0;border-bottom:1px solid var(--rule)}
+.assets li b{font-family:var(--display);font-stretch:125%;font-weight:900;font-size:clamp(1.4rem,2.4vw,2rem);letter-spacing:-.02em}
+.assets li span{color:var(--ink-soft);text-align:right}
+@media (max-width:860px){
+  .audit__head,.spam,.assets{grid-template-columns:1fr}
+  .danger-sign{justify-self:start;width:240px}
+  .log thead{display:none}
+  .log tr{display:grid;grid-template-columns:1fr;padding:18px 0;border-bottom:1px solid var(--rule)}
+  .log td{border:0;padding:4px 0;width:auto!important}
+}
+
+/* divider tape between acts */
+.act-tape{background:var(--white);padding:40px 0;overflow:hidden}
+.act-tape .tape{transform:rotate(-2.5deg);width:120%;margin-left:-10%;--h:78px}
+
+/* =========== REDESIGN =========== */
+.proposed{background:var(--white);padding:28px 0 22px;text-align:center}
+.proposed p{margin:0 auto;font-family:var(--label);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:.9rem;color:var(--ink-soft);display:flex;align-items:center;justify-content:center;gap:12px}
+.proposed svg{width:18px;height:18px}
+
+.site{background:var(--yellow);position:relative}
+.snav{position:sticky;top:0;z-index:40;background:var(--ink);color:var(--white)}
+.snav__in{display:flex;align-items:center;justify-content:space-between;gap:20px;height:68px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+.logo svg{width:44px;height:40px}
+.logo__w{display:flex;flex-direction:column;line-height:1}
+.logo__w b{font-stretch:125%;font-weight:900;font-size:1.42rem;letter-spacing:-.02em}
+.logo__w i{font-style:normal;font-family:var(--label);font-weight:600;letter-spacing:.16em;font-size:.72rem;margin-top:3px;text-transform:uppercase}
+.snav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0}
+.snav ul a{display:block;padding:10px 14px;border-radius:10px;font-family:var(--label);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.9rem;text-decoration:none;color:#dcdad2;transition:color .25s,background .25s}
+.snav ul a:hover{color:var(--ink);background:var(--yellow)}
+.snav__cta{display:flex;align-items:center;gap:16px}
+.snav__tel{font-family:var(--label);font-weight:600;letter-spacing:.06em;font-size:1rem;color:var(--white);text-decoration:none;white-space:nowrap}
+.snav__tel em{font-style:normal;color:var(--yellow)}
+.snav .plate{padding:.75em 1.1em;font-size:.86rem;--bg:var(--yellow);--fg:var(--ink)}
+@media (max-width:1020px){.snav ul{display:none}}
+@media (max-width:560px){.snav__tel{display:none}}
+
+.hero{position:relative;min-height:calc(100svh - 68px);overflow:hidden;display:flex;flex-direction:column}
+.hero__canvas{position:absolute;inset:0 0 84px 0;z-index:0}
+.hero__canvas canvas{width:100%!important;height:100%!important}
+.hero__grid{position:absolute;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(17,17,17,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(17,17,17,.07) 1px,transparent 1px);background-size:56px 56px;mask-image:linear-gradient(180deg,#000 40%,transparent)}
+.hero__in{position:relative;z-index:2;flex:1;display:flex;align-items:center;pointer-events:none}
+.hero__copy{max-width:min(700px,58%);padding:clamp(48px,7vw,96px) 0;pointer-events:auto}
+.hero h1{font-size:clamp(2.3rem,8.4vw,6rem)}
+.hero h1 .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.06em;margin-bottom:-.06em}
+.hero h1 .w>span{display:inline-block}
+.hero .lede{margin-top:1.6rem;font-weight:500}
+.hero__ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:2.2rem}
+.hero__meta{display:flex;flex-wrap:wrap;gap:22px;margin-top:2.4rem}
+.hero__meta span{display:flex;align-items:center;gap:8px;font-family:var(--label);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:.92rem}
+.hero__meta svg{width:20px;height:20px}
+.hero .tape{position:relative;z-index:2}
+@media (max-width:860px){
+  .hero{min-height:auto}
+  .hero__canvas{position:relative;inset:auto;height:58vw;min-height:320px;order:-1}
+  .hero__copy{max-width:none;padding:8px 0 56px}
+}
+
+/* signature: slipping man */
+.stand{background:var(--white);position:relative}
+.stand__pin{min-height:calc(100svh - 68px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,80px);align-items:center;padding:80px 0}
+.stand__sign{width:min(100%,520px);justify-self:center}
+.stand__copy{position:relative;min-height:340px}
+.stand__state{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;gap:1.4rem}
+.stand__state + .stand__state{opacity:0}
+.stand__state p{margin:0;font-size:1.15rem;max-width:44ch}
+@media (max-width:860px){.stand__pin{grid-template-columns:1fr;padding:64px 0}.stand__sign{width:min(78%,360px)}.stand__copy{min-height:320px}}
+
+/* night shift */
+.night{background:var(--ink);color:var(--white);position:relative}
+.night__pin{position:relative;height:calc(100svh - 68px);min-height:560px;overflow:hidden}
+.night__canvas{position:absolute;inset:0}
+.night__canvas canvas{width:100%!important;height:100%!important}
+.night__ui{position:absolute;inset:0;display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:24px;padding:clamp(28px,5vw,64px) var(--gutter);pointer-events:none}
+.night__ui > *{pointer-events:auto}
+.night__copy{align-self:start;max-width:560px}
+.night__copy h2 .y{color:var(--yellow)}
+.night__copy p{color:#d6d4cb;margin-top:1.2rem;font-size:1.08rem}
+.clock{align-self:end;justify-self:start;grid-column:1}
+.clock__t{font-family:var(--display);font-stretch:125%;font-weight:900;font-size:clamp(3.4rem,9vw,6rem);line-height:.9;color:var(--yellow);letter-spacing:-.03em}
+.clock__c{font-family:var(--label);font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-top:10px;color:#d6d4cb;font-size:1rem}
+.clock__c b{color:#fff;font-size:1.3rem;letter-spacing:.02em}
+.feed{grid-column:2;grid-row:1 / span 2;align-self:end;background:rgba(17,17,17,.86);border:1px solid #34332f;border-radius:var(--r-plate);padding:18px 18px 10px}
+.feed h3{font-family:var(--label);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:.82rem;color:#a9a79e;margin:0 0 10px;display:flex;justify-content:space-between}
+.feed ol{list-style:none;margin:0;padding:0}
+.feed li{display:grid;grid-template-columns:52px 1fr 18px;gap:10px;align-items:center;padding:9px 0;border-top:1px solid #2c2b28;font-size:.9rem;color:#e7e5dd}
+.feed li time{color:var(--yellow);font-family:var(--label);font-weight:600;letter-spacing:.04em;font-size:1rem}
+.feed li small{display:block;color:#a9a79e;font-size:.8rem}
+.feed li svg{width:18px;height:18px;color:var(--green)}
+.feed__note{font-size:.8rem;color:#8e8c84;margin:8px 0 2px}
+@media (max-width:860px){
+  .night__ui{grid-template-columns:1fr;grid-template-rows:auto 1fr auto auto}
+  .feed{grid-column:1;grid-row:auto;max-height:200px;overflow:hidden}
+  .feed li:nth-child(n+4){display:none}
+  .clock{grid-row:3}
+}
+
+/* services */
+.svc{background:var(--yellow);overflow:hidden}
+.svc__head{padding-top:clamp(80px,10vw,140px);padding-bottom:48px;display:flex;justify-content:space-between;align-items:end;gap:32px;flex-wrap:wrap}
+.svc__head .lede{max-width:40ch}
+.svc__track{display:flex;gap:24px;padding:0 var(--gutter) clamp(80px,10vw,140px);width:max-content}
+.sp{--bg:var(--white);--fg:var(--ink);--ac:var(--yellow);flex:0 0 auto;width:380px;min-height:520px;background:var(--bg);color:var(--fg);border-radius:20px;padding:30px;display:flex;flex-direction:column;position:relative;box-shadow:inset 0 0 0 6px var(--bg),inset 0 0 0 10px var(--fg),0 30px 40px -28px rgba(17,17,17,.55)}
+.sp__ico{width:120px;height:108px;margin-bottom:28px}
+.sp h3{font-family:var(--display);font-stretch:125%;font-weight:900;text-transform:uppercase;font-size:1.75rem;line-height:.95;letter-spacing:-.02em;margin:0 0 14px;text-wrap:balance}
+.sp p{margin:0 0 20px;font-size:1rem}
+.sp ul{list-style:none;margin:auto 0 0;padding:16px 0 0;border-top:2px solid currentColor}
+.sp li{display:flex;gap:10px;align-items:center;padding:5px 0;font-family:var(--label);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:.92rem}
+.sp li svg{width:16px;height:16px;flex:none}
+.sp.k{--bg:var(--ink);--fg:var(--white)}
+.sp.g{--bg:var(--green);--fg:#fff}
+.sp.b{--bg:var(--blue);--fg:#fff}
+.sp.end{--bg:var(--ink);--fg:var(--yellow);justify-content:space-between}
+.sp.end h3{font-size:2.2rem}
+@media (min-width:861px) and (prefers-reduced-motion:no-preference){
+  .svc__frame{height:calc(100svh - 68px);min-height:640px;display:flex;flex-direction:column;justify-content:center}
+  .svc__head{padding-top:24px;padding-bottom:32px}
+  .svc__track{padding-bottom:28px}
+  .sp{min-height:0;height:clamp(440px,calc(100svh - 68px - 250px),520px)}
+}
+@media (min-width:861px) and (prefers-reduced-motion:reduce){.svc__pin{overflow-x:auto}}
+@media (max-width:860px){
+  .svc__track{width:auto;flex-direction:column;padding-bottom:80px}
+  .sp{width:100%;min-height:0}
+}
+
+/* how we work */
+.how{background:var(--white);padding:clamp(96px,12vw,170px) 0}
+.how__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,100px);align-items:start}
+.steps{list-style:none;margin:40px 0 0;padding:0;counter-reset:s}
+.steps li{display:grid;grid-template-columns:64px 1fr;gap:16px;padding:22px 0;border-top:2px solid var(--ink)}
+.steps li:last-child{border-bottom:2px solid var(--ink)}
+.steps b{font-family:var(--display);font-stretch:125%;font-weight:900;font-size:1.25rem;text-transform:uppercase;display:block;margin-bottom:4px;letter-spacing:-.01em}
+.steps .n{width:48px;height:48px;border-radius:10px;background:var(--yellow);display:grid;place-items:center;font-family:var(--display);font-stretch:125%;font-weight:900;font-size:1.2rem;box-shadow:inset 0 0 0 3px var(--ink)}
+.steps p{margin:0;color:var(--ink-soft)}
+.jobcard{position:sticky;top:110px;background:#fff;border-radius:20px;padding:0;box-shadow:inset 0 0 0 3px var(--ink),0 40px 60px -40px rgba(17,17,17,.55);overflow:hidden}
+.jobcard__top{background:var(--ink);color:var(--white);padding:20px 24px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.jobcard__top b{font-stretch:125%;font-weight:900;text-transform:uppercase;font-size:1.1rem;letter-spacing:-.01em}
+.jobcard__top span{font-family:var(--label);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.82rem;color:var(--yellow)}
+.jobcard__meta{display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:2px solid var(--ink)}
+.jobcard__meta div{padding:14px 24px;border-right:1px solid var(--rule)}
+.jobcard__meta div:last-child{border-right:0}
+.jobcard__meta small{display:block;font-family:var(--label);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.74rem;color:var(--ink-soft)}
+.jobcard__meta strong{font-size:.98rem}
+.tasks{list-style:none;margin:0;padding:8px 24px}
+.tasks li{display:grid;grid-template-columns:28px 1fr auto;gap:14px;align-items:center;padding:12px 0;border-bottom:1px dashed var(--rule)}
+.tasks li:last-child{border-bottom:0}
+.box{width:26px;height:26px;border-radius:6px;box-shadow:inset 0 0 0 2.5px var(--ink);display:grid;place-items:center;transition:background .3s}
+.box svg{width:18px;height:18px;color:#fff;opacity:0;transform:scale(.4);transition:opacity .3s,transform .45s var(--ease-out)}
+.tasks li.done .box{background:var(--green);box-shadow:inset 0 0 0 2.5px var(--green)}
+.tasks li.done .box svg{opacity:1;transform:none}
+.tasks time{font-family:var(--label);font-weight:600;font-size:.98rem;color:var(--ink-soft);opacity:0;transition:opacity .3s}
+.tasks li.done time{opacity:1}
+.jobcard__sign{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 24px;background:var(--white);border-top:2px solid var(--ink)}
+.signed{display:flex;align-items:center;gap:10px;font-family:var(--label);font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.signed svg{width:22px;height:22px}
+.jobcard.complete .signed{color:var(--green)}
+.rate{display:flex;gap:6px}
+.rate button{width:36px;height:36px;border-radius:8px;border:0;background:#fff;box-shadow:inset 0 0 0 2px var(--ink);font-family:var(--display);font-weight:800;cursor:pointer;transition:background .2s}
+.rate button:hover,.rate button[aria-pressed="true"]{background:var(--yellow)}
+.jobcard__note{font-size:.8rem;color:var(--ink-soft);padding:0 24px 14px;margin:0;background:var(--white)}
+@media (max-width:860px){.how__grid{grid-template-columns:1fr}.jobcard{position:relative;top:0}.jobcard__meta{grid-template-columns:1fr 1fr}.jobcard__meta div:last-child{display:none}}
+
+/* site entry board */
+.entry{background:var(--ink);color:var(--white);padding:clamp(96px,12vw,170px) 0}
+.entry__head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,80px);align-items:end;margin-bottom:56px}
+.entry__head p{color:#d6d4cb}
+.board{background:var(--white);color:var(--ink);border-radius:22px;padding:clamp(20px,3vw,36px);box-shadow:inset 0 0 0 8px var(--white),inset 0 0 0 13px var(--ink)}
+.board__title{background:var(--yellow);border-radius:12px;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px;box-shadow:inset 0 0 0 3px var(--ink);flex-wrap:wrap}
+.board__title b{font-stretch:125%;font-weight:900;text-transform:uppercase;font-size:clamp(1.2rem,2.6vw,2rem);letter-spacing:-.01em}
+.board__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,2vw,24px);margin-top:clamp(12px,2vw,24px)}
+.req{display:grid;grid-template-columns:96px 1fr;gap:18px;align-items:center;padding:18px;border-radius:12px;box-shadow:inset 0 0 0 2px var(--rule)}
+.req svg{width:96px;height:96px}
+.req b{display:block;font-stretch:125%;font-weight:900;text-transform:uppercase;font-size:1.08rem;line-height:1.05;letter-spacing:-.01em;margin-bottom:6px}
+.req span{font-size:.94rem;color:var(--ink-soft);display:block;line-height:1.4}
+@media (max-width:1020px){.board__grid{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.board__grid{grid-template-columns:1fr}.entry__head{grid-template-columns:1fr}.req{grid-template-columns:72px 1fr}.req svg{width:72px;height:72px}}
+
+/* offer */
+.offer{background:var(--yellow);padding:clamp(96px,12vw,170px) 0;position:relative;overflow:hidden}
+.offer__in{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(24px,5vw,80px);align-items:center}
+.offer h2{font-size:clamp(2.6rem,11vw,6rem)}
+.offer .lede{margin:1.6rem 0 2.2rem;font-weight:500}
+.offer__plates{display:grid;gap:16px}
+.op{display:flex;align-items:center;gap:20px;background:var(--ink);color:var(--white);padding:22px 26px;border-radius:16px}
+.op b{font-stretch:125%;font-weight:900;font-size:clamp(2.2rem,4vw,3.2rem);color:var(--yellow);line-height:1;letter-spacing:-.03em;min-width:3.6ch}
+.op span{font-family:var(--label);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:1.02rem;line-height:1.25}
+.clients{margin-top:clamp(64px,8vw,110px);display:flex;align-items:center;gap:clamp(20px,4vw,56px);flex-wrap:wrap;border-top:3px solid var(--ink);padding-top:24px}
+.clients .cl{font-stretch:125%;font-weight:900;font-size:clamp(1.3rem,2.4vw,1.9rem);letter-spacing:.04em;text-transform:uppercase}
+.clients .cl.serif{font-family:Georgia,serif;font-stretch:100%;font-weight:700;letter-spacing:.02em;text-transform:none;font-style:italic}
+@media (max-width:860px){.offer__in{grid-template-columns:1fr}}
+
+/* quote */
+.quote{background:var(--white);padding:clamp(96px,12vw,170px) 0}
+.quote__grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(32px,6vw,100px);align-items:start}
+.quote__side p{color:var(--ink-soft)}
+.contact{margin-top:32px;display:grid;gap:12px}
+.contact a,.contact div{display:flex;align-items:center;gap:14px;font-weight:700;text-decoration:none;font-size:1.1rem}
+.contact svg{width:40px;height:40px;flex:none}
+.contact small{display:block;font-weight:400;color:var(--ink-soft);font-size:.86rem}
+.ph{background:repeating-linear-gradient(-45deg,transparent 0 6px,rgba(255,194,14,.45) 6px 12px);padding:0 .25em;border-radius:3px}
+.form{background:#fff;border-radius:22px;padding:clamp(22px,3.4vw,40px);box-shadow:inset 0 0 0 3px var(--ink),0 40px 60px -44px rgba(17,17,17,.55);position:relative}
+.form__row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.field{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+.field label,.field legend{font-family:var(--label);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.86rem}
+.field input,.field select,.field textarea{font:inherit;font-size:1rem;color:var(--ink);background:var(--white);border:0;border-radius:10px;padding:14px 16px;box-shadow:inset 0 0 0 2px var(--ink);transition:box-shadow .2s,background .2s;caret-color:var(--blue);width:100%}
+.field input::placeholder,.field textarea::placeholder{color:#6b6962}
+.field input:hover,.field select:hover{background:#fff}
+.field input:focus,.field select:focus,.field textarea:focus{outline:0;background:#fff;box-shadow:inset 0 0 0 3px var(--blue)}
+.field.err input,.field.err select{box-shadow:inset 0 0 0 3px var(--red)}
+.field .msg{font-size:.86rem;color:var(--red);font-weight:600;min-height:0}
+fieldset.field{border:0;padding:0;margin:0 0 20px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;position:relative}
+.chips input{position:absolute;left:0;top:0;width:1px;height:1px;opacity:0;pointer-events:none}
+.chips label{display:flex;align-items:center;gap:8px;padding:9px 12px 9px 10px;border-radius:10px;box-shadow:inset 0 0 0 2px var(--ink);cursor:pointer;font-family:var(--label);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:.9rem;transition:background .2s,color .2s;background:var(--white)}
+.chips label svg{width:22px;height:22px}
+.chips label:hover{background:#fff}
+.chips input:checked + label{background:var(--yellow)}
+.chips input:focus-visible + label{outline:3px solid var(--blue);outline-offset:2px}
+.form__foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:8px}
+.form__foot small{color:var(--ink-soft);max-width:36ch}
+.form__done{position:absolute;inset:0;background:var(--green);color:#fff;border-radius:22px;display:none;flex-direction:column;justify-content:center;align-items:flex-start;padding:clamp(24px,4vw,48px);gap:14px}
+.form__done.show{display:flex}
+.form__done svg{width:88px;height:88px}
+.form__done p{margin:0;font-size:1.1rem;max-width:40ch}
+@media (max-width:860px){.quote__grid{grid-template-columns:1fr}.form__row{grid-template-columns:1fr}}
+
+/* footer */
+.sfoot{background:var(--ink);color:#d6d4cb;padding:72px 0 120px}
+.sfoot__grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px}
+.sfoot h4{font-family:var(--label);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:.84rem;color:var(--yellow);margin:0 0 14px}
+.sfoot ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.sfoot a{text-decoration:none}
+.sfoot a:hover{color:#fff;text-decoration:underline}
+.sfoot .logo{color:var(--white);margin-bottom:18px}
+.sfoot__base{margin-top:56px;padding-top:20px;border-top:1px solid #34332f;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.86rem;color:#a9a79e}
+@media (max-width:860px){.sfoot__grid{grid-template-columns:1fr 1fr}}
+
+/* =========== SYSTEM =========== */
+.sys{background:var(--white);padding:clamp(110px,14vw,190px) 0 0}
+.sys__intro{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(24px,5vw,80px);align-items:end}
+.sys__block{margin-top:clamp(80px,10vw,140px)}
+.sys__block > h3{margin-bottom:12px}
+.sys__block > p{color:var(--ink-soft);margin:0 0 36px}
+.logo-stage{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px}
+.logo-build{background:#fff;border-radius:20px;box-shadow:inset 0 0 0 2px var(--rule);padding:clamp(24px,4vw,56px);position:relative;overflow:hidden;display:grid;place-items:center;min-height:420px;background-image:linear-gradient(rgba(0,87,168,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(0,87,168,.12) 1px,transparent 1px);background-size:24px 24px}
+.logo-build svg{width:min(100%,560px)}
+.logo-vars{display:grid;grid-template-rows:repeat(3,1fr);gap:24px}
+.lv{border-radius:20px;display:flex;align-items:center;justify-content:center;padding:24px;min-height:120px}
+.lv svg{height:64px;width:auto}
+.lv.y{background:var(--yellow)}
+.lv.k{background:var(--ink)}
+.lv.w{background:#fff;box-shadow:inset 0 0 0 2px var(--rule)}
+.pict{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.pict figure{margin:0;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:20px;align-items:flex-start}
+.pict figure svg{width:min(100%,260px);margin:0 auto}
+.pict figcaption b{display:block;font-stretch:125%;font-weight:900;text-transform:uppercase;font-size:1.3rem;margin-bottom:4px}
+.pict .old{background:#fff;box-shadow:inset 0 0 0 2px var(--rule)}
+.pict .new{background:var(--yellow)}
+.inks{display:grid;grid-template-columns:2.4fr 1.4fr 1.4fr 1fr 1fr;gap:12px;min-height:340px}
+.ink{border-radius:18px;padding:22px;display:flex;flex-direction:column;justify-content:space-between;gap:24px}
+.ink b{font-stretch:125%;font-weight:900;text-transform:uppercase;font-size:1.25rem;line-height:1;letter-spacing:-.01em}
+.ink span{font-family:var(--label);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:.9rem;line-height:1.35}
+.ink.y{background:var(--yellow)}
+.ink.k{background:var(--ink);color:var(--white)}
+.ink.w{background:var(--white);box-shadow:inset 0 0 0 2px var(--ink)}
+.ink.g{background:var(--green);color:#fff}
+.ink.b{background:var(--blue);color:#fff}
+@media (max-width:860px){.inks{grid-template-columns:1fr 1fr}.ink.y{grid-column:1/-1;min-height:180px}.logo-stage,.pict,.sys__intro{grid-template-columns:1fr}}
+.type{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:24px}
+.type > div{border-radius:20px;padding:clamp(24px,3vw,40px);box-shadow:inset 0 0 0 2px var(--rule);background:#fff;overflow:hidden}
+.type .big{font-stretch:125%;font-weight:900;text-transform:uppercase;font-size:clamp(2.2rem,5.4vw,4.6rem);line-height:.86;letter-spacing:-.03em}
+.type .axis{display:flex;gap:18px;margin-top:20px;flex-wrap:wrap}
+.type .axis span{font-size:1.6rem;font-weight:800}
+.type .lab-spec{font-family:var(--label);font-weight:600;font-size:clamp(2rem,4vw,3rem);letter-spacing:.12em;text-transform:uppercase;line-height:1}
+.type small{display:block;margin-top:14px;color:var(--ink-soft);font-size:.92rem}
+@media (max-width:860px){.type{grid-template-columns:1fr}}
+.apps{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:24px}
+.app{border-radius:20px;overflow:hidden;background:#fff;box-shadow:inset 0 0 0 2px var(--rule);display:flex;flex-direction:column}
+.app__art{flex:1;display:grid;place-items:center;padding:28px;min-height:260px}
+.app__art svg{width:100%;height:auto;max-height:340px}
+.app figcaption{padding:16px 22px 20px;border-top:1px solid var(--rule)}
+.app figcaption b{display:block;font-stretch:125%;font-weight:900;text-transform:uppercase;font-size:1.05rem}
+.app figcaption span{color:var(--ink-soft);font-size:.94rem}
+.app.van{grid-column:span 4}.app.af{grid-column:span 2}.app.card{grid-column:span 3}.app.badge{grid-column:span 3}
+.app.van .app__art{background:var(--white)}
+.app.af .app__art{background:var(--ink)}
+@media (max-width:860px){.apps{grid-template-columns:1fr}.app.van,.app.af,.app.card,.app.badge{grid-column:auto}}
+.motion{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:3px solid var(--ink)}
+.motion div{padding:28px 28px 28px 0;border-right:1px solid var(--rule)}
+.motion div + div{padding-left:28px}
+.motion div:last-child{border-right:0}
+.motion b{display:block;font-stretch:125%;font-weight:900;text-transform:uppercase;font-size:1.6rem;margin-bottom:8px;letter-spacing:-.01em}
+.motion p{margin:0;color:var(--ink-soft)}
+.motion .demo{height:90px;display:flex;align-items:flex-end;margin-bottom:18px}
+.motion .demo i{display:block;width:48px;height:48px;background:var(--yellow);border-radius:8px;box-shadow:inset 0 0 0 3px var(--ink)}
+@media (max-width:860px){.motion{grid-template-columns:1fr}.motion div,.motion div+div{padding:24px 0;border-right:0;border-bottom:1px solid var(--rule)}}
+.close{margin-top:clamp(110px,14vw,190px);background:var(--ink);color:var(--white);padding:clamp(96px,12vw,170px) 0 140px;position:relative;overflow:hidden}
+.close h2 .y{color:var(--yellow)}
+.close__grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(32px,6vw,100px);align-items:end}
+.deliver{list-style:none;margin:0;padding:0;border-top:2px solid #3a3934}
+.deliver li{display:grid;grid-template-columns:28px 1fr;gap:14px;padding:14px 0;border-bottom:1px solid #3a3934;color:#e3e1d9}
+.deliver li svg{width:22px;height:22px;color:var(--yellow);margin-top:2px}
+.close .lede{color:#d6d4cb;margin:1.4rem 0 2.2rem}
+.close__sig{margin-top:72px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:#a9a79e;font-size:.9rem}
+@media (max-width:860px){.close__grid{grid-template-columns:1fr}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ ICON SPRITE ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="mark" viewBox="0 0 120 108">
+      <path d="M60 9 L113 99 H7 Z" fill="#FFC20E" stroke="#111" stroke-width="10" stroke-linejoin="round"/>
+      <g stroke="#111" stroke-width="7" stroke-linecap="round" fill="none">
+        <path d="M60 52 V76 M60 58 L49 69 M60 58 L71 69 M60 76 L52 90 M60 76 L68 90"/>
+      </g>
+      <circle cx="60" cy="42" r="7" fill="#111"/>
+    </symbol>
+    <symbol id="mark-k" viewBox="0 0 120 108">
+      <path d="M60 9 L113 99 H7 Z" fill="#FFC20E" stroke="#FFC20E" stroke-width="10" stroke-linejoin="round"/>
+      <path d="M60 15 L107 95 H13 Z" fill="none" stroke="#111" stroke-width="3" stroke-linejoin="round"/>
+      <g stroke="#111" stroke-width="7" stroke-linecap="round" fill="none">
+        <path d="M60 52 V76 M60 58 L49 69 M60 58 L71 69 M60 76 L52 90 M60 76 L68 90"/>
+      </g>
+      <circle cx="60" cy="42" r="7" fill="#111"/>
+    </symbol>
+    <symbol id="i-tick" viewBox="0 0 24 24"><path d="M4.5 12.5l5 5L19.5 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v15M5 13l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.6 3.5l3 .4 1.3 4-2 1.6a12 12 0 0 0 5.6 5.6l1.6-2 4 1.3.4 3c0 1.2-1 2.1-2.2 2.1A16.6 16.6 0 0 1 4.5 5.7c0-1.2.9-2.2 2.1-2.2z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="9" r="2.6" fill="currentColor"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2.8l7.5 3v6c0 4.6-3.2 8-7.5 9.4C7.7 19.8 4.5 16.4 4.5 11.8v-6z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M8.5 12l2.5 2.5 4.5-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.8" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M12 7v5.4l3.4 2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+    <!-- service pictograms: 100 box, 6 stroke -->
+    <symbol id="s-office" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"><path d="M26 88V16h48v72M16 88h68"/><path d="M38 30h8M54 30h8M38 44h8M54 44h8M38 58h8M54 58h8M44 88V74h12v14"/></g></symbol>
+    <symbol id="s-medical" viewBox="0 0 100 100"><path d="M40 16h20v24h24v20H60v24H40V60H16V40h24z" fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round"/></symbol>
+    <symbol id="s-edu" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"><path d="M12 40l38-16 38 16-38 16z"/><path d="M28 48v18c8 8 36 8 44 0V48M84 42v22"/></g></symbol>
+    <symbol id="s-retail" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"><path d="M22 36h56l-4 50H26z"/><path d="M38 44V30a12 12 0 0 1 24 0v14"/></g></symbol>
+    <symbol id="s-gym" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"><path d="M30 50h40"/><rect x="22" y="32" width="10" height="36" rx="2"/><rect x="68" y="32" width="10" height="36" rx="2"/><path d="M14 42v16M86 42v16"/></g></symbol>
+    <symbol id="s-floor" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"><path d="M64 12L50 62"/><ellipse cx="46" cy="72" rx="26" ry="9"/><path d="M14 90h72M78 30l8-4M80 44h9M74 18l4-7"/></g></symbol>
+    <symbol id="s-strata" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"><path d="M14 88V36h30v52M44 88V14h42v74M8 88h84"/><path d="M24 48h10M24 62h10M56 28h8M70 28h4M56 42h8M70 42h4M56 56h8M70 56h4M60 88V74h12v14"/></g></symbol>
+    <symbol id="s-industrial" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"><path d="M12 86V50l20 12V50l20 12V50l20 12V20h14v66z"/><path d="M28 74h8M48 74h8M66 74h8"/></g></symbol>
+    <symbol id="s-builders" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"><path d="M12 72h76"/><path d="M20 72c0-22 12-36 30-37 18 1 30 15 30 37"/><path d="M42 36v18M58 36v18M44 28h12"/></g></symbol>
+    <symbol id="s-infect" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"><path d="M50 12l32 12v24c0 20-14 34-32 40-18-6-32-20-32-40V24z"/><path d="M50 36v28M36 50h28"/></g></symbol>
+    <!-- entry requirement icons -->
+    <symbol id="r-badge" viewBox="0 0 100 100"><g fill="none" stroke="#fff" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"><rect x="30" y="26" width="40" height="52" rx="6"/><circle cx="50" cy="46" r="8"/><path d="M38 66c3-6 21-6 24 0M42 26v-6h16v6"/></g></symbol>
+    <symbol id="r-shield" viewBox="0 0 100 100"><g fill="none" stroke="#fff" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"><path d="M50 18l26 10v20c0 16-11 27-26 32-15-5-26-16-26-32V28z"/><path d="M38 50l9 9 16-18"/></g></symbol>
+    <symbol id="r-lock" viewBox="0 0 100 100"><g fill="none" stroke="#fff" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"><rect x="30" y="48" width="40" height="32" rx="5"/><path d="M40 48V36a12 12 0 0 1 23-4"/><path d="M50 60v8"/></g></symbol>
+    <symbol id="r-hat" viewBox="0 0 100 100"><g fill="none" stroke="#fff" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"><path d="M22 66h56"/><path d="M28 66c0-18 9-28 22-29 13 1 22 11 22 29"/><path d="M44 38v14M56 38v14"/></g></symbol>
+    <symbol id="r-leaf" viewBox="0 0 100 100"><g fill="none" stroke="#fff" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"><path d="M28 74c-2-28 14-46 46-48 2 32-16 48-46 48z"/><path d="M28 74l26-26"/></g></symbol>
+    <symbol id="r-spray" viewBox="0 0 100 100"><g fill="none" stroke="#fff" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"><path d="M38 44h22v38H34V54z"/><path d="M42 44V34h14v10M56 34h12l4 6M76 28l6-3M78 38h7"/></g></symbol>
+  </defs>
+</svg>
+
+<!-- ============ ACT NAV ============ -->
+<nav class="actnav" aria-label="Proposal sections">
+  <span class="actnav__brand">Cre8tive Sync × IPS</span>
+  <a href="#audit" data-act="audit">Audit</a>
+  <a href="#redesign" data-act="redesign">Redesign</a>
+  <a href="#system" data-act="system">System</a>
+</nav>
+
+<main>
+<!-- ============ COVER ============ -->
+<header class="cover on-ink" id="top">
+  <div class="cover__tapes" aria-hidden="true">
+    <div class="tape t1"><div class="tape__track" data-dir="-1"></div></div>
+    <div class="tape t2"><div class="tape__track" data-dir="1"></div></div>
+  </div>
+  <div class="cover__inner">
+    <svg class="cover__mark" viewBox="0 0 120 108" aria-hidden="true"><use href="#mark"/></svg>
+    <h1 class="d-xl"><span class="cw nw">IPS,</span> <span class="cw nw y">re-signed.</span></h1>
+    <p class="cover__meta">A brand redesign proposal for IPS Facility Services, Perth. What's holding the brand back today, and what it could look like tomorrow.</p>
+    <div class="cover__by">
+      <span class="lab">Prepared by <strong>Cre8tive Sync</strong></span>
+      <span class="lab">October 2026</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============ ACT 1: AUDIT ============ -->
+<section class="audit" id="audit" data-act-section="audit" aria-labelledby="audit-h">
+  <div class="wrap">
+    <div class="audit__head">
+      <div>
+        <h2 class="d-l" id="audit-h">Your website is a <span class="r">hazard</span> right now.</h2>
+        <p class="lede" style="margin-top:1.6rem">IPS has an excellent story: 19 years in Perth, 180+ sites a week, police-cleared crews. A facility manager who lands on the site today sees none of it. Here's what we found on 7 October 2026.</p>
+      </div>
+      <svg class="danger-sign" viewBox="0 0 360 250" role="img" aria-label="Danger sign reading: website compromised">
+        <rect x="4" y="4" width="352" height="242" rx="18" fill="#fff" stroke="#111" stroke-width="6"/>
+        <rect x="22" y="22" width="316" height="96" rx="8" fill="#111"/>
+        <ellipse cx="180" cy="70" rx="138" ry="38" fill="#D7262D"/>
+        <ellipse cx="180" cy="70" rx="138" ry="38" fill="none" stroke="#fff" stroke-width="5"/>
+        <text x="180" y="86" text-anchor="middle" font-family="Archivo" font-stretch="125%" font-weight="900" font-size="44" fill="#fff" letter-spacing="2">DANGER</text>
+        <text x="180" y="168" text-anchor="middle" font-family="Archivo" font-stretch="125%" font-weight="900" font-size="30" fill="#111">WEBSITE</text>
+        <text x="180" y="208" text-anchor="middle" font-family="Archivo" font-stretch="125%" font-weight="900" font-size="30" fill="#111">COMPROMISED</text>
+      </svg>
+    </div>
+
+    <div class="spam">
+      <div>
+        <div class="spam__count num" data-count="409">409<small>times the word “casino” appears in the code of your homepage. “Pokies” shows up 45 more.</small></div>
+      </div>
+      <figure class="specimen" style="margin:0">
+        <div class="specimen__bar"><span>ipsfacilityservices.com.au / home</span><span>Hidden HTML, above your welcome text</span></div>
+        <code>“Australian players looking for a low-risk start can compare the latest welcome offers… Before you deposit a single dollar, it pays to read independent write-ups… <mark>casino</mark> review… <mark>pokies</mark>… <mark>casino</mark> bonus…”</code>
+        <figcaption class="specimen__foot">Someone has injected gambling spam into your WordPress site, and it's on your Contact page too. Google reads every word of it. Your buyers can find it, your rankings suffer, and the domain risks being flagged as unsafe.</figcaption>
+      </figure>
+    </div>
+
+    <div class="log">
+      <h3 class="d-s">Full incident log</h3>
+      <table>
+        <thead><tr><th>Severity</th><th>Finding</th><th>What it costs you</th></tr></thead>
+        <tbody>
+          <tr><td><span class="sev crit">Critical</span></td><td>Hacked site serving gambling spam<span>Home and Contact pages, WordPress 7.1.3 + Elementor</span></td><td>Trust, Google rankings, possible blacklisting. Needs a clean-up and hardening before anything else.</td></tr>
+          <tr><td><span class="sev crit">Critical</span></td><td>The Contact page is empty<span>No phone, email, address or form anywhere on the site</span></td><td>A buyer who is ready to call can't. Every visit that wants to convert goes to a competitor.</td></tr>
+          <tr><td><span class="sev high">High</span></td><td>AI-generated hero image<span>File name: ChatGPT-Image-May-7-2026.png</span></td><td>You're asking people to hand over their building keys. A synthetic photo says “we're not who we say we are”.</td></tr>
+          <tr><td><span class="sev high">High</span></td><td>Five font families, 90 weights loaded<span>Roboto, Roboto Slab, Poppins, Ubuntu, Didact Gothic</span></td><td>A slow first load on mobile and no recognisable voice. The brand looks like the theme it was built on.</td></tr>
+          <tr><td><span class="sev med">Medium</span></td><td>Testimonials with no names<span>The Google review widget shows raw code: [trustindex no-registration=google]</span></td><td>Social proof that reads as invented. A broken widget signals neglect.</td></tr>
+          <tr><td><span class="sev med">Medium</span></td><td>Inconsistent name and dated content<span>“IPS Facility Service Value Cleaners”, a reasons list printed twice, “Covid Cleaning” still in the main nav</span></td><td>No single brand to remember. The site feels unmaintained.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="assets">
+      <div>
+        <h3 class="d-m">The good news: the proof already exists.</h3>
+        <p class="lede" style="margin-top:1.2rem">Most cleaning companies have to invent credibility. IPS just has to stop burying it. Everything on the right comes from your current site, and none of it is above the fold.</p>
+      </div>
+      <ul>
+        <li><b class="num">2007</b><span>WA-owned, operating in Perth since</span></li>
+        <li><b class="num">180+</b><span>commercial premises serviced weekly</span></li>
+        <li><b class="num">12,000+</b><span>cleaning services a year</span></li>
+        <li><b class="num">$20M</b><span>business liability insurance</span></li>
+        <li><b>100%</b><span>of cleaners police-cleared</span></li>
+        <li><b>0</b><span>lock-in contracts</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="act-tape" aria-hidden="true"><div class="tape"><div class="tape__track" data-dir="-1" data-text="Caution · Brand under redesign"></div></div></div>
+
+<!-- ============ ACT 2: REDESIGN ============ -->
+<div id="redesign" data-act-section="redesign">
+<div class="proposed"><p><svg aria-hidden="true"><use href="#i-down"/></svg>Proposed homepage, ipsfacilityservices.com.au<svg aria-hidden="true"><use href="#i-down"/></svg></p></div>
+
+<div class="site on-yellow">
+  <nav class="snav on-ink" aria-label="IPS site navigation (concept)">
+    <div class="wrap snav__in">
+      <a class="logo" href="#redesign" aria-label="IPS Facility Services home">
+        <svg viewBox="0 0 120 108" aria-hidden="true"><use href="#mark"/></svg>
+        <span class="logo__w"><b>IPS</b><i>Facility Services</i></span>
+      </a>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#night">Night shift</a></li>
+        <li><a href="#how">How we work</a></li>
+        <li><a href="#entry">Why IPS</a></li>
+      </ul>
+      <div class="snav__cta">
+        <a class="snav__tel" href="#quote"><em>Call</em> 08 XXXX XXXX</a>
+        <a class="plate" href="#quote">Get a quote</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero" aria-labelledby="hero-h">
+    <div class="hero__grid" aria-hidden="true"></div>
+    <div class="hero__canvas" id="heroCanvas" aria-hidden="true"></div>
+    <div class="wrap hero__in">
+      <div class="hero__copy">
+        <h1 class="d-xl" id="hero-h"><span class="w"><span>Clean,</span></span> <span class="w"><span>to</span></span> <span class="w"><span>standard.</span></span></h1>
+        <p class="lede">Commercial cleaning for Perth offices, clinics, schools, gyms and strata. Police-cleared crews work to a written task list, and every visit is signed off.</p>
+        <div class="hero__ctas">
+          <a class="plate" href="#quote">Get a quote <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="plate white" href="#offer">Book a free trial clean</a>
+        </div>
+        <div class="hero__meta">
+          <span><svg aria-hidden="true"><use href="#i-pin"/></svg>WA-owned since 2007</span>
+          <span><svg aria-hidden="true"><use href="#i-shield"/></svg>$20M liability cover</span>
+        </div>
+      </div>
+    </div>
+    <div class="tape" aria-hidden="true"><div class="tape__track" data-dir="-1" data-text="180+ sites every week · 12,000+ cleans a year · Police-cleared crews · No lock-in contracts"></div></div>
+  </section>
+
+  <!-- signature -->
+  <section class="stand" aria-labelledby="stand-h">
+    <div class="wrap stand__pin" id="standPin">
+      <svg class="stand__sign" viewBox="0 0 200 184" role="img" aria-label="Warning sign pictogram: a figure slipping, who then stands upright">
+        <path id="triFill" d="M100 12 L190 170 H10 Z" fill="#FFC20E" stroke="#111" stroke-width="12" stroke-linejoin="round"/>
+        <g id="drops" fill="#0057A8">
+          <path d="M70 150c0-5 5-10 5-10s5 5 5 10a5 5 0 0 1-10 0z"/>
+          <path d="M128 140c0-4 4-8 4-8s4 4 4 8a4 4 0 0 1-8 0z"/>
+          <path d="M110 156c0-3 3-6 3-6s3 3 3 6a3 3 0 0 1-6 0z"/>
+        </g>
+        <g id="shine" stroke="#111" stroke-width="4" stroke-linecap="round" opacity="0">
+          <path d="M138 122v12M132 128h12M62 136v8M58 140h8"/>
+        </g>
+        <g transform="translate(50 54)" stroke="#111" stroke-width="9" stroke-linecap="round" fill="none">
+          <line id="mT" x1="42" y1="40" x2="58" y2="60"/>
+          <line id="mAL" x1="45" y1="45" x2="28" y2="38"/>
+          <line id="mAR" x1="45" y1="45" x2="62" y2="30"/>
+          <line id="mLL" x1="58" y1="60" x2="78" y2="62"/>
+          <line id="mLR" x1="58" y1="60" x2="48" y2="84"/>
+          <circle id="mH" cx="36" cy="28" r="8" fill="#111" stroke="none"/>
+          <line x1="8" y1="96" x2="92" y2="96" stroke-width="6"/>
+        </g>
+      </svg>
+      <div class="stand__copy">
+        <div class="stand__state" id="st1">
+          <h2 class="d-l" id="stand-h">Everyone knows this sign.</h2>
+          <p>It means somebody's floor became somebody's problem. Missed spots, mystery spills, a cleaner who stopped turning up. If you manage a building, you've lived it.</p>
+        </div>
+        <div class="stand__state" id="st2" aria-hidden="true">
+          <h2 class="d-l">We stood him up.</h2>
+          <p>IPS runs on systems, not luck. A written task list for every site, police-cleared crews, sign-off on every visit, and a feedback line that actually gets answered. Your building stays to standard.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- night shift -->
+  <section class="night on-ink" id="night" aria-labelledby="night-h">
+    <div class="night__pin" id="nightPin">
+      <div class="night__canvas" id="nightCanvas" aria-hidden="true"></div>
+      <div class="night__ui">
+        <div class="night__copy">
+          <h2 class="d-m" id="night-h">While Perth sleeps, <span class="y">180+ sites</span> get done.</h2>
+          <p>Every week our crews work through more than 180 commercial premises across the metro area. That's over 12,000 cleans a year, and each one is logged.</p>
+        </div>
+        <div class="clock" aria-live="off">
+          <div class="clock__t num" id="clockT">18:00</div>
+          <div class="clock__c">Sites signed off tonight <b class="num" id="clockN">0</b> <span class="num">/ 180+</span></div>
+        </div>
+        <aside class="feed" aria-label="Sign-off feed (illustrative)">
+          <h3><span>Sign-off feed</span><span>Live</span></h3>
+          <ol id="feed"></ol>
+          <p class="feed__note">Illustrative feed. Suburbs and times are sample data.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- services -->
+  <section class="svc" id="services" aria-labelledby="svc-h"><div class="svc__frame" id="svcPin">
+    <div class="wrap svc__head">
+      <h2 class="d-l" id="svc-h">Every kind of site.<br>One standard.</h2>
+      <p class="lede">Ten service lines, all run the same way: a walkthrough, a written scope, a trained crew and a sign-off.</p>
+    </div>
+    <div class="svc__pin">
+      <div class="svc__track" id="svcTrack">
+        <article class="sp"><svg class="sp__ico" aria-hidden="true"><use href="#s-office"/></svg><h3>Corporate &amp; office</h3><p>Desks, kitchens, washrooms and lobbies, done after hours so Monday starts clean.</p><ul><li><svg><use href="#i-tick"/></svg>After-hours crews</li><li><svg><use href="#i-tick"/></svg>Consumables restocked</li><li><svg><use href="#i-tick"/></svg>Feedback each visit</li></ul></article>
+        <article class="sp b"><svg class="sp__ico" aria-hidden="true"><use href="#s-medical"/></svg><h3>Medical facilities</h3><p>Consult rooms, waiting areas and amenities, cleaned with infection-control routines.</p><ul><li><svg><use href="#i-tick"/></svg>Clinical-area scope</li><li><svg><use href="#i-tick"/></svg>Police-cleared staff</li><li><svg><use href="#i-tick"/></svg>Logged sign-off</li></ul></article>
+        <article class="sp"><svg class="sp__ico" aria-hidden="true"><use href="#s-edu"/></svg><h3>Education</h3><p>Classrooms, staff rooms and amenities, timed around the school day.</p><ul><li><svg><use href="#i-tick"/></svg>Out-of-hours schedule</li><li><svg><use href="#i-tick"/></svg>Police-cleared staff</li><li><svg><use href="#i-tick"/></svg>Term-break deep cleans</li></ul></article>
+        <article class="sp k"><svg class="sp__ico" aria-hidden="true" style="color:#FFC20E"><use href="#s-retail"/></svg><h3>Retail &amp; hospitality</h3><p>Front-of-house ready for opening, back-of-house kept to your standard.</p><ul><li><svg><use href="#i-tick"/></svg>Pre-open cleans</li><li><svg><use href="#i-tick"/></svg>Kitchens &amp; bars</li><li><svg><use href="#i-tick"/></svg>Restaurants &amp; pubs</li></ul></article>
+        <article class="sp"><svg class="sp__ico" aria-hidden="true"><use href="#s-gym"/></svg><h3>Gyms &amp; fitness</h3><p>Equipment, mats and change rooms. All the high-touch surfaces, every visit.</p><ul><li><svg><use href="#i-tick"/></svg>High-touch focus</li><li><svg><use href="#i-tick"/></svg>Change rooms</li><li><svg><use href="#i-tick"/></svg>Flexible frequency</li></ul></article>
+        <article class="sp g"><svg class="sp__ico" aria-hidden="true"><use href="#s-floor"/></svg><h3>Strip &amp; seal</h3><p>Hard floors stripped back, resealed and buffed to a finish that lasts.</p><ul><li><svg><use href="#i-tick"/></svg>Vinyl &amp; hard floors</li><li><svg><use href="#i-tick"/></svg>Industrial-grade gear</li><li><svg><use href="#i-tick"/></svg>Scheduled downtime</li></ul></article>
+        <article class="sp"><svg class="sp__ico" aria-hidden="true"><use href="#s-strata"/></svg><h3>Strata</h3><p>Common areas, lifts, bin stores and car parks, reported back to the strata manager.</p><ul><li><svg><use href="#i-tick"/></svg>Common property</li><li><svg><use href="#i-tick"/></svg>Bin store rotation</li><li><svg><use href="#i-tick"/></svg>Manager reporting</li></ul></article>
+        <article class="sp k"><svg class="sp__ico" aria-hidden="true" style="color:#FFC20E"><use href="#s-industrial"/></svg><h3>Industrial</h3><p>Warehouses, workshops and amenities blocks, with OH&amp;S built into the scope.</p><ul><li><svg><use href="#i-tick"/></svg>OH&amp;S first</li><li><svg><use href="#i-tick"/></svg>Amenities blocks</li><li><svg><use href="#i-tick"/></svg>Industrial equipment</li></ul></article>
+        <article class="sp"><svg class="sp__ico" aria-hidden="true"><use href="#s-builders"/></svg><h3>Builders cleans</h3><p>Post-construction cleans so handover day looks like a handover.</p><ul><li><svg><use href="#i-tick"/></svg>Dust &amp; debris</li><li><svg><use href="#i-tick"/></svg>Glass &amp; fixtures</li><li><svg><use href="#i-tick"/></svg>Handover ready</li></ul></article>
+        <article class="sp b"><svg class="sp__ico" aria-hidden="true"><use href="#s-infect"/></svg><h3>Infection control</h3><p>Targeted disinfection cleans when an outbreak or incident needs a fast response.</p><ul><li><svg><use href="#i-tick"/></svg>Rapid response</li><li><svg><use href="#i-tick"/></svg>High-touch disinfection</li><li><svg><use href="#i-tick"/></svg>Eco-friendly products</li></ul></article>
+        <article class="sp end"><svg class="sp__ico" viewBox="0 0 120 108" aria-hidden="true"><use href="#mark-k"/></svg><div><h3>Not sure which fits?</h3><p style="color:#F3F3F1">Tell us about the site. We'll walk it, scope it and quote it.</p><a class="plate ghost" href="#quote">Get a quote</a></div></article>
+      </div>
+    </div>
+  </div></section>
+
+  <!-- how we work -->
+  <section class="how" id="how" aria-labelledby="how-h">
+    <div class="wrap how__grid">
+      <div>
+        <h2 class="d-l" id="how-h">Every clean, signed off.</h2>
+        <p class="lede" style="margin-top:1.4rem">No guesswork about what got done. Each site gets its own written task list, and each visit is ticked off against it.</p>
+        <ol class="steps">
+          <li><span class="n">1</span><div><b>Walkthrough &amp; quote</b><p>We walk the site with you and write a scope that matches how your building is actually used.</p></div></li>
+          <li><span class="n">2</span><div><b>Free trial clean</b><p>Regular clients get a trial clean before committing, and $100 off the first invoice.</p></div></li>
+          <li><span class="n">3</span><div><b>Your task list</b><p>Your crew works from a step-by-step list built for your site, not a generic one.</p></div></li>
+          <li><span class="n">4</span><div><b>Sign-off &amp; feedback</b><p>Every visit is signed off, and you can rate it. Problems go straight to us, not into a queue.</p></div></li>
+        </ol>
+      </div>
+      <figure class="jobcard" id="jobcard" style="margin:0" aria-label="Example job card (illustrative)">
+        <div class="jobcard__top"><b>Job card</b><span>Level 3 · Office</span></div>
+        <div class="jobcard__meta">
+          <div><small>Site</small><strong>West Perth</strong></div>
+          <div><small>Crew</small><strong>Police-cleared</strong></div>
+          <div><small>Shift</small><strong>Tue, night</strong></div>
+        </div>
+        <ul class="tasks">
+          <li><span class="box"><svg><use href="#i-tick"/></svg></span><span>Empty bins, replace liners</span><time class="num">21:04</time></li>
+          <li><span class="box"><svg><use href="#i-tick"/></svg></span><span>Kitchen benches, sink &amp; appliances</span><time class="num">21:19</time></li>
+          <li><span class="box"><svg><use href="#i-tick"/></svg></span><span>Washrooms sanitised, consumables restocked</span><time class="num">21:41</time></li>
+          <li><span class="box"><svg><use href="#i-tick"/></svg></span><span>Desks &amp; high-touch points wiped</span><time class="num">22:02</time></li>
+          <li><span class="box"><svg><use href="#i-tick"/></svg></span><span>Vacuum &amp; mop all floors</span><time class="num">22:27</time></li>
+          <li><span class="box"><svg><use href="#i-tick"/></svg></span><span>Lights off, alarm set, keys secured</span><time class="num">22:35</time></li>
+        </ul>
+        <div class="jobcard__sign">
+          <span class="signed"><svg aria-hidden="true"><use href="#i-shield"/></svg><span id="signedTxt">Awaiting sign-off</span></span>
+          <div class="rate" role="group" aria-label="Rate this clean">
+            <button type="button" aria-pressed="false">1</button><button type="button" aria-pressed="false">2</button><button type="button" aria-pressed="false">3</button><button type="button" aria-pressed="false">4</button><button type="button" aria-pressed="false">5</button>
+          </div>
+        </div>
+        <p class="jobcard__note">Illustrative job card showing the client feedback experience.</p>
+      </figure>
+    </div>
+  </section>
+
+  <!-- entry board -->
+  <section class="entry on-ink" id="entry" aria-labelledby="entry-h">
+    <div class="wrap">
+      <div class="entry__head">
+        <h2 class="d-l" id="entry-h">Conditions of entry. For us.</h2>
+        <p class="lede">Every building site posts the rules for coming in. We hold ourselves to ours before we take your keys.</p>
+      </div>
+      <div class="board">
+        <div class="board__title"><b>IPS crews: mandatory on every site</b><span class="lab">All sites · All shifts</span></div>
+        <div class="board__grid">
+          <div class="req"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="47" fill="#0057A8"/><use href="#r-badge"/></svg><div><b>Police-cleared</b><span>Every cleaner, no exceptions. Your keys and alarm codes stay safe.</span></div></div>
+          <div class="req"><svg viewBox="0 0 100 100" aria-hidden="true"><rect x="3" y="3" width="94" height="94" rx="10" fill="#00843D"/><use href="#r-shield"/></svg><div><b>$20M liability cover</b><span>Business liability insurance on every job.</span></div></div>
+          <div class="req"><svg viewBox="0 0 100 100" aria-hidden="true"><rect x="3" y="3" width="94" height="94" rx="10" fill="#00843D"/><use href="#r-lock"/></svg><div><b>No lock-in</b><span>We keep your business by doing the job, not with a contract.</span></div></div>
+          <div class="req"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="47" fill="#0057A8"/><use href="#r-hat"/></svg><div><b>OH&amp;S first</b><span>Occupational health and safety is taken seriously, on your site and ours.</span></div></div>
+          <div class="req"><svg viewBox="0 0 100 100" aria-hidden="true"><rect x="3" y="3" width="94" height="94" rx="10" fill="#00843D"/><use href="#r-leaf"/></svg><div><b>Eco-friendly products</b><span>Paired with industrial-grade equipment for a real clean.</span></div></div>
+          <div class="req"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="47" fill="#0057A8"/><use href="#r-spray"/></svg><div><b>Consumables supplied</b><span>Paper, soap and liners restocked, so you have one less supplier.</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- offer -->
+  <section class="offer" id="offer" aria-labelledby="offer-h">
+    <div class="wrap">
+      <div class="offer__in">
+        <div>
+          <h2 class="d-xl" id="offer-h">Try us free.</h2>
+          <p class="lede">Regular clients get a free trial clean before signing anything, then $100 off the first invoice as a thank-you. And there's no lock-in, ever.</p>
+          <a class="plate" href="#quote">Book my trial clean <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="offer__plates">
+          <div class="op"><b>$0</b><span>Trial clean<br>for regular clients</span></div>
+          <div class="op"><b class="num">$100</b><span>Off your<br>first invoice</span></div>
+          <div class="op"><b>0</b><span>Lock-in contracts.<br>Stay because it's good.</span></div>
+        </div>
+      </div>
+      <div class="clients" aria-label="Clients">
+        <span class="lab">Trusted across Perth by</span>
+        <span class="cl">Kiln</span>
+        <span class="cl serif">The Last Local</span>
+        <span class="lab" style="color:#3B3A36">+ 180 sites every week</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- quote -->
+  <section class="quote" id="quote" aria-labelledby="quote-h">
+    <div class="wrap quote__grid">
+      <div class="quote__side">
+        <h2 class="d-l" id="quote-h">Get a quote.</h2>
+        <p class="lede" style="margin-top:1.2rem">It takes a minute. Tell us about the site and we'll come back with a walkthrough time.</p>
+        <div class="contact">
+          <a href="#quote"><svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#111"/><use href="#i-phone" x="8" y="8" width="24" height="24" style="color:#FFC20E"/></svg><span><span class="ph">08 XXXX XXXX</span><small>Placeholder: IPS to supply</small></span></a>
+          <a href="#quote"><svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#111"/><path d="M10 13h20v14H10z M10 13l10 8 10-8" fill="none" stroke="#FFC20E" stroke-width="2.4" stroke-linejoin="round"/></svg><span><span class="ph">hello@ipsfacilityservices.com.au</span><small>Placeholder: IPS to supply</small></span></a>
+          <div><svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#111"/><use href="#i-pin" x="8" y="8" width="24" height="24" style="color:#FFC20E"/></svg><span>Perth metro, WA<small>Head office address: IPS to supply</small></span></div>
+        </div>
+      </div>
+      <form class="form" id="qform" novalidate>
+        <div class="form__row">
+          <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" placeholder="Jordan Lee" required><span class="msg" aria-live="polite"></span></div>
+          <div class="field"><label for="f-co">Business</label><input id="f-co" name="company" autocomplete="organization" placeholder="Company or building name"><span class="msg"></span></div>
+        </div>
+        <fieldset class="field" id="f-type">
+          <legend>Type of site</legend>
+          <div class="chips">
+            <input type="radio" name="type" id="t1" value="office"><label for="t1"><svg aria-hidden="true"><use href="#s-office"/></svg>Office</label>
+            <input type="radio" name="type" id="t2" value="medical"><label for="t2"><svg aria-hidden="true"><use href="#s-medical"/></svg>Medical</label>
+            <input type="radio" name="type" id="t3" value="education"><label for="t3"><svg aria-hidden="true"><use href="#s-edu"/></svg>Education</label>
+            <input type="radio" name="type" id="t4" value="retail"><label for="t4"><svg aria-hidden="true"><use href="#s-retail"/></svg>Retail / hospo</label>
+            <input type="radio" name="type" id="t5" value="gym"><label for="t5"><svg aria-hidden="true"><use href="#s-gym"/></svg>Gym</label>
+            <input type="radio" name="type" id="t6" value="strata"><label for="t6"><svg aria-hidden="true"><use href="#s-strata"/></svg>Strata</label>
+            <input type="radio" name="type" id="t7" value="industrial"><label for="t7"><svg aria-hidden="true"><use href="#s-industrial"/></svg>Industrial</label>
+            <input type="radio" name="type" id="t8" value="other"><label for="t8"><svg aria-hidden="true"><use href="#s-builders"/></svg>Other</label>
+          </div>
+          <span class="msg" aria-live="polite"></span>
+        </fieldset>
+        <div class="form__row">
+          <div class="field"><label for="f-sub">Suburb</label><input id="f-sub" name="suburb" placeholder="e.g. Osborne Park"><span class="msg"></span></div>
+          <div class="field"><label for="f-freq">How often?</label><select id="f-freq" name="freq"><option>Daily</option><option>A few times a week</option><option selected>Weekly</option><option>Fortnightly</option><option>One-off clean</option></select><span class="msg"></span></div>
+        </div>
+        <div class="form__row">
+          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="04XX XXX XXX"><span class="msg" aria-live="polite"></span></div>
+          <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" placeholder="you@company.com.au"><span class="msg" aria-live="polite"></span></div>
+        </div>
+        <div class="form__foot">
+          <small>We only use these details to quote your site. Concept form: nothing is sent.</small>
+          <button class="plate" type="submit">Get my quote <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+        </div>
+        <div class="form__done" id="fdone" role="status" tabindex="-1">
+          <svg viewBox="0 0 100 100" aria-hidden="true"><rect x="3" y="3" width="94" height="94" rx="12" fill="#fff"/><path d="M26 52l16 16 32-34" fill="none" stroke="#00843D" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3 class="d-m">Request logged.</h3>
+          <p id="fdoneTxt">Thanks. The IPS team will be in touch to book a walkthrough.</p>
+          <button type="button" class="plate white" id="freset">Send another</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer class="sfoot on-ink">
+    <div class="wrap">
+      <div class="sfoot__grid">
+        <div>
+          <a class="logo" href="#redesign"><svg viewBox="0 0 120 108" aria-hidden="true"><use href="#mark"/></svg><span class="logo__w"><b>IPS</b><i>Facility Services</i></span></a>
+          <p style="margin:0">Western Australian-owned commercial cleaning, Perth, since 2007.</p>
+        </div>
+        <div><h4>Services</h4><ul><li><a href="#services">Corporate &amp; office</a></li><li><a href="#services">Medical</a></li><li><a href="#services">Education</a></li><li><a href="#services">Strata</a></li><li><a href="#services">All services</a></li></ul></div>
+        <div><h4>Company</h4><ul><li><a href="#how">How we work</a></li><li><a href="#entry">Why IPS</a></li><li><a href="#offer">Free trial</a></li><li><a href="#quote">Contact</a></li></ul></div>
+        <div><h4>Contact</h4><ul><li><span class="ph">08 XXXX XXXX</span></li><li><span class="ph">hello@…</span></li><li>ABN <span class="ph">XX XXX XXX XXX</span></li></ul></div>
+      </div>
+      <div class="sfoot__base"><span>© 2026 IPS Facility Services</span><span>Concept by Cre8tive Sync. Highlighted details are placeholders.</span></div>
+    </div>
+  </footer>
+</div>
+</div>
+
+<!-- ============ ACT 3: SYSTEM ============ -->
+<section class="sys" id="system" data-act-section="system" aria-labelledby="sys-h">
+  <div class="wrap">
+    <div class="sys__intro">
+      <h2 class="d-l" id="sys-h">The system behind it.</h2>
+      <p class="lede">One idea runs through everything: IPS is the safety standard. Five flat inks, one pictogram, one typeface family and one way of moving, built to work on a van door as well as it does on a phone.</p>
+    </div>
+
+    <div class="sys__block">
+      <h3 class="d-m">The mark</h3>
+      <p>A warning triangle with the figure standing, not slipping. It reads at 16px and from across a car park, and it's ownable in a category full of sparkles and mops.</p>
+      <div class="logo-stage">
+        <div class="logo-build">
+          <svg viewBox="0 0 560 300" role="img" aria-label="IPS logo construction">
+            <g id="lbGuides" stroke="#0057A8" stroke-width="1.2" fill="none" stroke-dasharray="5 5">
+              <circle cx="110" cy="160" r="104"/>
+              <line x1="0" y1="242" x2="560" y2="242"/>
+              <line x1="0" y1="78" x2="560" y2="78"/>
+              <line x1="110" y1="20" x2="110" y2="290"/>
+            </g>
+            <g id="lbMark" transform="translate(10 70) scale(1.667)">
+              <path class="draw" d="M60 9 L113 99 H7 Z" fill="none" stroke="#111" stroke-width="10" stroke-linejoin="round"/>
+              <path id="lbFill" d="M60 9 L113 99 H7 Z" fill="#FFC20E" stroke="#111" stroke-width="10" stroke-linejoin="round" opacity="0"/>
+              <g stroke="#111" stroke-width="7" stroke-linecap="round" fill="none"><path class="draw" d="M60 52 V76 M60 58 L49 69 M60 58 L71 69 M60 76 L52 90 M60 76 L68 90"/></g>
+              <circle id="lbHead" cx="60" cy="42" r="7" fill="#111"/>
+            </g>
+            <text id="lbWord" x="232" y="200" font-family="Archivo" font-stretch="125%" font-weight="900" font-size="150" fill="#111" letter-spacing="-3">IPS</text>
+            <text id="lbSub" x="238" y="240" font-family="Barlow Condensed" font-weight="600" font-size="27" fill="#111" letter-spacing="6.5">FACILITY SERVICES</text>
+          </svg>
+        </div>
+        <div class="logo-vars">
+          <div class="lv y"><svg viewBox="0 0 300 108" aria-label="Logo on yellow"><path d="M60 9 L113 99 H7 Z" fill="#111" stroke="#111" stroke-width="10" stroke-linejoin="round"/><g stroke="#FFC20E" stroke-width="7" stroke-linecap="round" fill="none"><path d="M60 52 V76 M60 58 L49 69 M60 58 L71 69 M60 76 L52 90 M60 76 L68 90"/></g><circle cx="60" cy="42" r="7" fill="#FFC20E"/><text x="132" y="84" font-family="Archivo" font-stretch="125%" font-weight="900" font-size="78" fill="#111" letter-spacing="-2">IPS</text></svg></div>
+          <div class="lv k"><svg viewBox="0 0 300 108" aria-label="Logo on black"><use href="#mark" width="120" height="108"/><text x="132" y="84" font-family="Archivo" font-stretch="125%" font-weight="900" font-size="78" fill="#F3F3F1" letter-spacing="-2">IPS</text></svg></div>
+          <div class="lv w"><svg viewBox="0 0 300 108" aria-label="Logo on white"><use href="#mark" width="120" height="108"/><text x="132" y="84" font-family="Archivo" font-stretch="125%" font-weight="900" font-size="78" fill="#111" letter-spacing="-2">IPS</text></svg></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sys__block">
+      <h3 class="d-m">The pictogram</h3>
+      <p>The brand's whole argument in a single drawing.</p>
+      <div class="pict">
+        <figure class="old">
+          <svg viewBox="0 0 200 184" aria-hidden="true"><path d="M100 12 L190 170 H10 Z" fill="#fff" stroke="#111" stroke-width="12" stroke-linejoin="round"/><g transform="translate(50 54)" stroke="#111" stroke-width="9" stroke-linecap="round" fill="none"><line x1="42" y1="40" x2="58" y2="60"/><line x1="45" y1="45" x2="28" y2="38"/><line x1="45" y1="45" x2="62" y2="30"/><line x1="58" y1="60" x2="78" y2="62"/><line x1="58" y1="60" x2="48" y2="84"/><circle cx="36" cy="28" r="8" fill="#111" stroke="none"/><line x1="8" y1="96" x2="92" y2="96" stroke-width="6"/></g></svg>
+          <figcaption><b>The category</b>Someone slipped. A reaction to a problem.</figcaption>
+        </figure>
+        <figure class="new">
+          <svg viewBox="0 0 200 184" aria-hidden="true"><path d="M100 12 L190 170 H10 Z" fill="#FFC20E" stroke="#111" stroke-width="12" stroke-linejoin="round"/><g transform="translate(50 54)" stroke="#111" stroke-width="9" stroke-linecap="round" fill="none"><line x1="50" y1="33" x2="50" y2="60"/><line x1="50" y1="40" x2="35" y2="55"/><line x1="50" y1="40" x2="65" y2="55"/><line x1="50" y1="60" x2="39" y2="84"/><line x1="50" y1="60" x2="61" y2="84"/><circle cx="50" cy="22" r="8" fill="#111" stroke="none"/><line x1="8" y1="96" x2="92" y2="96" stroke-width="6"/></g></svg>
+          <figcaption><b>IPS</b>Standing firm. Prevention, by system.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="sys__block">
+      <h3 class="d-m">Five inks. No tints.</h3>
+      <p>Borrowed from the signage people already obey. Each colour has one job, and it never gets diluted into gradients.</p>
+      <div class="inks">
+        <div class="ink y"><b>Caution Yellow</b><span>#FFC20E<br>Primary field. Owns whole surfaces.</span></div>
+        <div class="ink k"><b>Sign Ink</b><span>#111111<br>Type, borders, night.</span></div>
+        <div class="ink w"><b>Sign White</b><span>#F3F3F1<br>Reading ground.</span></div>
+        <div class="ink g"><b>Safe Green</b><span>#00843D<br>Done, signed off, covered.</span></div>
+        <div class="ink b"><b>Mandatory Blue</b><span>#0057A8<br>Requirements, clinical.</span></div>
+      </div>
+    </div>
+
+    <div class="sys__block">
+      <h3 class="d-m">Type</h3>
+      <p>Archivo at its widest for the voice of a sign, plus Barlow Condensed for labels, taken from road-sign lettering. Two families instead of five.</p>
+      <div class="type">
+        <div><div class="big">Clean,<br>to standard.</div><div class="axis"><span style="font-stretch:62%">62</span><span style="font-stretch:85%">85</span><span style="font-stretch:100%">100</span><span style="font-stretch:125%">125</span></div><small>Archivo Variable, width 62–125, weight 300–900. Display set at width 125, weight 900.</small></div>
+        <div><div class="lab-spec">Level 3<br>Signed off<br>22:35</div><small>Barlow Condensed 600, tracked +12%. Labels, timestamps and wayfinding.</small><p style="margin:22px 0 0;font-size:1.05rem">Archivo 400 for body copy. It's set for reading at a desk under office light, 17px with a 1.55 line height.</p></div>
+      </div>
+    </div>
+
+    <div class="sys__block">
+      <h3 class="d-m">Out in the world</h3>
+      <p>Their wet-floor signs are already on 180+ sites a week. We'd make every one of them a billboard.</p>
+      <div class="apps">
+        <figure class="app van" style="margin:0">
+          <div class="app__art">
+            <svg viewBox="0 0 640 300" role="img" aria-label="IPS van livery concept">
+              <path d="M40 230 V110 Q40 70 80 70 H400 L470 70 Q500 70 520 100 L585 170 Q600 186 600 206 V230 Z" fill="#fff" stroke="#111" stroke-width="5" stroke-linejoin="round"/>
+              <path d="M40 190 H600 V230 H40 Z" fill="#FFC20E"/>
+              <path d="M40 182 H600" stroke="#111" stroke-width="5"/>
+              <path d="M420 84 H478 Q492 84 502 98 L548 160 H420 Z" fill="#111"/>
+              <path d="M40 230 V110 Q40 70 80 70 H400 L470 70 Q500 70 520 100 L585 170 Q600 186 600 206 V230 Z" fill="none" stroke="#111" stroke-width="5" stroke-linejoin="round"/>
+              <use href="#mark" x="64" y="88" width="88" height="80"/>
+              <text x="166" y="142" font-family="Archivo" font-stretch="125%" font-weight="900" font-size="58" fill="#111" letter-spacing="-1">IPS</text>
+              <text x="168" y="168" font-family="Barlow Condensed" font-weight="600" font-size="16" fill="#111" letter-spacing="3">FACILITY SERVICES</text>
+              <text x="325" y="214" text-anchor="middle" font-family="Barlow Condensed" font-weight="700" font-size="17" fill="#111" letter-spacing="1.5">IPSFACILITYSERVICES.COM.AU</text>
+              <circle cx="150" cy="232" r="34" fill="#111"/><circle cx="150" cy="232" r="13" fill="#F3F3F1"/>
+              <circle cx="500" cy="232" r="34" fill="#111"/><circle cx="500" cy="232" r="13" fill="#F3F3F1"/>
+              <path d="M20 268 H620" stroke="#111" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <figcaption><b>Fleet</b><span>White van, yellow sill band. Recognisable from three lanes over.</span></figcaption>
+        </figure>
+        <figure class="app af" style="margin:0">
+          <div class="app__art">
+            <svg viewBox="0 0 220 300" role="img" aria-label="Branded A-frame floor sign">
+              <path d="M70 20 H150 L196 288 H24 Z" fill="#FFC20E" stroke="#111" stroke-width="5" stroke-linejoin="round"/>
+              <path d="M78 34 H142 L182 276 H38 Z" fill="none" stroke="#111" stroke-width="4" stroke-linejoin="round"/>
+              <rect x="88" y="10" width="44" height="16" rx="6" fill="#111"/>
+              <text x="110" y="80" text-anchor="middle" font-family="Archivo" font-stretch="125%" font-weight="900" font-size="13" fill="#111">CAUTION</text>
+              <use href="#mark" x="62" y="96" width="96" height="86"/>
+              <text x="110" y="214" text-anchor="middle" font-family="Archivo" font-stretch="125%" font-weight="900" font-size="17" fill="#111">CLEANED</text>
+              <text x="110" y="236" text-anchor="middle" font-family="Archivo" font-stretch="125%" font-weight="900" font-size="17" fill="#111">BY IPS</text>
+              <text x="110" y="260" text-anchor="middle" font-family="Barlow Condensed" font-weight="600" font-size="12" fill="#111" letter-spacing="1.5">PERTH · SINCE 2007</text>
+            </svg>
+          </div>
+          <figcaption><b>A-frame</b><span>The sign that started it all, branded.</span></figcaption>
+        </figure>
+        <figure class="app card" style="margin:0">
+          <div class="app__art" style="background:#F3F3F1">
+            <svg viewBox="0 0 520 260" role="img" aria-label="Business card front and back">
+              <g transform="rotate(-6 150 130)"><rect x="20" y="40" width="270" height="160" rx="12" fill="#FFC20E" stroke="#111" stroke-width="3"/><use href="#mark" x="40" y="60" width="64" height="58"/><text x="40" y="158" font-family="Archivo" font-stretch="125%" font-weight="900" font-size="24" fill="#111">CLEAN, TO</text><text x="40" y="184" font-family="Archivo" font-stretch="125%" font-weight="900" font-size="24" fill="#111">STANDARD.</text></g>
+              <g transform="rotate(4 380 130)"><rect x="236" y="56" width="270" height="160" rx="12" fill="#fff" stroke="#111" stroke-width="3"/><rect x="236" y="56" width="270" height="34" rx="12" fill="#111"/><rect x="236" y="76" width="270" height="14" fill="#111"/><text x="254" y="79" font-family="Barlow Condensed" font-weight="600" font-size="14" fill="#FFC20E" letter-spacing="2">IPS FACILITY SERVICES</text><text x="254" y="124" font-family="Archivo" font-stretch="125%" font-weight="900" font-size="20" fill="#111">FIRST LAST</text><text x="254" y="144" font-family="Barlow Condensed" font-weight="600" font-size="14" fill="#3B3A36" letter-spacing="1.5">ACCOUNT MANAGER</text><text x="254" y="180" font-family="Archivo" font-size="13" fill="#111">08 XXXX XXXX</text><text x="254" y="198" font-family="Archivo" font-size="13" fill="#111">ipsfacilityservices.com.au</text></g>
+            </svg>
+          </div>
+          <figcaption><b>Stationery</b><span>Yellow front, sign-white back. Names and numbers are placeholders.</span></figcaption>
+        </figure>
+        <figure class="app badge" style="margin:0">
+          <div class="app__art" style="background:#0057A8">
+            <svg viewBox="0 0 300 300" role="img" aria-label="Police-cleared crew ID card">
+              <path d="M150 10 V48" stroke="#FFC20E" stroke-width="10"/>
+              <rect x="70" y="44" width="160" height="236" rx="14" fill="#fff" stroke="#111" stroke-width="4"/>
+              <rect x="70" y="44" width="160" height="50" rx="14" fill="#FFC20E" stroke="#111" stroke-width="4"/>
+              <rect x="74" y="78" width="152" height="14" fill="#FFC20E"/>
+              <use href="#mark" x="84" y="54" width="34" height="31"/>
+              <text x="126" y="78" font-family="Archivo" font-stretch="125%" font-weight="900" font-size="22" fill="#111">IPS</text>
+              <rect x="110" y="108" width="80" height="84" rx="8" fill="#F3F3F1" stroke="#111" stroke-width="3"/>
+              <circle cx="150" cy="138" r="14" fill="#111"/><path d="M124 186c4-20 48-20 52 0" fill="#111"/>
+              <text x="150" y="216" text-anchor="middle" font-family="Archivo" font-stretch="125%" font-weight="900" font-size="15" fill="#111">CREW MEMBER</text>
+              <rect x="84" y="232" width="132" height="32" rx="8" fill="#00843D"/>
+              <path d="M96 248l6 6 11-12" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="120" y="253" font-family="Barlow Condensed" font-weight="700" font-size="13" fill="#fff" letter-spacing=".6">POLICE-CLEARED</text>
+            </svg>
+          </div>
+          <figcaption><b>Crew ID</b><span>Police clearance worn on the lanyard, not buried on a website.</span></figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="sys__block">
+      <h3 class="d-m">How it moves</h3>
+      <p>Motion borrows from the physical sign: heavy, deliberate, then settled.</p>
+      <div class="motion">
+        <div><div class="demo"><i class="mdemo" data-m="drop"></i></div><b>Drop</b><p>Things arrive with weight and land with a short bounce, like a sign set down on a floor.</p></div>
+        <div><div class="demo"><i class="mdemo" data-m="unfold"></i></div><b>Unfold</b><p>Panels open on a hinge to reveal what's inside. Information unfolds instead of fading in.</p></div>
+        <div><div class="demo"><i class="mdemo" data-m="sign"></i></div><b>Sign off</b><p>Every sequence ends on a confirmation tick in Safe Green. Nothing is left hanging.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="close on-ink">
+    <div class="wrap close__grid">
+      <div>
+        <h2 class="d-l">Let's <span class="y nw">re-sign</span> IPS.</h2>
+        <p class="lede">First we fix what's dangerous, then we launch what's distinctive. The site clean-up can start this week.</p>
+        <a class="plate ghost" href="#top">Talk to Cre8tive Sync <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <ul class="deliver">
+        <li><svg><use href="#i-tick"/></svg><span><b>Week 1:</b> malware clean-up, WordPress hardening, real contact details live</span></li>
+        <li><svg><use href="#i-tick"/></svg><span><b>Brand identity:</b> mark, pictogram set, inks, type, guidelines</span></li>
+        <li><svg><use href="#i-tick"/></svg><span><b>New website:</b> 3D hero, night-shift story, quote flow, service pages</span></li>
+        <li><svg><use href="#i-tick"/></svg><span><b>Real photography:</b> your crews, your sites, no AI stand-ins</span></li>
+        <li><svg><use href="#i-tick"/></svg><span><b>Rollout:</b> A-frames, fleet, uniforms, crew ID, stationery</span></li>
+        <li><svg><use href="#i-tick"/></svg><span><b>Proof engine:</b> named Google reviews and case studies</span></li>
+      </ul>
+    </div>
+    <div class="wrap close__sig"><span>Cre8tive Sync · Brand redesign proposal for IPS Facility Services</span><span>Audit data captured 7 October 2026</span></div>
+  </div>
+</section>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script type="module">
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
+
+const gsap = window.gsap, ScrollTrigger = window.ScrollTrigger;
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const YEL = 0xFFC20E, INK = 0x111111, WHITE = 0xF5F4EF, BLUE = 0x0057A8;
+
+/* ---------- tapes ---------- */
+const tick = '<svg viewBox="0 0 120 108" aria-hidden="true"><use href="#mark"/></svg>';
+$$('.tape__track').forEach(t => {
+  const txt = t.dataset.text || 'Caution · Cleaned to standard';
+  const unit = `<span>${txt.split(' · ').map(s => `${s}${tick}`).join('')}</span>`;
+  t.innerHTML = unit.repeat(6);
+});
+
+if (!gsap) { document.documentElement.classList.add('no-gsap'); }
+gsap.registerPlugin(ScrollTrigger);
+
+/* ---------- smooth scroll ---------- */
+let lenis = null;
+if (!reduce && window.Lenis) {
+  lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add(t => lenis.raf(t * 1000));
+  gsap.ticker.lagSmoothing(0);
+}
+$$('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+  const id = a.getAttribute('href');
+  const el = id.length > 1 && document.querySelector(id);
+  if (!el) return;
+  e.preventDefault();
+  if (lenis) lenis.scrollTo(el, { offset: el.closest('.site') && id !== '#redesign' ? -68 : 0, duration: 1.4 });
+  else el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
+}));
+
+/* marquee tapes */
+$$('.tape__track').forEach(t => {
+  const dir = +t.dataset.dir || -1;
+  const w = t.scrollWidth / 6;
+  if (reduce) return;
+  gsap.fromTo(t, { x: dir < 0 ? 0 : -w }, { x: dir < 0 ? -w : 0, duration: 22, ease: 'none', repeat: -1 });
+});
+
+/* ---------- act nav ---------- */
+const actLinks = $$('.actnav a'), actSecs = $$('[data-act-section]');
+let curAct = null;
+const syncAct = () => {
+  const mid = innerHeight * .5;
+  const hit = actSecs.find(sec => { const r = sec.getBoundingClientRect(); return r.top <= mid && r.bottom > mid; });
+  const id = hit ? hit.dataset.actSection : '';
+  if (id === curAct) return; curAct = id;
+  actLinks.forEach(a => a.setAttribute('aria-current', a.dataset.act === id));
+};
+ScrollTrigger.create({ start: 0, end: 'max', onUpdate: syncAct, onRefresh: syncAct });
+syncAct();
+
+/* ---------- cover intro ---------- */
+if (!reduce) {
+  const tl = gsap.timeline({ defaults: { ease: 'expo.out' } });
+  tl.from('.cover__tapes .t1', { xPercent: -110, duration: 1.1 })
+    .from('.cover__tapes .t2', { xPercent: 110, duration: 1.1 }, '<0.1')
+    .from('.cover__mark', { y: -260, rotate: -30, duration: 1.1, ease: 'bounce.out' }, '<0.15')
+    .from('.cover .cw', { yPercent: 120, opacity: 0, rotate: 4, stagger: 0.12, duration: 1 }, '<0.35')
+    .from('.cover__meta, .cover__by', { y: 24, opacity: 0, stagger: 0.1, duration: 0.9 }, '<0.3');
+  gsap.to('.cover__inner', { yPercent: 28, opacity: 0, ease: 'none', scrollTrigger: { trigger: '.cover', start: 'top top', end: 'bottom top', scrub: true } });
+}
+
+/* ---------- audit ---------- */
+const countEl = $('.spam__count');
+if (countEl) {
+  const small = countEl.querySelector('small').outerHTML;
+  const o = { v: 0 };
+  ScrollTrigger.create({
+    trigger: countEl, start: 'top 80%', once: true,
+    onEnter: () => {
+      if (reduce) return;
+      gsap.to(o, { v: 409, duration: 2.2, ease: 'expo.out', onUpdate: () => { countEl.innerHTML = Math.round(o.v) + small; } });
+    }
+  });
+}
+if (!reduce) {
+  gsap.from('.danger-sign', { scale: .6, rotate: -14, opacity: 0, duration: 1.1, ease: 'back.out(2.2)', scrollTrigger: { trigger: '.audit__head', start: 'top 75%' } });
+  gsap.from('.log tbody tr', { x: -40, opacity: 0, stagger: .08, duration: .8, ease: 'expo.out', scrollTrigger: { trigger: '.log', start: 'top 75%' } });
+  gsap.from('.specimen mark', { backgroundColor: 'rgba(215,38,45,0)', stagger: .25, duration: .5, scrollTrigger: { trigger: '.specimen', start: 'top 70%' } });
+  gsap.from('.assets li', { y: 30, opacity: 0, stagger: .07, duration: .8, ease: 'expo.out', scrollTrigger: { trigger: '.assets', start: 'top 75%' } });
+}
+
+/* ---------- hero copy ---------- */
+if (!reduce) {
+  const htl = gsap.timeline({ scrollTrigger: { trigger: '.hero', start: 'top 70%' }, defaults: { ease: 'expo.out' } });
+  htl.from('.hero h1 .w > span', { yPercent: 110, rotate: 6, duration: 1.1, stagger: .1 })
+     .from('.hero .lede', { y: 24, opacity: 0, duration: .9 }, '<0.35')
+     .from('.hero__ctas .plate', { scale: .7, opacity: 0, duration: .9, ease: 'back.out(2.4)', stagger: .08 }, '<0.15')
+     .from('.hero__meta span', { y: 16, opacity: 0, stagger: .08, duration: .7 }, '<0.2');
+}
+
+/* ---------- 3D: hero A-frame ---------- */
+function makeSignTexture(side) {
+  const c = document.createElement('canvas');
+  c.width = 1024; c.height = 1600;
+  const g = c.getContext('2d');
+  g.fillStyle = '#FFC20E'; g.fillRect(0, 0, c.width, c.height);
+  g.strokeStyle = '#111'; g.lineWidth = 26; g.lineJoin = 'round';
+  const rr = (x, y, w, h, r) => { g.beginPath(); g.roundRect(x, y, w, h, r); g.stroke(); };
+  rr(54, 54, 916, 1492, 40);
+  g.fillStyle = '#111'; g.textAlign = 'center';
+  try { g.fontStretch = 'expanded'; } catch (e) {}
+  if (side === 0) {
+    g.font = '900 150px Archivo'; g.fillText('CAUTION', 512, 260);
+    // triangle
+    g.beginPath(); g.moveTo(512, 360); g.lineTo(860, 960); g.lineTo(164, 960); g.closePath();
+    g.lineWidth = 46; g.stroke();
+    // standing figure
+    g.lineCap = 'round'; g.lineWidth = 40;
+    const P = (pts) => { g.beginPath(); g.moveTo(pts[0], pts[1]); g.lineTo(pts[2], pts[3]); g.stroke(); };
+    P([512, 640, 512, 800]); P([512, 680, 440, 760]); P([512, 680, 584, 760]); P([512, 800, 462, 900]); P([512, 800, 562, 900]);
+    g.beginPath(); g.arc(512, 584, 40, 0, Math.PI * 2); g.fill();
+    g.font = '900 120px Archivo'; g.fillText('CLEANED', 512, 1170); g.fillText('BY IPS', 512, 1310);
+    g.font = '600 52px "Barlow Condensed"'; try { g.letterSpacing = '8px'; } catch (e) {}
+    g.fillText('PERTH · SINCE 2007', 512, 1440);
+  } else {
+    g.font = '900 300px Archivo'; g.fillText('IPS', 512, 520);
+    g.font = '600 64px "Barlow Condensed"'; try { g.letterSpacing = '10px'; } catch (e) {}
+    g.fillText('FACILITY SERVICES', 512, 640);
+    try { g.letterSpacing = '0px'; } catch (e) {}
+    g.font = '900 110px Archivo'; g.fillText('CLEAN,', 512, 1010); g.fillText('TO', 512, 1140); g.fillText('STANDARD.', 512, 1270);
+  }
+  const t = new THREE.CanvasTexture(c);
+  t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8;
+  return t;
+}
+
+async function heroScene() {
+  const host = $('#heroCanvas');
+  if (!host) return;
+  try { await Promise.all([document.fonts.load('900 100px Archivo'), document.fonts.load('600 40px "Barlow Condensed"')]); } catch (e) {}
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;
+  host.appendChild(renderer.domElement);
+  const scene = new THREE.Scene();
+  const cam = new THREE.PerspectiveCamera(32, 1, .1, 100);
+  cam.position.set(0, 1.1, 7.2); cam.lookAt(0, -.15, 0);
+
+  scene.add(new THREE.HemisphereLight(0xffffff, 0xffe2a0, 1.6));
+  const key = new THREE.DirectionalLight(0xffffff, 2.4);
+  key.position.set(3, 6, 4); key.castShadow = true;
+  key.shadow.mapSize.set(2048, 2048); key.shadow.radius = 8;
+  Object.assign(key.shadow.camera, { left: -4, right: 4, top: 4, bottom: -4 });
+  scene.add(key);
+  const rim = new THREE.DirectionalLight(0xffffff, 1.2); rim.position.set(-4, 2, -3); scene.add(rim);
+
+  const ground = new THREE.Mesh(new THREE.PlaneGeometry(30, 30), new THREE.ShadowMaterial({ opacity: .22 }));
+  ground.rotation.x = -Math.PI / 2; ground.position.y = -1.3; ground.receiveShadow = true; scene.add(ground);
+
+  const rig = new THREE.Group(); scene.add(rig);
+  const sign = new THREE.Group(); rig.add(sign);
+  const plastic = new THREE.MeshPhysicalMaterial({ color: YEL, roughness: .38, clearcoat: .7, clearcoatRoughness: .25 });
+  const ink = new THREE.MeshStandardMaterial({ color: INK, roughness: .5 });
+  const W = 1.25, H = 2.0, D = .06;
+  const face0 = new THREE.MeshPhysicalMaterial({ map: makeSignTexture(0), roughness: .4, clearcoat: .6, clearcoatRoughness: .3 });
+  const face1 = new THREE.MeshPhysicalMaterial({ map: makeSignTexture(1), roughness: .4, clearcoat: .6, clearcoatRoughness: .3 });
+  const panelGeo = new THREE.BoxGeometry(W, H, D);
+  const mkPanel = (front) => {
+    const pivot = new THREE.Group(); pivot.position.y = H / 2 + .1;
+    const mats = [plastic, plastic, plastic, plastic, front ? face0 : plastic, front ? plastic : face1];
+    const m = new THREE.Mesh(panelGeo, mats); m.position.y = -H / 2; m.castShadow = true;
+    pivot.add(m);
+    const foot = new THREE.Mesh(new THREE.BoxGeometry(W * .96, .08, .14), ink); foot.position.y = -H + .02; foot.castShadow = true; pivot.add(foot);
+    sign.add(pivot); return pivot;
+  };
+  const pA = mkPanel(true), pB = mkPanel(false);
+  const cap = new THREE.Mesh(new THREE.CylinderGeometry(.07, .07, W * 1.02, 24), ink); cap.rotation.z = Math.PI / 2; cap.position.y = H / 2 + .1; sign.add(cap);
+  const handle = new THREE.Mesh(new THREE.TorusGeometry(.2, .05, 16, 40, Math.PI), plastic); handle.position.y = H / 2 + .14; handle.castShadow = true; sign.add(handle);
+  const fold = { a: 0 };
+  const setFold = () => { pA.rotation.x = -fold.a; pB.rotation.x = fold.a; };
+
+  // floating droplets + spray bottle
+  const dropMat = new THREE.MeshPhysicalMaterial({ color: BLUE, roughness: .08, clearcoat: 1, metalness: 0 });
+  const dropGeo = new THREE.SphereGeometry(.12, 32, 24);
+  { const p = dropGeo.attributes.position; for (let i = 0; i < p.count; i++) { const y = p.getY(i); if (y > 0) { const k = y / .12; p.setX(i, p.getX(i) * (1 - k * .75)); p.setZ(i, p.getZ(i) * (1 - k * .75)); p.setY(i, y * 1.9); } } dropGeo.computeVertexNormals(); }
+  const drops = [];
+  for (let i = 0; i < 7; i++) {
+    const d = new THREE.Mesh(dropGeo, dropMat); d.castShadow = true;
+    const a = i / 7 * Math.PI * 2;
+    d.userData = { a, r: 1.35 + (i % 3) * .28, y: -.2 + (i % 4) * .55, s: .6 + (i % 3) * .3 };
+    d.scale.setScalar(d.userData.s); rig.add(d); drops.push(d);
+  }
+  const bottle = new THREE.Group();
+  const prof = [[0, 0], [.32, 0], [.34, .05], [.34, .9], [.28, 1.05], [.16, 1.15], [.16, 1.3], [0, 1.3]].map(p => new THREE.Vector2(p[0], p[1]));
+  const bBody = new THREE.Mesh(new THREE.LatheGeometry(prof, 48), new THREE.MeshPhysicalMaterial({ color: WHITE, roughness: .3, clearcoat: .8 }));
+  bBody.castShadow = true; bottle.add(bBody);
+  const label = new THREE.Mesh(new THREE.CylinderGeometry(.345, .345, .42, 48, 1, true), new THREE.MeshStandardMaterial({ color: YEL, roughness: .4 })); label.position.y = .5; bottle.add(label);
+  const head = new THREE.Mesh(new THREE.BoxGeometry(.5, .22, .26), ink); head.position.set(.12, 1.42, 0); head.castShadow = true; bottle.add(head);
+  const nozzle = new THREE.Mesh(new THREE.BoxGeometry(.18, .1, .12), ink); nozzle.position.set(.44, 1.44, 0); bottle.add(nozzle);
+  const trig = new THREE.Mesh(new THREE.BoxGeometry(.08, .32, .12), ink); trig.position.set(.24, 1.2, 0); trig.rotation.z = -.3; bottle.add(trig);
+  bottle.scale.setScalar(.75); rig.add(bottle);
+
+  let mobile = false;
+  const resize = () => {
+    const w = host.clientWidth, h = host.clientHeight;
+    renderer.setSize(w, h, false); cam.aspect = w / h; cam.updateProjectionMatrix();
+    mobile = w < 860;
+    rig.position.x = mobile ? 0 : Math.min(2.6, 1.15 * cam.aspect);
+    rig.scale.setScalar(mobile ? .78 : 1);
+    bottle.position.set(mobile ? -1.5 : -1.15, -1.3, .9);
+  };
+  resize(); addEventListener('resize', resize);
+
+  // intro: drop + unfold
+  const st = { y: reduce ? 0 : 6, spin: reduce ? .5 : -2.4, scroll: 0 };
+  sign.position.y = st.y;
+  if (reduce) { fold.a = .3; setFold(); }
+  else {
+    const go = () => {
+      gsap.timeline()
+        .to(st, { y: 0, duration: 1.4, ease: 'bounce.out' })
+        .to(st, { spin: .45, duration: 2, ease: 'expo.out' }, 0)
+        .to(fold, { a: .3, duration: 1.1, ease: 'back.out(3)', onUpdate: setFold }, .9);
+    };
+    ScrollTrigger.create({ trigger: '.hero', start: 'top 70%', once: true, onEnter: go });
+    gsap.to(st, { scroll: 1, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 } });
+  }
+
+  const ptr = { x: 0, y: 0 }, sm = { x: 0, y: 0 };
+  addEventListener('pointermove', e => { ptr.x = e.clientX / innerWidth - .5; ptr.y = e.clientY / innerHeight - .5; });
+
+  let visible = true;
+  new IntersectionObserver(([en]) => { visible = en.isIntersecting; }).observe(host);
+  const clock = new THREE.Clock();
+  renderer.setAnimationLoop(() => {
+    if (!visible) return;
+    const t = clock.getElapsedTime();
+    sm.x += (ptr.x - sm.x) * .05; sm.y += (ptr.y - sm.y) * .05;
+    const s = st.scroll;
+    sign.position.y = st.y + Math.sin(t * 1.2) * .04 + s * 1.2;
+    sign.rotation.y = st.spin + sm.x * .7 + s * Math.PI * 1.4;
+    sign.rotation.x = sm.y * .18;
+    sign.rotation.z = s * -.3;
+    if (s > 0) { fold.a = .3 * (1 - s * .9); setFold(); }
+    drops.forEach((d, i) => {
+      const u = d.userData; const a = u.a + t * .35 + s * 2;
+      d.position.set(Math.cos(a) * u.r, u.y + Math.sin(t * 1.6 + i) * .15, Math.sin(a) * u.r * .6);
+      d.rotation.z = Math.sin(t + i) * .3;
+    });
+    bottle.rotation.y = t * .4 + sm.x; bottle.position.y = -1.3 + Math.sin(t * 1.1) * .05 + s * 2;
+    renderer.render(scene, cam);
+  });
+}
+
+/* ---------- signature: slipping man ---------- */
+function standSection() {
+  const stand = { T: [50, 33, 50, 60], AL: [50, 40, 35, 55], AR: [50, 40, 65, 55], LL: [50, 60, 39, 84], LR: [50, 60, 61, 84], H: [50, 22] };
+  const set = (id, a) => ({ attr: { x1: a[0], y1: a[1], x2: a[2], y2: a[3] } });
+  if (reduce) {
+    ['T', 'AL', 'AR', 'LL', 'LR'].forEach(k => gsap.set('#m' + k, set(k, stand[k])));
+    gsap.set('#mH', { attr: { cx: 50, cy: 22 } }); gsap.set('#drops', { opacity: 0 }); gsap.set('#shine', { opacity: 1 });
+    gsap.set('#st1', { opacity: 0 }); gsap.set('#st2', { opacity: 1 }); $('#st2').removeAttribute('aria-hidden'); return;
+  }
+  const tl = gsap.timeline({ scrollTrigger: { trigger: '#standPin', start: 'top 68px', end: '+=140%', pin: true, scrub: .8,
+    onUpdate: s => { const on = s.progress > .5; $('#st2').toggleAttribute('aria-hidden', !on); $('#st1').toggleAttribute('aria-hidden', on); } } });
+  tl.to('.stand__sign', { rotate: -6, duration: .3, ease: 'power2.inOut' })
+    .to('#drops', { y: 12, opacity: 0, duration: .25 }, .35)
+    .to('#st1', { opacity: 0, y: -40, duration: .2 }, .35);
+  ['T', 'AL', 'AR', 'LL', 'LR'].forEach(k => tl.to('#m' + k, { ...set(k, stand[k]), duration: .35, ease: 'back.out(2.5)' }, .4));
+  tl.to('#mH', { attr: { cx: 50, cy: 22 }, duration: .35, ease: 'back.out(2.5)' }, .4)
+    .to('.stand__sign', { rotate: 0, scale: 1.04, duration: .3, ease: 'back.out(3)' }, .45)
+    .fromTo('#st2', { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: .25 }, .55)
+    .to('#shine', { opacity: 1, duration: .15 }, .7)
+    .to('.stand__sign', { scale: 1, duration: .3 }, .75);
+}
+
+/* ---------- night shift city ---------- */
+const SUBURBS = ['Perth CBD', 'West Perth', 'Subiaco', 'Osborne Park', 'Northbridge', 'East Perth', 'Victoria Park', 'Belmont', 'Welshpool', 'Malaga', 'Balcatta', 'Joondalup', 'Wangara', 'Fremantle', 'Cannington', 'Midland', 'Nedlands', 'Leederville', 'Canning Vale', 'Rockingham'];
+const TYPES = ['Office', 'Medical centre', 'School', 'Gym', 'Strata', 'Warehouse', 'Restaurant', 'Pub', 'Retail'];
+function rng(seed) { return () => (seed = (seed * 16807) % 2147483647) / 2147483647; }
+const r0 = rng(20070);
+const N = 184;
+const LOG = Array.from({ length: N }, (_, i) => ({ min: Math.floor((i + r0() * .8) / N * 690) + 15, sub: SUBURBS[Math.floor(r0() * SUBURBS.length)], type: TYPES[Math.floor(r0() * TYPES.length)] }));
+const fmt = m => { const t = (18 * 60 + m) % 1440; return String(Math.floor(t / 60)).padStart(2, '0') + ':' + String(t % 60).padStart(2, '0'); };
+
+function nightScene() {
+  const host = $('#nightCanvas'), pin = $('#nightPin');
+  const clockT = $('#clockT'), clockN = $('#clockN'), feed = $('#feed');
+  const tickSvg = '<svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tick"/></svg>';
+  let lastN = -1;
+  const renderFeed = n => {
+    const items = LOG.slice(Math.max(0, n - 6), n).reverse();
+    feed.innerHTML = items.map(e => `<li><time class="num">${fmt(e.min)}</time><span>${e.type}<small>${e.sub}</small></span>${tickSvg}</li>`).join('') || '<li><time class="num">18:00</time><span>Crews heading out<small>Perth metro</small></span><span></span></li>';
+  };
+  renderFeed(0);
+
+  const renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  renderer.setClearColor(INK);
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  host.appendChild(renderer.domElement);
+  const scene = new THREE.Scene();
+  scene.fog = new THREE.Fog(INK, 18, 46);
+  const cam = new THREE.PerspectiveCamera(38, 1, .1, 200);
+  scene.add(new THREE.AmbientLight(0xffffff, .5));
+  const dl = new THREE.DirectionalLight(0xffffff, 1.4); dl.position.set(-6, 12, 8); scene.add(dl);
+
+  // ground grid
+  const grid = new THREE.GridHelper(60, 60, 0x2a2a2a, 0x1f1f1f); grid.position.y = 0; scene.add(grid);
+  // river: Swan, a flat blue ribbon
+  const riverShape = new THREE.Shape();
+  riverShape.moveTo(-30, 2); riverShape.bezierCurveTo(-10, 6, -4, -2, 4, 3); riverShape.bezierCurveTo(10, 7, 18, 1, 30, 4);
+  riverShape.lineTo(30, 7.5); riverShape.bezierCurveTo(18, 4.5, 10, 10.5, 4, 6.5); riverShape.bezierCurveTo(-4, 1.5, -10, 9.5, -30, 5.5); riverShape.closePath();
+  const river = new THREE.Mesh(new THREE.ShapeGeometry(riverShape), new THREE.MeshBasicMaterial({ color: 0x0b2a4d }));
+  river.rotation.x = -Math.PI / 2; river.position.y = .01; scene.add(river);
+
+  const box = new THREE.BoxGeometry(1, 1, 1); box.translate(0, .5, 0);
+  const mat = new THREE.MeshLambertMaterial({ color: 0xffffff });
+  const city = new THREE.InstancedMesh(box, mat, N);
+  const r = rng(7), dummy = new THREE.Object3D(), base = new THREE.Color(0x262624), lit = new THREE.Color(YEL), tmp = new THREE.Color();
+  const data = [];
+  let placed = 0;
+  for (let gx = -11; gx <= 11 && placed < N; gx++) for (let gz = -9; gz <= 9 && placed < N; gz++) {
+    if (gx % 4 === 0 || gz % 4 === 0) continue;
+    const wx = gx * 1.25, wz = gz * 1.25 - 4;
+    const inRiver = wz > -5.5 && wz < -1.5; if (inRiver) continue;
+    const d = Math.hypot(gx, gz * 1.2);
+    if (r() < d / 16) continue;
+    const h = .4 + Math.pow(r(), 2.2) * (d < 4 ? 6 : 2.2);
+    data.push({ x: wx, z: wz, h, w: .7 + r() * .3, pop: 0 }); placed++;
+  }
+  const order = data.map((_, i) => i).sort(() => r() - .5);
+  const litAt = new Float32Array(data.length); order.forEach((idx, k) => { litAt[idx] = k; });
+  city.count = data.length;
+  const update = (n, t) => {
+    for (let i = 0; i < data.length; i++) {
+      const b = data[i]; const on = litAt[i] < n;
+      const age = on ? Math.min(1, (n - litAt[i]) / 6) : 0;
+      const bump = on ? 1 + Math.sin(Math.min(1, age) * Math.PI) * .25 : 1;
+      dummy.position.set(b.x, 0, b.z); dummy.scale.set(b.w, b.h * bump, b.w); dummy.updateMatrix();
+      city.setMatrixAt(i, dummy.matrix);
+      tmp.copy(base).lerp(lit, on ? Math.min(1, .4 + age) : 0);
+      city.setColorAt(i, tmp);
+    }
+    city.instanceMatrix.needsUpdate = true; city.instanceColor.needsUpdate = true;
+  };
+  scene.add(city); update(0);
+
+  // beacon: the A-frame mark as a small pyramid hopping between lit sites
+  const beacon = new THREE.Mesh(new THREE.ConeGeometry(.35, .6, 3), new THREE.MeshBasicMaterial({ color: YEL }));
+  scene.add(beacon);
+
+  const resize = () => { const w = host.clientWidth, h = host.clientHeight; renderer.setSize(w, h, false); cam.aspect = w / h; cam.updateProjectionMatrix(); };
+  resize(); addEventListener('resize', resize);
+
+  const st = { p: 0 };
+  let visible = false;
+  new IntersectionObserver(([en]) => { visible = en.isIntersecting; }).observe(host);
+  ScrollTrigger.create({ trigger: pin, start: 'top 68px', end: reduce ? '+=1' : '+=260%', pin: !reduce, scrub: reduce ? false : .6,
+    onUpdate: s => { st.p = reduce ? 1 : s.progress; } });
+  if (reduce) st.p = 1;
+  const clock = new THREE.Clock();
+  let nShown = 0;
+  renderer.setAnimationLoop(() => {
+    if (!visible) return;
+    const t = clock.getElapsedTime();
+    const p = st.p;
+    const n = p * data.length;
+    nShown += (n - nShown) * .2;
+    update(nShown, t);
+    const ang = -.6 + p * 1.4 + t * .02;
+    const rad = innerWidth < 860 ? 30 : 24;
+    cam.position.set(Math.sin(ang) * rad, 13 - p * 3, Math.cos(ang) * rad);
+    cam.lookAt(0, 0, -2);
+    const cur = order[Math.max(0, Math.min(data.length - 1, Math.floor(nShown) - 1))];
+    const b = data[cur];
+    beacon.position.set(b.x, b.h + 1 + Math.abs(Math.sin(t * 5)) * .3, b.z);
+    beacon.rotation.y = t * 2; beacon.visible = nShown >= 1;
+    const mins = Math.round(p * 720);
+    clockT.textContent = fmt(mins);
+    const cnt = Math.floor(nShown + .001);
+    const shown = Math.min(180, Math.round(cnt / data.length * 180));
+    if (shown !== lastN) { clockN.textContent = (p > .995 ? '180+' : shown); const k = Math.round(p * N); renderFeed(Math.min(N, k)); lastN = shown; }
+    renderer.render(scene, cam);
+  });
+}
+
+/* ---------- services horizontal ---------- */
+function services() {
+  const mm = gsap.matchMedia();
+  mm.add('(min-width: 861px) and (prefers-reduced-motion: no-preference)', () => {
+    const track = $('#svcTrack');
+    const dist = () => track.scrollWidth - innerWidth;
+    const tw = gsap.to(track, { x: () => -dist(), ease: 'none', scrollTrigger: { trigger: '#svcPin', start: 'top 68px', end: () => '+=' + dist(), pin: true, scrub: .8, invalidateOnRefresh: true } });
+    $$('.sp', track).forEach((card, i) => {
+      gsap.from(card.querySelector('.sp__ico'), { rotate: -25, scale: .5, ease: 'back.out(2)', scrollTrigger: { trigger: card, containerAnimation: tw, start: 'left 90%', end: 'left 55%', scrub: true } });
+      gsap.fromTo(card, { rotate: i % 2 ? 3 : -3, y: 30 }, { rotate: 0, y: 0, ease: 'none', scrollTrigger: { trigger: card, containerAnimation: tw, start: 'left right', end: 'left 50%', scrub: true } });
+    });
+  });
+  mm.add('(max-width: 860px) and (prefers-reduced-motion: no-preference)', () => {
+    $$('.sp').forEach(card => gsap.from(card, { y: 60, rotate: -2, opacity: 0, duration: .9, ease: 'expo.out', scrollTrigger: { trigger: card, start: 'top 88%' } }));
+  });
+}
+
+/* ---------- job card ---------- */
+function jobcard() {
+  const card = $('#jobcard'); const items = $$('.tasks li', card); const signed = $('#signedTxt');
+  const finish = () => { card.classList.add('complete'); signed.textContent = 'Signed off 22:35'; };
+  if (reduce) { items.forEach(li => li.classList.add('done')); finish(); }
+  else {
+    ScrollTrigger.create({ trigger: card, start: 'top 65%', once: true, onEnter: () => {
+      items.forEach((li, i) => setTimeout(() => { li.classList.add('done'); if (i === items.length - 1) setTimeout(finish, 350); }, 380 * i + 200));
+    } });
+  }
+  $$('.rate button', card).forEach((b, i, all) => b.addEventListener('click', () => {
+    all.forEach((x, j) => x.setAttribute('aria-pressed', j <= i));
+    signed.textContent = `Signed off · rated ${i + 1}/5`;
+  }));
+  if (!reduce) gsap.from('.steps li', { x: -40, opacity: 0, stagger: .1, duration: .9, ease: 'expo.out', scrollTrigger: { trigger: '.steps', start: 'top 80%' } });
+}
+
+/* ---------- entry board + offer ---------- */
+function boards() {
+  if (reduce) return;
+  gsap.from('.board', { yPercent: 12, rotate: -2, duration: 1.2, ease: 'expo.out', scrollTrigger: { trigger: '.board', start: 'top 85%' } });
+  gsap.from('.req svg', { scale: 0, rotate: -90, stagger: .08, duration: .9, ease: 'back.out(2.2)', scrollTrigger: { trigger: '.board__grid', start: 'top 80%' } });
+  gsap.from('.offer h2', { scale: .6, rotate: -4, opacity: 0, duration: 1.2, ease: 'back.out(1.8)', scrollTrigger: { trigger: '.offer', start: 'top 70%' } });
+  gsap.from('.op', { x: 80, rotate: 4, opacity: 0, stagger: .12, duration: 1, ease: 'back.out(1.6)', scrollTrigger: { trigger: '.offer__plates', start: 'top 80%' } });
+  gsap.from('.form', { y: 60, opacity: 0, duration: 1, ease: 'expo.out', scrollTrigger: { trigger: '.form', start: 'top 85%' } });
+}
+
+/* ---------- form ---------- */
+function form() {
+  const f = $('#qform'), done = $('#fdone');
+  const setErr = (el, msg) => { const fld = el.closest('.field'); fld.classList.toggle('err', !!msg); fld.querySelector('.msg').textContent = msg || ''; if (el.tagName !== 'FIELDSET') el.setAttribute('aria-invalid', !!msg); };
+  f.addEventListener('submit', e => {
+    e.preventDefault();
+    const name = f.name.value.trim(), phone = f.phone.value.trim(), email = f.email.value.trim(), type = f.querySelector('input[name=type]:checked');
+    let first = null;
+    const chk = (cond, el, msg) => { setErr(el, cond ? '' : msg); if (!cond && !first) first = el; };
+    chk(name.length > 1, f.name, 'Add your name so we know who to ask for.');
+    chk(!!type, $('#f-type'), 'Pick the closest site type. Choose “Other” if none fit.');
+    const emailOk = !email || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    const phoneOk = !phone || phone.replace(/\D/g, '').length >= 8;
+    chk(emailOk, f.email, 'That email looks incomplete. Check for the @ and domain.');
+    chk(phoneOk, f.phone, 'Phone numbers need at least 8 digits.');
+    if (emailOk && phoneOk && !email && !phone) { setErr(f.phone, 'Add a phone or an email so we can reply.'); if (!first) first = f.phone; }
+    if (first) { (first.tagName === 'FIELDSET' ? first.querySelector('input') : first).focus(); return; }
+    const btn = f.querySelector('button[type=submit]'); btn.disabled = true; btn.firstChild.textContent = 'Logging… ';
+    setTimeout(() => {
+      const now = new Date(); const ts = String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0');
+      $('#fdoneTxt').textContent = `Thanks ${name.split(' ')[0]}. Your ${type.value} quote request was logged at ${ts}. The IPS team will be in touch to book a walkthrough.`;
+      done.classList.add('show'); done.focus();
+      if (!reduce) gsap.from(done, { clipPath: 'inset(0 0 100% 0)', duration: .8, ease: 'expo.out' });
+      btn.disabled = false; btn.firstChild.textContent = 'Get my quote ';
+    }, 700);
+  });
+  ['name', 'phone', 'email'].forEach(n => f[n].addEventListener('input', () => setErr(f[n], '')));
+  $$('input[name=type]', f).forEach(i => i.addEventListener('change', () => setErr($('#f-type'), '')));
+  $('#freset').addEventListener('click', () => { f.reset(); done.classList.remove('show'); f.name.focus(); });
+}
+
+/* ---------- system ---------- */
+function system() {
+  const draws = $$('#lbMark .draw');
+  draws.forEach(p => { const l = p.getTotalLength ? p.getTotalLength() : 600; p.style.strokeDasharray = l; p.style.strokeDashoffset = reduce ? 0 : l; });
+  if (reduce) { gsap.set('#lbFill', { opacity: 1 }); return; }
+  const tl = gsap.timeline({ scrollTrigger: { trigger: '.logo-build', start: 'top 70%' } });
+  tl.from('#lbGuides > *', { scale: 0, transformOrigin: '50% 50%', opacity: 0, stagger: .1, duration: .6, ease: 'expo.out' })
+    .to(draws, { strokeDashoffset: 0, duration: 1.1, stagger: .2, ease: 'power2.inOut' }, '<0.2')
+    .from('#lbHead', { scale: 0, transformOrigin: '50% 50%', duration: .5, ease: 'back.out(3)' }, '-=0.3')
+    .to('#lbFill', { opacity: 1, duration: .3 }, '-=0.1')
+    .from('#lbWord', { x: -40, opacity: 0, duration: .8, ease: 'expo.out' }, '-=0.2')
+    .from('#lbSub', { x: -20, opacity: 0, duration: .6, ease: 'expo.out' }, '-=0.5')
+    .to('#lbGuides', { opacity: .35, duration: .6 });
+  gsap.from('.lv', { y: 50, opacity: 0, stagger: .12, duration: .9, ease: 'expo.out', scrollTrigger: { trigger: '.logo-vars', start: 'top 80%' } });
+  gsap.from('.ink', { scaleY: 0, transformOrigin: '50% 100%', stagger: .08, duration: 1, ease: 'expo.out', scrollTrigger: { trigger: '.inks', start: 'top 80%' } });
+  gsap.from('.pict figure', { y: 60, rotate: (i) => i ? 3 : -3, opacity: 0, stagger: .15, duration: 1, ease: 'expo.out', scrollTrigger: { trigger: '.pict', start: 'top 80%' } });
+  gsap.from('.app', { y: 70, opacity: 0, stagger: .1, duration: 1, ease: 'expo.out', scrollTrigger: { trigger: '.apps', start: 'top 80%' } });
+  gsap.from('.deliver li', { x: 40, opacity: 0, stagger: .08, duration: .8, ease: 'expo.out', scrollTrigger: { trigger: '.deliver', start: 'top 80%' } });
+  // motion demos loop
+  const m = {};
+  $$('.mdemo').forEach(el => m[el.dataset.m] = el);
+  gsap.timeline({ repeat: -1, repeatDelay: .8 }).fromTo(m.drop, { y: -70 }, { y: 0, duration: 1, ease: 'bounce.out' }).to(m.drop, { opacity: 0, duration: .3, delay: .6 }).set(m.drop, { opacity: 1, y: -70 });
+  gsap.set(m.unfold, { transformOrigin: '50% 0%' });
+  gsap.timeline({ repeat: -1, repeatDelay: .8 }).fromTo(m.unfold, { rotateX: 90, transformPerspective: 300 }, { rotateX: 0, duration: 1, ease: 'back.out(2.5)' }).to(m.unfold, { rotateX: 90, duration: .5, delay: .8, ease: 'power2.in' });
+  gsap.timeline({ repeat: -1, repeatDelay: .8 }).set(m.sign, { backgroundColor: '#FFC20E', boxShadow: 'inset 0 0 0 3px #111' }).to(m.sign, { scale: 1.15, duration: .25, ease: 'power2.out', delay: .5 }).to(m.sign, { scale: 1, backgroundColor: '#00843D', boxShadow: 'inset 0 0 0 3px #00843D', duration: .5, ease: 'back.out(3)' }).to({}, { duration: 1 });
+}
+
+/* ---------- boot ---------- */
+heroScene().catch(err => console.warn('hero 3D unavailable', err));
+standSection();
+try { nightScene(); } catch (err) { console.warn('night 3D unavailable', err); }
+services();
+jobcard();
+boards();
+form();
+system();
+addEventListener('load', () => ScrollTrigger.refresh());
+document.fonts && document.fonts.ready.then(() => ScrollTrigger.refresh());
+</script>
+</body>
+</html>

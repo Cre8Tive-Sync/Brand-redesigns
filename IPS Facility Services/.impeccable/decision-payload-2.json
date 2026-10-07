@@ -1,0 +1,131 @@
+{
+  "title": "Choose the new world for IPS",
+  "question": "Premium, calm, told as one night shift. The roll assigned Turndown. Keep it, take an alternate, or re-roll.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "Turndown: the night housekeeping ritual",
+      "kicker": "THE ROLL",
+      "lineage": "Five-star hotel night housekeeping: the turndown, the room card, the brass key fob",
+      "thesis": "Every building IPS cleans gets the turndown a five-star hotel gives a suite: quietly prepared overnight, handed back at dawn.",
+      "palette": ["#0D1320", "#24304A", "#F1F2EE", "#B9925A", "#C9D6DF"],
+      "materials": ["Scroll-scrubbed 3D office floor whose lights go out room by room", "Heavy turndown card: site, time, crew, signed", "Brass key-fob tags for site numbers", "Linen-white cool paper, never cream"],
+      "viewport": "18:00, dusk. A 3D office floor glows, tenants gone. Left: 'Lights off at six. Ready by seven.' in light engraved-plate caps, Get a quote as a turndown card.",
+      "risk": "Hotel cues could read as hospitality-only or precious; type and copy must stay plain and commercial.",
+      "raised": [
+        {"from": "Bioluminescent wake", "raise": "Light only where work is happening: at rest the night is dark, a floor lights when its crew starts and dims once signed off."},
+        {"from": "Brick build instructions", "raise": "The night runs in numbered steps; finished steps ghost back, the current one is the only bright thing."},
+        {"from": "Acetate tab manual", "raise": "A time rail down the edge, 18:00 to 06:00, each section's height proportional to its share of the night."},
+        {"from": "Boarding pass and gate board", "raise": "Sign-off rows move in place and hold their mark; nothing pops or bounces in."},
+        {"from": "Suminagashi ink basin", "raise": "Honest names: the trade's real words (walkthrough, scope, sign-off), never marketing verbs."}
+      ]
+    },
+    {
+      "id": "model-pick",
+      "label": "The Handover Set",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "Architectural as-built drawings and the facility O&M handover manual",
+      "thesis": "Facility managers live in floor plans: the night is drawn as a plan, each room hatched clean and signed off in the title block.",
+      "palette": ["#F4F5F2", "#1B2430", "#3A5A7A", "#D9442B"],
+      "materials": ["Fine-line floor plans at 1:100", "Room schedules and title blocks", "Revision clouds for issues"],
+      "viewport": "A full-bleed plan of a Perth office level; rooms fill in as the scroll moves through the night, title block carries the quote action.",
+      "risk": "Familiar: blueprint-and-plan aesthetics are where many B2B pitches land, and it can feel cold and technical."
+    },
+    {
+      "id": "signals-instruments-night-flight-six-pack",
+      "label": "Night Flight Instruments",
+      "verdict": "competitive",
+      "lineage": "A light aircraft's night instrument panel",
+      "thesis": "Handing over keys overnight is flying on instruments: six calm gauges show the client everything they can't see.",
+      "palette": ["#0A0B0C", "#16181B", "#F2F2EE", "#7BE0A0", "#E8A23A"],
+      "materials": ["Round SVG gauges with damped needles", "Placard caps", "Amber caution lamps"],
+      "viewport": "A black panel of six gauges: sites tonight, crews on, sign-offs, issues, feedback, time to dawn.",
+      "case": "Fuses cleanly on clarity (systems made visible); loses on identification, as buyers aren't pilots.",
+      "risk": "Can read as a dashboard gimmick rather than a story.",
+      "hero": "https://impeccable.style/worlds/cards/signals-instruments-night-flight-six-pack-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/signals-instruments-night-flight-six-pack.webp"
+    },
+    {
+      "id": "vernacular-ephemera-boarding-pass-and-gate-board",
+      "label": "Boarding pass and gate board",
+      "verdict": "declined",
+      "lineage": "Airport departures and boarding passes",
+      "thesis": "The night's run sheet as a live departures board.",
+      "palette": ["#111418", "#F3F3F0", "#FFB400"],
+      "materials": ["Tabular figures", "Segmented pass"],
+      "viewport": "A departures board of sites ranked by sign-off time.",
+      "case": "Fuses poorly: travel is off-audience and repeats the existing feed.",
+      "risk": "Reads as an airline, not a contractor.",
+      "kept": "Rows move in place and hold their change mark.",
+      "hero": "https://impeccable.style/worlds/cards/vernacular-ephemera-boarding-pass-and-gate-board-hero.webp"
+    },
+    {
+      "id": "rw-manual-acetate-tab-board",
+      "label": "Acetate tab manual",
+      "verdict": "declined",
+      "lineage": "Boxed-software reference manuals",
+      "thesis": "Services as tabbed manual divisions under acetate leaves.",
+      "palette": ["#E8622A", "#F2C230", "#2C9A6B", "#F4F4F0"],
+      "materials": ["Milk acetate", "Coloured dividers"],
+      "viewport": "Open manual at the Services tab.",
+      "case": "Fuses poorly: playful hues fight the premium brief.",
+      "risk": "Retro-novelty.",
+      "kept": "A proportional rail showing the whole extent.",
+      "hero": "https://impeccable.style/worlds/cards/rw-manual-acetate-tab-board-hero.webp"
+    },
+    {
+      "id": "reefs-bioluminescent-nocturnal-plankton-wake-stars",
+      "label": "Bioluminescent wake",
+      "verdict": "declined",
+      "lineage": "Night sea plankton",
+      "thesis": "Cleaning as light trails on black water.",
+      "palette": ["#02060C", "#2F7BFF", "#7FF3FF"],
+      "materials": ["GPU particles", "Glow trails"],
+      "viewport": "Pointer draws glowing wakes over black.",
+      "case": "Fuses poorly: neon-on-black is generic and says nothing about cleaning.",
+      "risk": "AI-default glow aesthetic.",
+      "kept": "Darkness at rest, light only where activity is.",
+      "hero": "https://impeccable.style/worlds/cards/reefs-bioluminescent-nocturnal-plankton-wake-stars-hero.webp"
+    },
+    {
+      "id": "medium-native-fluid-ink-basin",
+      "label": "Suminagashi ink basin",
+      "verdict": "declined",
+      "lineage": "Japanese ink marbling",
+      "thesis": "The page as a fluid ink surface.",
+      "palette": ["#1C2A4A", "#2B2B2B", "#F2F3F1"],
+      "materials": ["WebGL fluid", "Sumi ink"],
+      "viewport": "A marbled basin answering the pointer.",
+      "case": "Fuses poorly: ink spreading is the opposite of clean.",
+      "risk": "Art piece, no conversion.",
+      "kept": "Honest physical names for every control.",
+      "hero": "https://impeccable.style/worlds/cards/medium-native-fluid-ink-basin-hero.webp"
+    },
+    {
+      "id": "games-toys-physics-play-brick-build-instructions",
+      "label": "Brick build instructions",
+      "verdict": "declined",
+      "lineage": "Toy brick instruction booklets",
+      "thesis": "The service as numbered build steps.",
+      "palette": ["#8EC9EC", "#111111", "#D7262B", "#FFD500"],
+      "materials": ["Exploded diagrams", "Stud grid"],
+      "viewport": "Numbered steps assembling a clean office.",
+      "case": "Fuses poorly: toy-like, exactly the cartoonish feel you want gone.",
+      "risk": "Childish.",
+      "kept": "Strict numbered sequence; finished steps ghost back.",
+      "hero": "https://impeccable.style/worlds/cards/games-toys-physics-play-brick-build-instructions-hero.webp"
+    }
+  ],
+  "reroll": {"registers": ["safer", "bolder"]},
+  "buildPath": {"value": "code", "toggle": false},
+  "canon": true,
+  "canonCard": {
+    "label": "The category standard",
+    "thesis": "A premium blue-and-white commercial cleaning site with crew photography, executed impeccably.",
+    "palette": ["#FFFFFF", "#0B2540", "#1A8FE3"],
+    "materials": ["Clean grid", "Crew photography"],
+    "viewport": "Photo hero of a crew in a bright office, stats bar, service grid.",
+    "risk": "Indistinguishable from every Perth competitor by design."
+  },
+  "steer": true
+}
