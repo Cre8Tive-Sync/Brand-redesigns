@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#1A2042">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Hanken+Grotesk:ital,wght@0,200..700;1,300..500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Caveat:wght@500&family=Hanken+Grotesk:ital,wght@0,200..700;1,300..500&display=swap" rel="stylesheet" crossorigin="anonymous">
 <style>
 :root{
   --night:#1A2042;
@@ -618,113 +618,110 @@ fieldset.field{border:0;padding:0;min-width:0}
 /* ============ SOCIAL ============ */
 .social{padding:clamp(120px,14vw,200px) 0 clamp(110px,13vw,180px);margin-top:clamp(120px,14vw,200px)}
 .social__intro{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(28px,6vw,96px);align-items:end}
-.social__week{display:flex;gap:10px 28px;flex-wrap:wrap;margin-top:1.6rem;color:var(--on-dark-2)}
-.social__week b{color:var(--acc-hi);font-weight:700}
-.posts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,2.4vw,36px);margin-top:clamp(56px,7vw,96px);align-items:start}
-@media (max-width:1060px){.posts{grid-template-columns:minmax(0,1fr);max-width:560px;margin-left:auto;margin-right:auto;gap:72px}}
+.social__arc{display:flex;gap:10px 28px;flex-wrap:wrap;list-style:none;margin:1.6rem 0 0;padding:0;color:var(--on-dark-2)}
+.social__arc b{color:var(--acc-hi);font-weight:700;margin-right:.5em}
+.posts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(80px,9vw,128px) clamp(28px,4.4vw,72px);margin-top:clamp(56px,7vw,96px);align-items:start}
+@media (max-width:900px){.posts{grid-template-columns:minmax(0,1fr);max-width:600px;margin-left:auto;margin-right:auto}}
 @media (max-width:860px){.social__intro{grid-template-columns:1fr}}
-.pc{margin:0;display:flex;flex-direction:column;gap:22px}
+.pc{margin:0;display:flex;flex-direction:column;gap:24px;min-width:0}
 .pc__head{display:flex;justify-content:space-between;gap:12px;color:var(--on-dark-2);padding-bottom:12px;border-bottom:1px solid var(--hair-d)}
 .pc__head b{color:var(--acc-hi);font-weight:700}
 .pc__cap h3{margin-bottom:10px}
 .pc__idea{font-size:.98rem;line-height:1.55;color:var(--on-dark-2)}
-.pc__copy{margin-top:18px;padding:18px 20px;border:1px solid var(--hair-d);border-radius:2px;font-size:.94rem;line-height:1.6;display:grid;gap:.8em}
+.pc__tabs{display:flex;margin-top:22px;border-bottom:1px solid var(--hair-d);overflow-x:auto;scrollbar-width:none}
+.pc__tab{font:700 .74rem/1 var(--display);font-stretch:88%;letter-spacing:.14em;text-transform:uppercase;background:none;border:0;border-bottom:3px solid transparent;margin-bottom:-1px;color:var(--on-dark-2);padding:14px 14px 12px;cursor:pointer;white-space:nowrap;transition:color .3s,border-color .3s}
+.pc__tab:first-child{padding-left:0}
+@media (max-width:480px){.pc__tab{padding:14px 9px 12px;letter-spacing:.1em}}
+.pc__tab:hover{color:var(--on-dark)}
+.pc__tab[aria-selected="true"]{color:var(--on-dark);border-bottom-color:var(--acc-hi)}
+.pc__panel{padding-top:18px;font-size:.94rem;line-height:1.6;display:grid;gap:.8em}
+.pc__panel[hidden]{display:none}
+.pc__panel .ln{margin-top:-.8em}
 .pc__tags{color:var(--acc-hi);font-size:.86rem;word-spacing:.2em}
-.pc__act{display:flex;align-items:center;gap:16px;margin-top:14px;flex-wrap:wrap}
-.pc__btn{font:700 .78rem var(--display);font-stretch:88%;letter-spacing:.14em;text-transform:uppercase;background:transparent;color:var(--on-dark);border:1px solid var(--hair-d);border-radius:2px;padding:11px 16px;cursor:pointer;transition:background .35s var(--ease),color .35s,border-color .35s}
+.pc__act{display:flex;align-items:center;gap:10px;margin-top:20px;flex-wrap:wrap}
+.pc__btn{font:700 .74rem/1 var(--display);font-stretch:88%;letter-spacing:.14em;text-transform:uppercase;background:transparent;color:var(--on-dark);border:1px solid var(--hair-d);border-radius:2px;padding:13px 16px;cursor:pointer;transition:background .35s var(--ease),color .35s,border-color .35s}
 .pc__btn:hover{background:var(--acc);color:#1A2042;border-color:var(--acc)}
-.pc__ok{font-size:.84rem;color:var(--on-dark-2)}
+.pc__btn--fill{background:var(--acc);color:#1A2042;border-color:var(--acc)}
+.pc__btn--fill:hover{background:var(--violet);color:#FFF0D9;border-color:var(--violet)}
+.pc__btn:disabled{opacity:.55;cursor:progress}
+.pc__ok{font-size:.84rem;color:var(--on-dark-2);flex-basis:100%}
+.pc__ok:empty{display:none}
 
-/* the frame: a 4:5 feed post. Everything inside is sized in container units so it scales as one picture */
-.post{position:relative;aspect-ratio:4/5;container-type:inline-size;overflow:hidden;border-radius:3px;isolation:isolate;box-shadow:0 2px 2px rgba(0,0,0,.14),0 44px 80px -40px rgba(0,0,0,.75);font-family:var(--text)}
-.post *{box-sizing:border-box}
-.post__bar{position:absolute;left:6cqw;right:6cqw;top:5.6cqw;display:flex;justify-content:space-between;align-items:center;z-index:3}
-.post__logo{display:flex;align-items:center;gap:2.2cqw}
-.post__logo svg{width:3.2cqw;height:5.6cqw}
-.post__logo b{font-family:var(--display);font-weight:900;font-stretch:125%;font-size:4.6cqw;letter-spacing:.04em;line-height:1}
-.post__k{font-family:var(--display);font-weight:700;font-stretch:88%;font-size:2.4cqw;letter-spacing:.16em;text-transform:uppercase;line-height:1.3}
-.post__d{font-family:var(--display);font-weight:800;font-stretch:78%;text-transform:uppercase;line-height:.9;letter-spacing:-.004em;margin:0}
-.post__foot{position:absolute;left:6cqw;right:6cqw;bottom:5.4cqw;display:flex;justify-content:space-between;gap:3cqw;z-index:3}
+/* the post: a real 1080 x 1350 feed image, scaled to its frame for preview and exported at full size */
+.sp-frame{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:3px;--k:.5;box-shadow:0 2px 2px rgba(0,0,0,.14),0 44px 80px -40px rgba(0,0,0,.75)}
+.sp{position:absolute;left:0;top:0;width:1080px;height:1350px;transform:scale(var(--k));transform-origin:0 0;overflow:hidden;isolation:isolate;font-family:var(--text);font-feature-settings:"ss01";font-size:28px;line-height:1.25;-webkit-font-smoothing:antialiased;text-align:left}
+.sp *,.sp *::before,.sp *::after{box-sizing:border-box}
+.sp p{margin:0}
+.sp__top{position:absolute;left:72px;right:72px;top:64px;display:flex;justify-content:space-between;align-items:center;z-index:5}
+.sp__logo{display:flex;align-items:center;gap:16px}
+.sp__logo svg{width:30px;height:52px;flex:none}
+.sp__logo b{display:block;font-family:var(--display);font-weight:900;font-stretch:125%;font-size:44px;line-height:1;letter-spacing:.04em}
+.sp__logo i{display:block;font-style:normal;font-family:var(--display);font-weight:700;font-stretch:88%;font-size:12.5px;line-height:1;letter-spacing:.26em;text-transform:uppercase;margin-top:8px;opacity:.85}
+.sp__tag{font-family:var(--display);font-weight:700;font-stretch:88%;font-size:21px;line-height:1.2;letter-spacing:.16em;text-transform:uppercase}
+.sp__d{position:absolute;left:72px;font-family:var(--display);font-weight:900;font-stretch:75%;text-transform:uppercase;line-height:.86;letter-spacing:-.006em;z-index:4}
+.sp__d span{display:block}
+.sp__foot{position:absolute;left:72px;right:72px;bottom:62px;display:flex;justify-content:space-between;align-items:baseline;gap:32px;font-size:27px;font-weight:600;line-height:1.25;z-index:5}
+.sp__url{font-family:var(--display);font-weight:800;font-stretch:88%;font-size:22px;letter-spacing:.06em;white-space:nowrap}
 
-/* post 1: the night shift. The sky is the clock; the building is the task list */
-.p1{--sky:#333D6D;--fg:#FFF0D9;--lamp:#FFCF95;background:var(--sky);color:var(--fg)}
-.p1__clock{position:absolute;left:6cqw;top:17cqw;font-family:var(--display);font-weight:800;font-stretch:75%;font-variant-numeric:tabular-nums lining-nums;font-size:21cqw;line-height:.82;letter-spacing:-.01em;color:var(--lamp)}
-.p1__count{position:absolute;left:6cqw;top:38cqw;display:flex;align-items:baseline;gap:2cqw;font-size:2.7cqw;opacity:.9}
-.p1__count b{font-family:var(--display);font-weight:800;font-stretch:75%;font-variant-numeric:tabular-nums;font-size:6cqw;line-height:1;color:var(--lamp)}
-.p1__state{position:absolute;left:6cqw;top:47cqw;display:flex;align-items:center;gap:1.8cqw}
-.p1__state i{width:1.8cqw;height:1.8cqw;border-radius:50%;background:var(--lamp);box-shadow:0 0 2.4cqw var(--lamp)}
-.p1__bldg{position:absolute;right:6cqw;top:15cqw;width:28cqw;height:68cqw;border:.45cqw solid currentColor;border-bottom:0;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(9,1fr);gap:1.5cqw;padding:2.6cqw 2.2cqw 3.4cqw}
-.p1__bldg::before{content:"";position:absolute;left:30%;right:30%;top:-3.2cqw;height:3.2cqw;border:.45cqw solid currentColor;border-bottom:0}
-.p1__bldg::after{content:"";position:absolute;left:-6cqw;right:-6cqw;bottom:0;height:.45cqw;background:currentColor}
-.p1__bldg span{background:color-mix(in srgb,currentColor 9%,transparent);transition:background .5s,box-shadow .5s}
-.p1__bldg span.on{background:#FFF0D9;opacity:.82}
-.p1__bldg span.lamp{background:var(--lamp);box-shadow:0 0 3.2cqw var(--lamp),0 0 1cqw var(--lamp)}
-.p1__bldg span.done{background:transparent;box-shadow:inset 0 0 0 .4cqw var(--lamp)}
-.p1__h{position:absolute;left:6cqw;right:6cqw;bottom:16cqw;font-size:9.4cqw}
-.p1__h span{display:block}
-.p1__h span + span{color:var(--lamp)}
-.p1__line{position:absolute;left:6cqw;right:6cqw;bottom:12cqw;height:.3cqw;background:color-mix(in srgb,currentColor 22%,transparent)}
-.p1__line i{position:absolute;inset:0;background:var(--lamp);transform-origin:left;transform:scaleX(var(--p,0))}
+/* 01 notice: night. A tower of dark windows, one lamp on */
+.sp1{background:linear-gradient(#1A2042,#151A38 55%);color:#FFF0D9}
+.sp1 .sp__tag{color:#D9C9F2}
+.sp1__facade{position:absolute;left:0;right:0;top:600px;bottom:0;background-color:#232A55;background-image:linear-gradient(90deg,transparent 74px,#151A38 74px),linear-gradient(transparent 104px,#151A38 104px),linear-gradient(155deg,rgba(255,240,217,.07),transparent 46%);background-size:100px 136px;background-position:18px 0}
+.sp1__facade::after{content:"";position:absolute;inset:0;background:linear-gradient(#151A38,rgba(21,26,56,.55) 26%,rgba(21,26,56,0) 50%,rgba(21,26,56,0) 58%,#151A38 86%)}
+.sp1__spill{position:absolute;left:455px;top:760px;width:600px;height:600px;background:radial-gradient(closest-side,rgba(255,207,149,.22),rgba(255,207,149,.07) 45%,transparent);z-index:1}
+.sp1__lamp{position:absolute;left:718px;top:1008px;width:74px;height:104px;background:linear-gradient(#FFE6C2,#FFCF95 70%);box-shadow:0 0 50px 8px rgba(255,207,149,.5),0 0 160px 50px rgba(255,207,149,.14);z-index:2}
+.sp1__lamp svg{position:absolute;left:12px;bottom:0;width:46px;height:62px;color:#2B2347}
+.sp1__n{top:170px;font-size:296px;font-stretch:62%;line-height:.8;color:#FFCF95}
+.sp1__h{top:440px;font-size:116px}
+.sp1__h mark{background:#FFCF95;color:#151A38;padding:0 12px;margin-left:-4px}
+.sp1 .sp__foot{color:#FFF0D9}
 
-/* post 2: the turndown. A night's work, ticked off while nobody watched */
-.p2{background:radial-gradient(120% 70% at 85% 100%,rgba(255,207,149,.26),transparent 60%),#4E2D8A;color:#FFF0D9}
-.p2__h{position:absolute;left:6cqw;right:6cqw;top:14.5cqw;font-size:9cqw}
-.p2__h span{display:block}
-.p2__h span + span{color:#FFCF95}
-.p2__card{position:absolute;left:11cqw;right:11cqw;top:34cqw;background:#FFF8EE;color:#1E2448;padding:4cqw 5cqw 3.4cqw;border-radius:.4cqw;transform:rotate(-2deg);box-shadow:0 .4cqw .4cqw rgba(0,0,0,.14),0 8cqw 12cqw -6cqw rgba(0,0,0,.6)}
-.p2__card::before{content:"";position:absolute;inset:1.8cqw;border:.2cqw solid rgba(114,62,195,.35);pointer-events:none}
-.p2__card::after{content:"";position:absolute;left:50%;top:-2.6cqw;width:22cqw;height:5.4cqw;margin-left:-11cqw;background:#723EC3;opacity:.92;transform:rotate(3deg)}
-.p2__top{display:flex;justify-content:space-between;gap:2cqw;color:#4A4F78;font-size:2cqw}
-.p2__site{font-size:5.2cqw;margin:2cqw 0 1.2cqw}
-.p2__tasks{list-style:none;margin:0;padding:0}
-.p2__tasks li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2cqw;align-items:center;padding:.85cqw 0;border-bottom:.2cqw solid rgba(30,36,72,.13);font-size:2.75cqw;line-height:1.2;color:rgba(30,36,72,.45);transition:color .5s}
-.p2__tasks time{display:flex;align-items:center;gap:1cqw;font-variant-numeric:tabular-nums;font-size:2.5cqw;color:#723EC3;opacity:0;transform:translateX(-1.5cqw);transition:opacity .4s,transform .6s var(--ease)}
-.p2__tasks svg{width:2.6cqw;height:2.6cqw}
-.p2__tasks li.t{color:#1E2448}
-.p2__tasks li.t time{opacity:1;transform:none}
-.p2__note{margin-top:1.8cqw;font-style:italic;font-size:2.7cqw;line-height:1.4;opacity:0;transition:opacity .6s}
-.p2__note b{font-style:normal;font-family:var(--display);font-weight:700;font-stretch:88%;font-size:1.9cqw;letter-spacing:.16em;text-transform:uppercase;color:#4A4F78;margin-right:1.4cqw}
-.p2__sig{display:flex;justify-content:space-between;align-items:flex-end;margin-top:1.8cqw;padding-top:1.6cqw;border-top:.2cqw solid rgba(30,36,72,.13)}
-.p2__sig svg{width:22cqw;height:6.8cqw}
-.p2__sig path{stroke-dasharray:420;stroke-dashoffset:420}
-.p2__sig small{font-size:2cqw;color:#4A4F78;text-align:right;line-height:1.4;font-variant-numeric:tabular-nums}
-.p2.signed .p2__sig path{stroke-dashoffset:0;transition:stroke-dashoffset 1.3s cubic-bezier(.65,0,.35,1)}
-.p2__card{transition:opacity .5s}
-.p2.noted .p2__note{opacity:1}
-.p2__stamp{position:absolute;right:6cqw;bottom:13.6cqw;z-index:3;font-family:var(--display);font-weight:900;font-stretch:78%;text-transform:uppercase;font-size:4.4cqw;line-height:1;letter-spacing:.04em;color:#1A2042;background:#FFCF95;padding:1.6cqw 2.4cqw;transform:rotate(6deg) scale(1.9);opacity:0;transition:transform .45s var(--snap),opacity .2s}
-.p2.stamped .p2__stamp{transform:rotate(6deg) scale(1);opacity:1}
-.p2.reset .p2__card,.p2.reset .p2__stamp{opacity:0;transition:opacity .5s}
+/* 02 trust: pre-dawn violet. The keys hang off the IPS fob */
+.sp2{background:radial-gradient(62% 48% at 80% 68%,rgba(140,88,226,.85),rgba(140,88,226,0) 72%),linear-gradient(165deg,#55309A,#3A2072);color:#FFF0D9}
+.sp2 .sp__tag{color:#D9C9F2}
+.sp2__h{top:160px;font-size:150px}
+.sp2__h span:last-child{color:#FFCF95}
+.sp2__q{position:absolute;left:72px;top:596px;font-style:italic;font-weight:400;font-size:60px;line-height:1.1;color:#D9C9F2;z-index:4}
+.sp2__keys{position:absolute;right:-30px;top:470px;width:590px;height:780px;z-index:2}
+.sp2__a{position:absolute;left:72px;top:958px;width:700px;z-index:4}
+.sp2__a .sp__d{position:static;font-size:78px;color:#FFCF95;white-space:nowrap}
+.sp2__a p:last-child{margin-top:24px;font-size:32px;font-weight:500;line-height:1.3}
+.sp2 .sp__foot{color:#D9C9F2}
+.sp2 .sp__url{color:#FFF0D9}
 
-/* post 3: break up with your cleaner. A lock-in contract, struck out line by line */
-.p3{background:#FFCF95;color:#1E2448}
-.p3__h{position:absolute;left:6cqw;right:6cqw;top:15cqw;font-size:11.8cqw;line-height:.86;white-space:nowrap}
-.p3__h span{display:block}
-.p3__h span + span{color:#723EC3}
-.p3__doc{position:absolute;left:7cqw;width:52cqw;top:44cqw;background:#FFF8EE;padding:4cqw 4cqw 4.6cqw;transform:rotate(-3deg);box-shadow:0 .4cqw .4cqw rgba(30,36,72,.1),0 7cqw 10cqw -6cqw rgba(30,36,72,.55)}
-.p3__doc .post__k{font-size:1.9cqw;color:#4A4F78}
-.p3__doc h4{font-family:var(--display);font-weight:800;font-stretch:78%;text-transform:uppercase;font-size:4.2cqw;line-height:.95;margin:1.4cqw 0 2.6cqw}
-.p3__doc ul{list-style:none;margin:0;padding:0}
-.p3__doc li{position:relative;padding:1.3cqw 0;border-bottom:.2cqw solid rgba(30,36,72,.12);font-size:2.55cqw;line-height:1.2}
-.p3__doc li::after{content:"";position:absolute;left:-1cqw;right:-1cqw;top:50%;height:.8cqw;margin-top:-.4cqw;background:#723EC3;transform:scaleX(0);transform-origin:left}
-.p3__doc li.x{color:rgba(30,36,72,.5)}
-.p3__doc li.x::after{transform:scaleX(1);transition:transform .45s var(--snap)}
-.p3__doc i{display:block;height:1cqw;margin-top:2.2cqw;background:rgba(30,36,72,.1);width:86%}
-.p3__doc i + i{width:62%;margin-top:1.4cqw}
-.p3__stamp{position:absolute;left:24cqw;top:72cqw;z-index:2;border:.7cqw solid #723EC3;color:#723EC3;padding:1.6cqw 2.6cqw 1.4cqw;font-family:var(--display);font-weight:900;font-stretch:78%;text-transform:uppercase;font-size:6.4cqw;line-height:.9;text-align:center;background:rgba(255,207,149,.82);transform:rotate(-11deg) scale(2.2);opacity:0;transition:transform .42s var(--snap),opacity .15s}
-.p3__stamp small{display:block;font-size:2.2cqw;letter-spacing:.2em;margin-top:.8cqw}
-.p3.stamped .p3__stamp{transform:rotate(-11deg) scale(1);opacity:1}
-.p3.reset .p3__stamp,.p3.reset .p3__doc li::after{opacity:0;transition:opacity .4s}
-.p3__offer{position:absolute;right:6cqw;top:45cqw;width:28cqw;display:grid;gap:3.2cqw;text-align:right}
-.p3__offer b{display:block;font-family:var(--display);font-weight:900;font-stretch:75%;font-variant-numeric:tabular-nums lining-nums;font-size:12cqw;line-height:.82;color:#723EC3}
-.p3__offer span{display:block;font-size:2.4cqw;line-height:1.3;margin-top:1cqw}
-.p3__tape{position:absolute;left:-10%;width:120%;bottom:14cqw;transform:rotate(-3deg);background:#723EC3;color:#FFF0D9;padding:1.8cqw 0;z-index:3;overflow:hidden}
-.p3__track{display:flex;width:max-content;animation:p3tape 14s linear infinite}
-.p3__track span{display:inline-flex;align-items:center;gap:1.6cqw;padding:0 1.6cqw;white-space:nowrap;font-family:var(--display);font-weight:900;font-stretch:75%;text-transform:uppercase;font-size:5cqw;line-height:1}
-.p3__track span:nth-child(even){color:#FFCF95}
-.p3__track svg{width:3.4cqw;height:3.4cqw;color:#FFCF95}
-@keyframes p3tape{to{transform:translateX(-50%)}}
-.post:not(.live) .p3__track{animation-play-state:paused}
-@media (prefers-reduced-motion:reduce){.p3__track{animation:none!important}}
+/* 03 proof: dawn. A competitor's excuse, taped to the page */
+.sp3{background:radial-gradient(62% 44% at 46% 50%,#FFE2BE,rgba(255,226,190,0) 72%),#FFCF95;color:#1E2448}
+.sp3 .sp__tag{color:#4A4F78}
+.sp3__h{top:166px;font-size:112px}
+.sp3__h span:last-child{color:#723EC3}
+.sp3__note{position:absolute;left:146px;top:446px;width:660px;padding:58px 56px 40px 64px;background:#FFF8EE repeating-linear-gradient(transparent 0 68px,rgba(30,36,72,.11) 68px 70px);background-position:0 46px;transform:rotate(-4deg);box-shadow:0 2px 3px rgba(30,36,72,.12),0 44px 64px -30px rgba(30,36,72,.6);z-index:2}
+.sp3__note::before{content:"";position:absolute;left:50%;top:-24px;width:220px;height:52px;margin-left:-110px;background:#723EC3;opacity:.9;transform:rotate(3deg)}
+.sp3__note p{font-family:"Caveat",cursive;font-weight:500;font-size:62px;line-height:70px;color:#26307A}
+.sp3__note u{text-decoration-thickness:3px;text-underline-offset:10px}
+.sp3__note .sig{text-align:right;margin-top:6px}
+.sp3__a{top:1004px;font-size:96px}
+.sp3__a span:last-child{font-stretch:62%;color:#723EC3}
+
+/* 04 switch: morning. Thirty-six months struck out */
+.sp4{background:#FFF0D9;color:#1E2448}
+.sp4 .sp__tag{color:#723EC3}
+.sp4__h{top:166px;font-size:130px}
+.sp4__h span:last-child{color:#723EC3}
+.sp4__col{position:absolute;top:478px;z-index:3}
+.sp4__col .sp__tag{display:block;color:#4A4F78}
+.sp4__was{left:72px}
+.sp4__now{left:640px}
+.sp4__now .sp__tag{color:#723EC3}
+.sp4__num{display:block;margin-top:18px;font-family:var(--display);font-weight:900;font-stretch:62%;font-size:470px;line-height:.78;letter-spacing:-.01em}
+.sp4__was .sp4__num{color:transparent;-webkit-text-stroke:5px #1E2448}
+.sp4__now .sp4__num{color:#723EC3}
+.sp4__x{position:absolute;left:-26px;top:236px;width:500px;height:44px;background:#723EC3;transform:rotate(-17deg)}
+.sp4__sub{position:absolute;left:640px;top:906px;font-size:31px;font-weight:600;line-height:1.25;z-index:3}
+.sp4__band{position:absolute;left:-40px;right:-40px;top:1010px;padding:26px 0 24px;background:#723EC3;color:#FFF0D9;transform:rotate(-2.4deg);display:flex;justify-content:center;align-items:center;gap:30px;font-family:var(--display);font-weight:900;font-stretch:75%;font-size:62px;line-height:1;text-transform:uppercase;z-index:3}
+.sp4__band span:nth-of-type(even){color:#FFCF95}
+.sp4__band svg{width:40px;height:40px;color:#FFCF95}
+.sp4__fine{position:absolute;left:72px;right:72px;top:1158px;font-size:20px;line-height:1.4;color:#4A4F78}
+.sp4 .sp__foot b{font-family:var(--display);font-weight:800;font-stretch:88%;font-size:25px;letter-spacing:.08em;text-transform:uppercase;color:#723EC3}
 
 /* reveals: content is visible by default; the script only adds the class when it can play */
 .rv-ready .rv{opacity:0;transform:translateY(34px);transition:opacity .5s linear,transform .8s var(--ease)}
@@ -1312,121 +1309,229 @@ fieldset.field{border:0;padding:0;min-width:0}
   <div class="wrap">
     <div class="social__intro">
       <div>
-        <h2 class="h-l rv" id="social-h">Launch week, <span class="hi">posted</span> on the hour.</h2>
+        <h2 class="h-l rv" id="social-h">Four posts no other cleaner would <span class="hi">dare</span> run.</h2>
       </div>
       <div>
-        <p class="lede soft rv">Three posts that launch the new brand on Instagram, LinkedIn and Facebook. Each one is built from the system: the hour palette, the fob, heavy condensed caps and proof IPS already has. Each one moves, and each goes live at the hour it shows.</p>
-        <p class="social__week caps rv"><span><b>Mon</b> 18:00</span><span><b>Wed</b> 22:36</span><span><b>Fri</b> 06:00</span></p>
+        <p class="lede soft rv">Cleaning ads all look the same: gloved hands, a spray bottle, a smile. These say what a facility manager is already thinking at 11pm, then answer it with proof IPS already has. Each one is a finished 1080 × 1350 feed post that runs as-is on Instagram, Facebook and LinkedIn, with a caption for each platform, alt text and a download.</p>
+        <ol class="social__arc caps rv"><li><b>Mon</b>Notice</li><li><b>Tue</b>Trust</li><li><b>Thu</b>Proof</li><li><b>Fri</b>Switch</li></ol>
       </div>
     </div>
 
     <div class="posts">
-      <!-- 01: the night shift -->
-      <figure class="pc rv">
-        <div class="pc__head caps"><span><b>01</b> · Mon 18:00</span><span>Feed · 4:5 · Reel loop</span></div>
-        <div class="post p1" id="p1" role="img" aria-label="Post 1: a clock runs from 18:00 to 07:00 as the sky shifts from indigo to apricot. Office lights go out, then one apricot work lamp moves window by window through a building. Headline: Lights off at six. Ready by seven.">
-          <div class="post__bar" aria-hidden="true"><span class="post__logo"><svg><use href="#fob"/></svg><b>IPS</b></span><span class="post__k">Perth · WA</span></div>
-          <div class="p1__clock" aria-hidden="true">18:00</div>
-          <div class="p1__count" aria-hidden="true"><b>0</b><span>of 180+ sites signed off</span></div>
-          <div class="p1__state post__k" aria-hidden="true"><i></i><span>Tenants leaving</span></div>
-          <div class="p1__bldg" aria-hidden="true"></div>
-          <p class="p1__h post__d" aria-hidden="true"><span>Lights off at six.</span><span>Ready by seven.</span></p>
-          <div class="p1__line" aria-hidden="true"><i></i></div>
-          <div class="post__foot post__k" aria-hidden="true"><span>Commercial cleaning</span><span>Perth since 2007</span></div>
+      <!-- 01: notice -->
+      <article class="pc rv" aria-labelledby="pc1-h">
+        <div class="pc__head caps"><span><b>01</b> · Notice</span><span>Mon · 07:00</span></div>
+        <div class="sp-frame">
+          <div class="sp sp1" id="sp1" role="img" aria-label="Post 1: a night-time office tower with every window dark except one glowing apricot. Headline: 12,000+ cleans a year. You've seen none of them.">
+            <div class="sp1__facade" aria-hidden="true"></div>
+            <div class="sp1__spill" aria-hidden="true"></div>
+            <div class="sp1__lamp" aria-hidden="true"><svg viewBox="0 0 46 62"><circle cx="16" cy="12" r="6" fill="currentColor"/><path d="M8 22c0-2.2 1.8-4 4-4h8c2.2 0 4 1.8 4 4l2 16h-4l-1 24H9L8 38H5z" fill="currentColor"/><path d="M22 27l18 31" stroke="currentColor" stroke-width="2.6"/><path d="M33 57h12v5H33z" fill="currentColor"/></svg></div>
+            <div class="sp__top" aria-hidden="true"><div class="sp__logo"><svg viewBox="0 0 22 38" style="color:#FFCF95"><path d="M11 1.5c3.6 0 6 2.3 6 5.6v4.2l3.4 3.8V33a3.5 3.5 0 0 1-3.5 3.5H5.1A3.5 3.5 0 0 1 1.6 33V15.1L5 11.3V7.1c0-3.3 2.4-5.6 6-5.6z" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="11" cy="7.4" r="2.1" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M6.2 30.5h9.6" stroke="currentColor" stroke-width="1.3"/></svg><span><b>IPS</b><i>Facility Services</i></span></div><span class="sp__tag">Commercial cleaning · Perth</span></div>
+            <p class="sp__d sp1__n" aria-hidden="true">12,000+</p>
+            <p class="sp__d sp1__h" aria-hidden="true"><span>Cleans a year.</span><span>You've seen</span><span><mark>None</mark> of them.</span></p>
+            <div class="sp__foot" aria-hidden="true"><span>Lights off at six. Ready by seven.</span><span class="sp__url">ipsfacilityservices.com.au</span></div>
+          </div>
         </div>
-        <figcaption class="pc__cap">
-          <h3 class="h-s">The night shift</h3>
-          <p class="pc__idea">Most cleaning ads show a smiling person holding a spray bottle. This one shows nobody, because the work happens after everyone leaves. A whole night in eight seconds: the building empties, one lamp works through it floor by floor, and it's ready by seven.</p>
-          <div class="pc__copy" data-copy>
-            <p>Lights off at six. Ready by seven.</p>
-            <p>While your building sleeps, our police-cleared crews work through a written task list built for your site, room by room. Every week that's 180+ commercial sites across Perth, and more than 12,000 cleans a year.</p>
-            <p>You'll never see us. You'll notice we were there.</p>
+        <div class="pc__cap">
+          <h3 class="h-s" id="pc1-h">You've seen none of them</h3>
+          <p class="pc__idea">Every other cleaning ad shows people with spray bottles. This one shows nobody, because nobody sees the work. 12,000 cleans a year happen after the lights go out, and the one lit window is the only crew you'll ever spot. It opens the week on the brand's big idea and makes invisibility the selling point.</p>
+          <div class="pc__tabs" role="tablist" aria-label="Post 1 copy">
+            <button type="button" class="pc__tab" role="tab" id="pc1-t1" aria-controls="pc1-p1" aria-selected="true">Instagram</button>
+            <button type="button" class="pc__tab" role="tab" id="pc1-t2" aria-controls="pc1-p2" aria-selected="false" tabindex="-1">Facebook</button>
+            <button type="button" class="pc__tab" role="tab" id="pc1-t3" aria-controls="pc1-p3" aria-selected="false" tabindex="-1">LinkedIn</button>
+            <button type="button" class="pc__tab" role="tab" id="pc1-t4" aria-controls="pc1-p4" aria-selected="false" tabindex="-1" data-kind="alt text">Alt text</button>
+          </div>
+          <div class="pc__panel" role="tabpanel" id="pc1-p1" aria-labelledby="pc1-t1">
+            <p>12,000+ cleans a year. You've seen none of them.</p>
+            <p>That's the job. Lights off at six, and while your building sleeps, a police-cleared IPS crew works through a written task list built for your site. By seven it's ready. The only sign we were there is that everything is where it should be.</p>
+            <p>180+ Perth sites, every week, since 2007.</p>
             <p>Book a free trial clean. Link in bio.</p>
             <p class="pc__tags">#Perth #PerthBusiness #CommercialCleaning #OfficeCleaning #FacilityManagement #WAowned</p>
           </div>
-          <div class="pc__act"><button type="button" class="pc__btn">Copy caption</button><span class="pc__ok" aria-live="polite"></span></div>
-        </figcaption>
-      </figure>
+          <div class="pc__panel" role="tabpanel" id="pc1-p2" aria-labelledby="pc1-t2" hidden>
+            <p>12,000+ cleans a year. You've seen none of them.</p>
+            <p>That's the job. Lights off at six, and while your building sleeps, a police-cleared IPS crew works through a written task list built for your site. By seven it's ready. The only sign we were there is that everything is where it should be.</p>
+            <p>180+ Perth sites, every week, since 2007. Book a free trial clean: ipsfacilityservices.com.au</p>
+            <p class="pc__tags">#Perth #CommercialCleaning</p>
+          </div>
+          <div class="pc__panel" role="tabpanel" id="pc1-p3" aria-labelledby="pc1-t3" hidden>
+            <p>The best cleaning contractor is the one you never have to think about.</p>
+            <p>IPS completes more than 12,000 commercial cleans a year across 180+ Perth sites. Our crews arrive after tenants leave, work through a written task list built for each site, and hand the building back ready by seven.</p>
+            <p>If your current cleaner is something you think about more than once a week, that's worth a conversation. Regular clients get a free trial clean, and there's no lock-in contract.</p>
+            <p>ipsfacilityservices.com.au</p>
+            <p class="pc__tags">#FacilityManagement #CommercialCleaning #Perth</p>
+          </div>
+          <div class="pc__panel" role="tabpanel" id="pc1-p4" aria-labelledby="pc1-t4" hidden>
+            <p>A night-time office tower with every window dark except one, which glows apricot with the small silhouette of a cleaner inside. Text: 12,000+ cleans a year. You've seen none of them. Lights off at six. Ready by seven. IPS Facility Services, ipsfacilityservices.com.au.</p>
+          </div>
+          <div class="pc__act"><button type="button" class="pc__btn" data-copy>Copy caption</button><button type="button" class="pc__btn pc__btn--fill" data-dl="sp1" data-name="01-notice" data-r="1">PNG 1080</button><button type="button" class="pc__btn" data-dl="sp1" data-name="01-notice" data-r="2">PNG 2x</button><span class="pc__ok" aria-live="polite"></span></div>
+        </div>
+      </article>
 
-      <!-- 02: the turndown -->
-      <figure class="pc rv">
-        <div class="pc__head caps"><span><b>02</b> · Wed 22:36</span><span>Feed · 4:5 · Reel loop</span></div>
-        <div class="post p2" id="p2" role="img" aria-label="Post 2: headline Nobody saw us. That's the point. A turndown report for Level 3, West Perth ticks off six tasks, adds a crew note about watering a plant, and is signed at 22:36.">
-          <div class="post__bar" aria-hidden="true"><span class="post__logo"><svg><use href="#fob"/></svg><b>IPS</b></span><span class="post__k">Tue night · 22:36</span></div>
-          <p class="p2__h post__d" aria-hidden="true"><span>Nobody saw us.</span><span>That's the point.</span></p>
-          <div class="p2__card" aria-hidden="true">
-            <div class="p2__top post__k"><span>Turndown report</span><span>Ref. WP-0312</span></div>
-            <p class="p2__site post__d">Level 3, West Perth</p>
-            <ol class="p2__tasks">
-              <li><span>Bins emptied, liners replaced</span><time>21:04 <svg><use href="#i-tick"/></svg></time></li>
-              <li><span>Kitchen benches &amp; sink</span><time>21:19 <svg><use href="#i-tick"/></svg></time></li>
-              <li><span>Washrooms sanitised, restocked</span><time>21:41 <svg><use href="#i-tick"/></svg></time></li>
-              <li><span>Desks &amp; high-touch points</span><time>22:02 <svg><use href="#i-tick"/></svg></time></li>
-              <li><span>Vacuum &amp; mop, all floors</span><time>22:27 <svg><use href="#i-tick"/></svg></time></li>
-              <li><span>Alarm set, keys secured</span><time>22:35 <svg><use href="#i-tick"/></svg></time></li>
-            </ol>
-            <p class="p2__note"><b>Crew note</b>The plant by the window looked thirsty. Watered it.</p>
-            <div class="p2__sig">
-              <svg viewBox="0 0 140 44"><path d="M4 30c8-16 14-22 18-18s-6 20-2 20 10-22 16-22-4 22 2 22 8-14 12-14 2 12 6 12 10-10 16-14c4-3 6 2 4 6s-2 6 4 4 14-10 22-14 14-4 30-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <small>Police-cleared crew of 2<br>Signed 22:36</small>
+      <!-- 02: trust -->
+      <article class="pc rv" aria-labelledby="pc2-h">
+        <div class="pc__head caps"><span><b>02</b> · Trust</span><span>Tue · 18:00</span></div>
+        <div class="sp-frame">
+          <div class="sp sp2" id="sp2" role="img" aria-label="Post 2: a ring of keys hanging from an apricot IPS key fob on a violet background. Headline: Someone has your keys tonight. Do you know who? Ours are police-cleared.">
+            <svg class="sp2__keys" viewBox="0 0 620 820" aria-hidden="true">
+              <defs><filter id="sp2sh" x="-40%" y="-20%" width="180%" height="150%"><feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#1B0E3A" flood-opacity=".5"/></filter></defs>
+              <g filter="url(#sp2sh)"><g transform="translate(353 193) rotate(-28) translate(-70 -52)"><path fill="#D9C9F2" fill-rule="evenodd" d="M46 0H94A46 46 0 0 1 140 46V104A46 46 0 0 1 94 150H92V410L106 424L92 440L110 458L92 474L106 490L92 504V538L66 566L40 538V150H46A46 46 0 0 1 0 104V46A46 46 0 0 1 46 0ZM90 52A20 20 0 1 0 50 52A20 20 0 1 0 90 52Z"/><path d="M57 178V516" stroke="#4E2D8A" stroke-opacity=".28" stroke-width="7" stroke-linecap="round"/></g></g>
+              <g filter="url(#sp2sh)"><g transform="translate(300 210) rotate(-7) translate(-70 -52)"><path fill="#FFF0D9" fill-rule="evenodd" d="M46 0H94A46 46 0 0 1 140 46V104A46 46 0 0 1 94 150H92V410L106 424L92 440L110 458L92 474L106 490L92 504V538L66 566L40 538V150H46A46 46 0 0 1 0 104V46A46 46 0 0 1 46 0ZM90 52A20 20 0 1 0 50 52A20 20 0 1 0 90 52Z"/><path d="M57 178V516" stroke="#4E2D8A" stroke-opacity=".22" stroke-width="7" stroke-linecap="round"/></g></g>
+              <circle cx="300" cy="118" r="92" fill="none" stroke="#FFCF95" stroke-width="16"/>
+              <g filter="url(#sp2sh)"><g transform="translate(247 193) rotate(16) scale(11) translate(-11 -7.4)"><path fill="#FFCF95" fill-rule="evenodd" d="M11 1.5c3.6 0 6 2.3 6 5.6v4.2l3.4 3.8V33a3.5 3.5 0 0 1-3.5 3.5H5.1A3.5 3.5 0 0 1 1.6 33V15.1L5 11.3V7.1c0-3.3 2.4-5.6 6-5.6zM13.1 7.4a2.1 2.1 0 1 0-4.2 0a2.1 2.1 0 1 0 4.2 0z"/><text x="11" y="26.2" text-anchor="middle" font-family="Archivo, Arial Narrow, sans-serif" font-weight="900" font-size="5.6" letter-spacing=".2" fill="#4E2D8A" style="font-stretch:125%">IPS</text><path d="M6.2 30.5h9.6" stroke="#4E2D8A" stroke-width=".9"/></g></g>
+              <path d="M247.2 193.4A92 92 0 0 0 284 208.6" fill="none" stroke="#FFCF95" stroke-width="16"/>
+            </svg>
+            <div class="sp__top" aria-hidden="true"><div class="sp__logo"><svg viewBox="0 0 22 38" style="color:#FFCF95"><path d="M11 1.5c3.6 0 6 2.3 6 5.6v4.2l3.4 3.8V33a3.5 3.5 0 0 1-3.5 3.5H5.1A3.5 3.5 0 0 1 1.6 33V15.1L5 11.3V7.1c0-3.3 2.4-5.6 6-5.6z" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="11" cy="7.4" r="2.1" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M6.2 30.5h9.6" stroke="currentColor" stroke-width="1.3"/></svg><span><b>IPS</b><i>Facility Services</i></span></div><span class="sp__tag">Perth · since 2007</span></div>
+            <p class="sp__d sp2__h" aria-hidden="true"><span>Someone has</span><span>your keys</span><span>tonight.</span></p>
+            <p class="sp2__q" aria-hidden="true">Do you know who?</p>
+            <div class="sp2__a" aria-hidden="true"><p class="sp__d"><span>Ours are</span><span>police-cleared.</span></p><p>Every cleaner. Every site. No exceptions.</p></div>
+            <div class="sp__foot" aria-hidden="true"><span>$20M liability cover</span><span class="sp__url">ipsfacilityservices.com.au</span></div>
+          </div>
+        </div>
+        <div class="pc__cap">
+          <h3 class="h-s" id="pc2-h">Who has your keys?</h3>
+          <p class="pc__idea">The question every facility manager should ask and almost none do. It's uncomfortable on purpose, then answered with a claim a competitor can't copy without the paperwork: every cleaner police-cleared, with $20M of cover behind them. The keys hang off the IPS fob, so the logo is the answer.</p>
+          <div class="pc__tabs" role="tablist" aria-label="Post 2 copy">
+            <button type="button" class="pc__tab" role="tab" id="pc2-t1" aria-controls="pc2-p1" aria-selected="true">Instagram</button>
+            <button type="button" class="pc__tab" role="tab" id="pc2-t2" aria-controls="pc2-p2" aria-selected="false" tabindex="-1">Facebook</button>
+            <button type="button" class="pc__tab" role="tab" id="pc2-t3" aria-controls="pc2-p3" aria-selected="false" tabindex="-1">LinkedIn</button>
+            <button type="button" class="pc__tab" role="tab" id="pc2-t4" aria-controls="pc2-p4" aria-selected="false" tabindex="-1" data-kind="alt text">Alt text</button>
+          </div>
+          <div class="pc__panel" role="tabpanel" id="pc2-p1" aria-labelledby="pc2-t1">
+            <p>Someone has your keys tonight. Do you know who?</p>
+            <p>Your cleaner has your keys, your alarm code and the run of the building after everyone goes home. That's a lot of trust to hand someone you've never met.</p>
+            <p>Every IPS cleaner is police-cleared. No exceptions. Every site is backed by $20M business liability cover. And Perth businesses have trusted us with their keys since 2007.</p>
+            <p>Book a walkthrough. Link in bio.</p>
+            <p class="pc__tags">#PerthBusiness #FacilityManager #OfficeManager #StrataPerth #CommercialCleaning #PoliceCleared</p>
+          </div>
+          <div class="pc__panel" role="tabpanel" id="pc2-p2" aria-labelledby="pc2-t2" hidden>
+            <p>Someone has your keys tonight. Do you know who?</p>
+            <p>Your cleaner has your keys, your alarm code and the run of the building after everyone goes home. That's a lot of trust to hand someone you've never met.</p>
+            <p>Every IPS cleaner is police-cleared. No exceptions. Every site is backed by $20M business liability cover. And Perth businesses have trusted us with their keys since 2007.</p>
+            <p>Book a walkthrough: ipsfacilityservices.com.au</p>
+          </div>
+          <div class="pc__panel" role="tabpanel" id="pc2-p3" aria-labelledby="pc2-t3" hidden>
+            <p>A question for facility and property managers: who has your keys tonight?</p>
+            <p>Your cleaning contractor holds the keys and alarm codes to your building, and works in it when nobody else is there. Before you sign or renew, ask three things:</p>
+            <p>1. Is every cleaner police-cleared, or just the ones you meet?</p>
+            <p class="ln">2. What liability cover sits behind the crew?</p>
+            <p class="ln">3. When something goes wrong, who picks up the phone?</p>
+            <p>At IPS the answers are: every cleaner, $20M, and us, directly. WA-owned and cleaning Perth since 2007.</p>
+            <p>ipsfacilityservices.com.au</p>
+            <p class="pc__tags">#FacilityManagement #PropertyManagement #Perth</p>
+          </div>
+          <div class="pc__panel" role="tabpanel" id="pc2-p4" aria-labelledby="pc2-t4" hidden>
+            <p>A ring of keys hanging from an apricot key fob stamped IPS, on a violet background. Text: Someone has your keys tonight. Do you know who? Ours are police-cleared. Every cleaner. Every site. No exceptions. $20M liability cover. IPS Facility Services, ipsfacilityservices.com.au.</p>
+          </div>
+          <div class="pc__act"><button type="button" class="pc__btn" data-copy>Copy caption</button><button type="button" class="pc__btn pc__btn--fill" data-dl="sp2" data-name="02-trust" data-r="1">PNG 1080</button><button type="button" class="pc__btn" data-dl="sp2" data-name="02-trust" data-r="2">PNG 2x</button><span class="pc__ok" aria-live="polite"></span></div>
+        </div>
+      </article>
+
+      <!-- 03: proof -->
+      <article class="pc rv" aria-labelledby="pc3-h">
+        <div class="pc__head caps"><span><b>03</b> · Proof</span><span>Thu · 07:30</span></div>
+        <div class="sp-frame">
+          <div class="sp sp3" id="sp3" role="img" aria-label="Post 3: a handwritten note taped to the page reads: Sorry, ran out of time tonight. Will do the kitchen next week. Bins too. Your cleaner. Headline: This is not a cleaning report. Ours is: ticked, timed, signed.">
+            <div class="sp__top" aria-hidden="true"><div class="sp__logo"><svg viewBox="0 0 22 38" style="color:#723EC3"><path d="M11 1.5c3.6 0 6 2.3 6 5.6v4.2l3.4 3.8V33a3.5 3.5 0 0 1-3.5 3.5H5.1A3.5 3.5 0 0 1 1.6 33V15.1L5 11.3V7.1c0-3.3 2.4-5.6 6-5.6z" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="11" cy="7.4" r="2.1" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M6.2 30.5h9.6" stroke="currentColor" stroke-width="1.3"/></svg><span><b>IPS</b><i>Facility Services</i></span></div><span class="sp__tag">Every clean, on record</span></div>
+            <p class="sp__d sp3__h" aria-hidden="true"><span>This is not a</span><span>cleaning report.</span></p>
+            <div class="sp3__note" aria-hidden="true">
+              <p>Sorry, ran out of time</p>
+              <p>tonight. Will do the</p>
+              <p>kitchen <u>next week</u>!</p>
+              <p>Bins too :)</p>
+              <p class="sig">— your cleaner</p>
             </div>
+            <p class="sp__d sp3__a" aria-hidden="true"><span>Ours is:</span><span>Ticked. Timed. Signed.</span></p>
+            <div class="sp__foot" aria-hidden="true"><span>Every task, every night. Rate every clean.</span><span class="sp__url">ipsfacilityservices.com.au</span></div>
           </div>
-          <div class="p2__stamp" aria-hidden="true">6 of 6. Done.</div>
-          <div class="post__foot post__k" aria-hidden="true"><span>Police-cleared</span><span>$20M cover</span><span>Rate every clean</span></div>
         </div>
-        <figcaption class="pc__cap">
-          <h3 class="h-s">The turndown</h3>
-          <p class="pc__idea">The proof IPS asks clients to take on faith, shown as a document. Six tasks tick off, a crew note lands, the lead signs, and the stamp hits. It posts at 22:36, the minute it was signed, and the plant gets the comments.</p>
-          <div class="pc__copy" data-copy>
-            <p>22:35. Six of six tasks done. Alarm set. Keys secured. Plant watered.</p>
-            <p>Nobody saw a thing. That's the job.</p>
-            <p>You hand us the keys, and we earn them every night: police-cleared crews, $20M liability cover, a written task list on every visit, and a rating you can give every clean. Problems come straight to us, not into a queue.</p>
-            <p class="pc__tags">#PerthOffices #CommercialCleaning #FacilityManager #OfficeManager #CleaningPerth #WestPerth</p>
+        <div class="pc__cap">
+          <h3 class="h-s" id="pc3-h">This is not a cleaning report</h3>
+          <p class="pc__idea">Anyone who has managed a building has found this note. Putting the competitor's excuse in their own handwriting makes the reader do the comparison, and it's the post most likely to be shared with a "this is literally us". Schedule it for when the turndown reports are live in the client portal, so "ticked, timed, signed" is something a new client can check on night one.</p>
+          <div class="pc__tabs" role="tablist" aria-label="Post 3 copy">
+            <button type="button" class="pc__tab" role="tab" id="pc3-t1" aria-controls="pc3-p1" aria-selected="true">Instagram</button>
+            <button type="button" class="pc__tab" role="tab" id="pc3-t2" aria-controls="pc3-p2" aria-selected="false" tabindex="-1">Facebook</button>
+            <button type="button" class="pc__tab" role="tab" id="pc3-t3" aria-controls="pc3-p3" aria-selected="false" tabindex="-1">LinkedIn</button>
+            <button type="button" class="pc__tab" role="tab" id="pc3-t4" aria-controls="pc3-p4" aria-selected="false" tabindex="-1" data-kind="alt text">Alt text</button>
           </div>
-          <div class="pc__act"><button type="button" class="pc__btn">Copy caption</button><span class="pc__ok" aria-live="polite"></span></div>
-        </figcaption>
-      </figure>
+          <div class="pc__panel" role="tabpanel" id="pc3-p1" aria-labelledby="pc3-t1">
+            <p>This is not a cleaning report.</p>
+            <p>If the only proof your office got cleaned is a note on the bench, or nothing at all, you're paying on trust.</p>
+            <p>Every IPS clean runs off a written task list built for your site. Each task is ticked and timed as it's done, the crew lead signs off, and you rate the clean. If something's missed, you'll know. So will we.</p>
+            <p>Want to see a real one? Link in bio.</p>
+            <p class="pc__tags">#OfficeCleaning #CommercialCleaning #PerthBusiness #FacilityManagement #OfficeManager #Perth</p>
+          </div>
+          <div class="pc__panel" role="tabpanel" id="pc3-p2" aria-labelledby="pc3-t2" hidden>
+            <p>This is not a cleaning report.</p>
+            <p>If the only proof your office got cleaned is a note on the bench, or nothing at all, you're paying on trust.</p>
+            <p>Every IPS clean runs off a written task list built for your site. Each task is ticked and timed as it's done, the crew lead signs off, and you rate the clean. If something's missed, you'll know. So will we.</p>
+            <p>Ask us for a sample report: ipsfacilityservices.com.au</p>
+          </div>
+          <div class="pc__panel" role="tabpanel" id="pc3-p3" aria-labelledby="pc3-t3" hidden>
+            <p>"Sorry, ran out of time. Will do the kitchen next week."</p>
+            <p>If you manage a building, you've probably found a note like this. Or found nothing at all, and wondered. Either way, you're paying for cleaning you can't verify.</p>
+            <p>IPS runs every clean from a written task list built for the site. Tasks are ticked and timed as they're done, the crew lead signs off, and clients rate every clean. Problems come straight to us, not into a queue.</p>
+            <p>If you'd like to see what a night's report looks like, we'll send you a sample.</p>
+            <p>ipsfacilityservices.com.au</p>
+            <p class="pc__tags">#FacilityManagement #CommercialCleaning #Perth</p>
+          </div>
+          <div class="pc__panel" role="tabpanel" id="pc3-p4" aria-labelledby="pc3-t4" hidden>
+            <p>A handwritten note on lined paper, taped to an apricot background. It reads: Sorry, ran out of time tonight. Will do the kitchen next week! Bins too. Signed, your cleaner. Text: This is not a cleaning report. Ours is: ticked, timed, signed. Every task, every night. Rate every clean. IPS Facility Services, ipsfacilityservices.com.au.</p>
+          </div>
+          <div class="pc__act"><button type="button" class="pc__btn" data-copy>Copy caption</button><button type="button" class="pc__btn pc__btn--fill" data-dl="sp3" data-name="03-proof" data-r="1">PNG 1080</button><button type="button" class="pc__btn" data-dl="sp3" data-name="03-proof" data-r="2">PNG 2x</button><span class="pc__ok" aria-live="polite"></span></div>
+        </div>
+      </article>
 
-      <!-- 03: break up with your cleaner -->
-      <figure class="pc rv">
-        <div class="pc__head caps"><span><b>03</b> · Fri 06:00</span><span>Feed · 4:5 · Reel loop</span></div>
-        <div class="post p3" id="p3" role="img" aria-label="Post 3: headline Break up with your cleaner. A cleaning agreement's lock-in terms are struck out line by line, then a violet stamp reads No lock-in. Ever. Offer: $0 trial clean and $100 off your first invoice.">
-          <div class="post__bar" aria-hidden="true"><span class="post__logo"><svg style="color:#1E2448"><use href="#fob"/></svg><b>IPS</b></span><span class="post__k">Fri · 06:00</span></div>
-          <p class="p3__h post__d" aria-hidden="true"><span>Break up with</span><span>your cleaner.</span></p>
-          <div class="p3__doc" aria-hidden="true">
-            <span class="post__k">Your current agreement</span>
-            <h4>Cleaning services agreement</h4>
-            <ul>
-              <li>Minimum term: 36 months</li>
-              <li>Early exit fee applies</li>
-              <li>Auto-renews every year</li>
-              <li>Price reviews at our discretion</li>
-            </ul>
-            <i></i><i></i>
+      <!-- 04: switch -->
+      <article class="pc rv" aria-labelledby="pc4-h">
+        <div class="pc__head caps"><span><b>04</b> · Switch</span><span>Fri · 06:00</span></div>
+        <div class="sp-frame">
+          <div class="sp sp4" id="sp4" role="img" aria-label="Post 4: the number 36 struck through beside a violet zero. Headline: Break up with your cleaner. Months locked in: 36. With IPS: 0. Free trial clean, $100 off.">
+            <div class="sp__top" aria-hidden="true"><div class="sp__logo"><svg viewBox="0 0 22 38" style="color:#723EC3"><path d="M11 1.5c3.6 0 6 2.3 6 5.6v4.2l3.4 3.8V33a3.5 3.5 0 0 1-3.5 3.5H5.1A3.5 3.5 0 0 1 1.6 33V15.1L5 11.3V7.1c0-3.3 2.4-5.6 6-5.6z" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="11" cy="7.4" r="2.1" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M6.2 30.5h9.6" stroke="currentColor" stroke-width="1.3"/></svg><span><b>IPS</b><i>Facility Services</i></span></div><span class="sp__tag">No lock-in. Ever.</span></div>
+            <p class="sp__d sp4__h" aria-hidden="true"><span>Break up with</span><span>your cleaner.</span></p>
+            <div class="sp4__col sp4__was" aria-hidden="true"><span class="sp__tag">Months locked in</span><span class="sp4__num">36</span><i class="sp4__x"></i></div>
+            <div class="sp4__col sp4__now" aria-hidden="true"><span class="sp__tag">With IPS</span><span class="sp4__num">0</span></div>
+            <p class="sp4__sub" aria-hidden="true">No lock-in contract.<br>Stay because it's clean.</p>
+            <div class="sp4__band" aria-hidden="true"><span>Free trial clean</span><svg viewBox="0 0 24 24"><path d="M4.5 12.5l4.8 4.8L19.5 7" fill="none" stroke="currentColor" stroke-width="2.6"/></svg><span>$100 off</span></div>
+            <p class="sp4__fine" aria-hidden="true">Free trial clean for regular commercial clients. $100 off applies to your first invoice.</p>
+            <div class="sp__foot" aria-hidden="true"><b>Book a free walkthrough</b><span class="sp__url">ipsfacilityservices.com.au</span></div>
           </div>
-          <div class="p3__stamp" aria-hidden="true">No lock-in.<br>Ever.<small>IPS · Perth</small></div>
-          <div class="p3__offer" aria-hidden="true">
-            <div><b>$0</b><span>Trial clean for regular clients</span></div>
-            <div><b>$100</b><span>Off your first invoice</span></div>
-          </div>
-          <div class="p3__tape" aria-hidden="true"><div class="p3__track">
-            <span>Try a night on us <svg><use href="#i-tick"/></svg></span><span>No lock-in contracts <svg><use href="#i-tick"/></svg></span><span>Free trial clean <svg><use href="#i-tick"/></svg></span><span>$100 off <svg><use href="#i-tick"/></svg></span>
-            <span>Try a night on us <svg><use href="#i-tick"/></svg></span><span>No lock-in contracts <svg><use href="#i-tick"/></svg></span><span>Free trial clean <svg><use href="#i-tick"/></svg></span><span>$100 off <svg><use href="#i-tick"/></svg></span>
-          </div></div>
-          <div class="post__foot post__k" aria-hidden="true"><span>Book a walkthrough · link in bio</span><span>Perth since 2007</span></div>
         </div>
-        <figcaption class="pc__cap">
-          <h3 class="h-s">Break up with your cleaner</h3>
-          <p class="pc__idea">This one is aimed at the facility manager who is stuck with a cleaner they don't rate. Every lock-in term gets struck through and the stamp lands: no lock-in, ever. The offer sits beside it, and the tape keeps it moving in the feed. It posts at dawn on a Friday, when the week's complaints are freshest.</p>
-          <div class="pc__copy" data-copy>
-            <p>Stuck in a cleaning contract you don't even rate? Break up with it.</p>
-            <p>Regular clients get a free trial clean before signing anything, then $100 off the first invoice. And there's no lock-in contract, ever. If you stay, it's because the clean is good.</p>
-            <p>Offices, clinics, schools, gyms and strata across Perth: comment NIGHT or tap the link in bio to book a walkthrough.</p>
+        <div class="pc__cap">
+          <h3 class="h-s" id="pc4-h">Break up with your cleaner</h3>
+          <p class="pc__idea">The close of the week, aimed at the facility manager stuck with a cleaner they don't rate. Thirty-six months struck out, a violet zero, and the offer IPS already runs. The fine print is on the image, so the same file can be boosted as a paid ad without edits.</p>
+          <div class="pc__tabs" role="tablist" aria-label="Post 4 copy">
+            <button type="button" class="pc__tab" role="tab" id="pc4-t1" aria-controls="pc4-p1" aria-selected="true">Instagram</button>
+            <button type="button" class="pc__tab" role="tab" id="pc4-t2" aria-controls="pc4-p2" aria-selected="false" tabindex="-1">Facebook</button>
+            <button type="button" class="pc__tab" role="tab" id="pc4-t3" aria-controls="pc4-p3" aria-selected="false" tabindex="-1">LinkedIn</button>
+            <button type="button" class="pc__tab" role="tab" id="pc4-t4" aria-controls="pc4-p4" aria-selected="false" tabindex="-1" data-kind="alt text">Alt text</button>
+          </div>
+          <div class="pc__panel" role="tabpanel" id="pc4-p1" aria-labelledby="pc4-t1">
+            <p>Break up with your cleaner. We'll make it easy.</p>
+            <p>There's no lock-in contract with IPS, ever. If you stay, it's because the clean is good, not because you signed something three years ago.</p>
+            <p>Regular clients get a free trial clean before committing, then $100 off the first invoice.</p>
+            <p>Offices, clinics, schools, gyms and strata across Perth: tap the link in bio to book a walkthrough.</p>
             <p class="pc__tags">#PerthBusiness #PerthSmallBusiness #CommercialCleaning #StrataPerth #OfficeCleaning #NoLockIn</p>
           </div>
-          <div class="pc__act"><button type="button" class="pc__btn">Copy caption</button><span class="pc__ok" aria-live="polite"></span></div>
-        </figcaption>
-      </figure>
+          <div class="pc__panel" role="tabpanel" id="pc4-p2" aria-labelledby="pc4-t2" hidden>
+            <p>Break up with your cleaner. We'll make it easy.</p>
+            <p>There's no lock-in contract with IPS, ever. If you stay, it's because the clean is good, not because you signed something three years ago.</p>
+            <p>Regular clients get a free trial clean before committing, then $100 off the first invoice.</p>
+            <p>Offices, clinics, schools, gyms and strata across Perth. Book a walkthrough: ipsfacilityservices.com.au</p>
+          </div>
+          <div class="pc__panel" role="tabpanel" id="pc4-p3" aria-labelledby="pc4-t3" hidden>
+            <p>How long is your cleaning contract, and would you renew it today?</p>
+            <p>If the answers are "too long" and "no", here's an alternative. IPS works without lock-in contracts. Regular clients get a free trial clean before they commit, and $100 off the first invoice. If we're not right for your site, you can walk.</p>
+            <p>We've cleaned commercial buildings across Perth since 2007, and we'd rather keep clients with the work than with the paperwork.</p>
+            <p>Book a walkthrough: ipsfacilityservices.com.au</p>
+            <p class="pc__tags">#FacilityManagement #CommercialCleaning #Perth</p>
+          </div>
+          <div class="pc__panel" role="tabpanel" id="pc4-p4" aria-labelledby="pc4-t4" hidden>
+            <p>A large outlined number 36 struck through with a violet bar, beside a solid violet zero, on a cream background. Text: Break up with your cleaner. Months locked in: 36. With IPS: 0. No lock-in contract. Stay because it's clean. Free trial clean, $100 off. Book a free walkthrough. IPS Facility Services, ipsfacilityservices.com.au.</p>
+          </div>
+          <div class="pc__act"><button type="button" class="pc__btn" data-copy>Copy caption</button><button type="button" class="pc__btn pc__btn--fill" data-dl="sp4" data-name="04-switch" data-r="1">PNG 1080</button><button type="button" class="pc__btn" data-dl="sp4" data-name="04-switch" data-r="2">PNG 2x</button><span class="pc__ok" aria-live="polite"></span></div>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -1447,7 +1552,7 @@ fieldset.field{border:0;padding:0;min-width:0}
         <li><b>Real photography:</b> your crews and your sites at night, no AI stand-ins</li>
         <li><b>Rollout:</b> fleet, door hangers, turndown reports, crew ID, stationery</li>
         <li><b>Proof engine:</b> named Google reviews and case studies</li>
-        <li><b>Launch week:</b> three animated posts, captions and a posting schedule</li>
+        <li><b>Launch week:</b> four feed posts ready to publish, with captions for Instagram, Facebook and LinkedIn, alt text and a posting schedule</li>
       </ul>
     </div>
     <div class="wrap engine rv" role="group" aria-labelledby="eng-h">
@@ -2773,114 +2878,83 @@ document.fonts && document.fonts.ready.then(() => { ScrollTrigger && ScrollTrigg
 </script>
 
 <script>
-/* ---------- social posts: three looping stories, each restarts when it scrolls into view ---------- */
+/* ---------- social posts: still 1080 x 1350 images, scaled to fit, with captions and PNG export ---------- */
 (() => {
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const $ = (s, r = document) => r.querySelector(s);
-  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
-  const hex = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
-  const lum = c => { const f = v => { v /= 255; return v <= .03928 ? v / 12.92 : Math.pow((v + .055) / 1.055, 2.4); }; return .2126 * f(c[0]) + .7152 * f(c[1]) + .0722 * f(c[2]); };
-  const fmt = m => { const t = (1080 + Math.round(m)) % 1440; return String(Math.floor(t / 60)).padStart(2, '0') + ':' + String(t % 60).padStart(2, '0'); };
 
-  /* 01: the night shift. Minutes after 18:00 drive the sky, the clock and the building */
-  const p1 = $('#p1');
-  const SKY = [[0, '#333D6D'], [30, '#2B3462'], [180, '#232A55'], [360, '#151A38'], [630, '#4E2D8A'], [720, '#FFCF95'], [780, '#FFF0D9']].map(([m, h]) => [m, hex(h)]);
-  const COLS = 4, ROWS = 9, NW = COLS * ROWS;
-  const bldg = $('.p1__bldg', p1);
-  bldg.innerHTML = '<span></span>'.repeat(NW);
-  const wins = [...bldg.children];
-  let seed = 2007; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
-  const offAt = wins.map(() => .012 + rnd() * .085);
-  // the crew works top floor down, snaking along each floor
-  const order = [];
-  for (let r = 0; r < ROWS; r++) for (let c = 0; c < COLS; c++) order.push(r * COLS + (r % 2 ? COLS - 1 - c : c));
-  const CREW0 = .11, CREW1 = .72, STEP = (CREW1 - CREW0) / NW;
-  const lampAt = new Array(NW); order.forEach((w, k) => { lampAt[w] = CREW0 + k * STEP; });
-  const p1Clock = $('.p1__clock', p1), p1Count = $('.p1__count b', p1), p1State = $('.p1__state span', p1), p1Line = $('.p1__line', p1);
-  let lastSky = '';
-  function draw1(t) {
-    const m = t < .92 ? t / .92 * 780 : 780;
-    let i = 1; while (i < SKY.length - 1 && SKY[i][0] < m) i++;
-    const [m0, c0] = SKY[i - 1], [m1, c1] = SKY[i];
-    const k = clamp((m - m0) / (m1 - m0));
-    const c = c0.map((v, j) => Math.round(v + (c1[j] - v) * k));
-    const css = `rgb(${c})`;
-    if (css !== lastSky) {
-      lastSky = css;
-      const light = lum(c) > .2;
-      p1.style.setProperty('--sky', css);
-      p1.style.setProperty('--fg', light ? '#1E2448' : '#FFF0D9');
-      p1.style.setProperty('--lamp', light ? '#723EC3' : '#FFCF95');
-    }
-    let done = 0, working = -1;
-    wins.forEach((w, j) => {
-      const a = lampAt[j], on = t < offAt[j], lamp = t >= a && t < a + STEP * 1.6, fin = t >= a + STEP * 1.6;
-      w.className = on ? 'on' : lamp ? 'lamp' : fin ? 'done' : '';
-      if (fin) done++;
-      if (lamp && (working < 0 || j > working)) working = j;
-    });
-    p1Clock.textContent = fmt(m);
-    p1Count.textContent = done >= NW ? '180+' : Math.round(done / NW * 180);
-    p1State.textContent = t < CREW0 ? 'Tenants leaving'
-      : done < NW ? `Crew at work · Level ${ROWS - Math.floor((working < 0 ? 0 : working) / COLS)}`
-      : m < 720 ? 'All sites signed off' : 'Ready for the morning';
-    p1Line.style.setProperty('--p', (m / 780).toFixed(4));
-  }
-
-  /* 02: the turndown. Six ticks, a note, a signature, a stamp */
-  const p2 = $('#p2'), p2Tasks = [...p2.querySelectorAll('.p2__tasks li')];
-  // the card fades out at 10s; everything clears once it is gone, so nothing visibly rewinds
-  function draw2(s) {
-    const on = at => s >= at && s < 10.6;
-    p2Tasks.forEach((li, k) => li.classList.toggle('t', on(.9 + k * .75)));
-    p2.classList.toggle('noted', on(5.2));
-    p2.classList.toggle('signed', on(5.8));
-    p2.classList.toggle('stamped', on(7.3));
-    p2.classList.toggle('reset', s >= 10);
-  }
-
-  /* 03: the contract. Each lock-in term struck out, then the stamp */
-  const p3 = $('#p3'), p3Lines = [...p3.querySelectorAll('.p3__doc li')];
-  function draw3(s) {
-    p3Lines.forEach((li, k) => li.classList.toggle('x', s >= .8 + k * .55 && s < 8.7));
-    p3.classList.toggle('stamped', s >= 3 && s < 8.7);
-    p3.classList.toggle('reset', s >= 8.2);
-  }
-
-  const posts = [
-    { el: p1, len: 13, draw: s => draw1(s / 13) },
-    { el: p2, len: 11, draw: draw2 },
-    { el: p3, len: 9, draw: draw3 }
-  ];
-
-  if (reduce) {
-    // a still frame of each story's ending
-    draw1(.96); draw2(9); draw3(5);
+  // each post is drawn at full size and scaled to its frame
+  const frames = document.querySelectorAll('.sp-frame');
+  const fit = f => f.style.setProperty('--k', (f.clientWidth / 1080).toFixed(4));
+  if ('ResizeObserver' in window) {
+    const ro = new ResizeObserver(es => es.forEach(e => fit(e.target)));
+    frames.forEach(f => ro.observe(f));
   } else {
-    posts.forEach(p => { p.t0 = 0; p.draw(0); });
-    const io = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(e => {
-      const p = posts.find(q => q.el === e.target);
-      p.el.classList.toggle('live', e.isIntersecting);
-      if (e.isIntersecting) p.t0 = performance.now();
-    }), { threshold: .35 }) : null;
-    posts.forEach(p => io ? io.observe(p.el) : (p.el.classList.add('live'), p.t0 = performance.now()));
-    const loop = now => {
-      posts.forEach(p => { if (p.el.classList.contains('live')) p.draw(((now - p.t0) / 1000) % p.len); });
-      requestAnimationFrame(loop);
-    };
-    requestAnimationFrame(loop);
+    frames.forEach(fit);
+    addEventListener('resize', () => frames.forEach(fit));
   }
 
-  /* copy each caption, hashtags included, ready to paste */
+  // the exporter only loads when someone asks for a file
+  let lib = null;
+  const exporter = () => lib || (lib = new Promise((res, rej) => {
+    const s = document.createElement('script');
+    s.src = 'https://cdn.jsdelivr.net/npm/html-to-image@1.11.11/dist/html-to-image.js';
+    s.onload = () => res(window.htmlToImage);
+    s.onerror = () => { lib = null; rej(new Error('Exporter failed to load')); };
+    document.head.appendChild(s);
+  }));
+
   document.querySelectorAll('.pc').forEach(pc => {
-    const btn = $('.pc__btn', pc), ok = $('.pc__ok', pc);
-    if (!btn) return;
-    btn.addEventListener('click', async () => {
-      const text = [...pc.querySelectorAll('[data-copy] p')].map(p => p.textContent.trim()).join('\n\n');
-      try { await navigator.clipboard.writeText(text); ok.textContent = 'Caption copied.'; }
-      catch (err) { ok.textContent = 'Copy blocked by the browser. Select the caption text instead.'; }
-      setTimeout(() => { ok.textContent = ''; }, 2600);
+    const tabs = [...pc.querySelectorAll('[role="tab"]')];
+    const panels = tabs.map(t => document.getElementById(t.getAttribute('aria-controls')));
+    const copyBtn = $('[data-copy]', pc), ok = $('.pc__ok', pc);
+    let cur = 0, timer;
+    const say = msg => { clearTimeout(timer); ok.textContent = msg; timer = setTimeout(() => { ok.textContent = ''; }, 2800); };
+
+    // platform tabs: one caption per network, plus alt text
+    const pick = (i, focus) => {
+      cur = i;
+      tabs.forEach((t, j) => {
+        const on = i === j;
+        t.setAttribute('aria-selected', on);
+        t.tabIndex = on ? 0 : -1;
+        panels[j].hidden = !on;
+      });
+      copyBtn.textContent = 'Copy ' + (tabs[i].dataset.kind || 'caption');
+      if (focus) tabs[i].focus();
+    };
+    tabs.forEach((t, i) => {
+      t.addEventListener('click', () => pick(i));
+      t.addEventListener('keydown', e => {
+        const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+        if (d) { e.preventDefault(); pick((i + d + tabs.length) % tabs.length, true); }
+      });
     });
+
+    // copy the open panel, paragraphs separated the way the platforms show them
+    copyBtn.addEventListener('click', async () => {
+      const text = [...panels[cur].querySelectorAll('p')].reduce((s, p) => s + (s ? (p.classList.contains('ln') ? '\n' : '\n\n') : '') + p.textContent.trim(), '');
+      try { await navigator.clipboard.writeText(text); say(tabs[cur].textContent + ' ' + (tabs[cur].dataset.kind ? '' : 'caption ') + 'copied.'); }
+      catch (err) { say('Copy blocked by the browser. Select the text instead.'); }
+    });
+
+    // download the post at feed size, or at 2x for print and paid placements
+    pc.querySelectorAll('[data-dl]').forEach(b => b.addEventListener('click', async () => {
+      const node = document.getElementById(b.dataset.dl), r = +b.dataset.r, label = b.textContent;
+      b.disabled = true; b.textContent = 'Rendering…';
+      try {
+        const h = await exporter();
+        await document.fonts.ready;
+        const url = await h.toPng(node, { width: 1080, height: 1350, pixelRatio: r, style: { transform: 'none' } });
+        const a = document.createElement('a');
+        a.href = url; a.download = `ips-${b.dataset.name}${r > 1 ? '@2x' : ''}.png`;
+        document.body.appendChild(a); a.click(); a.remove();
+        say(`Saved ips-${b.dataset.name}${r > 1 ? '@2x' : ''}.png (${1080 * r} × ${1350 * r}).`);
+      } catch (err) {
+        console.warn(err);
+        say('Export failed. Open this page from a web server rather than as a local file, then try again.');
+      }
+      b.disabled = false; b.textContent = label;
+    }));
   });
 })();
 </script>

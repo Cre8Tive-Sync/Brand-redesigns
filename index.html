@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cre8tive Sync Redesigns</title>
+<meta name="description" content="Brand and website redesign proposals by Cre8tive Sync.">
+<meta name="theme-color" content="#121214">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F1EC;
+  --surface:#FFFFFF;
+  --ink:#141416;
+  --ink-2:#5C5A57;
+  --hair:rgba(20,20,22,.12);
+  --accent:#D9480F;
+  --serif:"Instrument Serif",Georgia,serif;
+  --sans:"Instrument Sans",system-ui,sans-serif;
+  --gutter:clamp(16px,4vw,56px);
+  --ease:cubic-bezier(.16,1,.3,1);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#121214;--surface:#1B1B1E;--ink:#F2EFEA;--ink-2:#A19D97;--hair:rgba(242,239,234,.12);--accent:#FF8A4C;color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121214;--surface:#1B1B1E;--ink:#F2EFEA;--ink-2:#A19D97;--hair:rgba(242,239,234,.12);--accent:#FF8A4C;color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:4px}
+
+.wrap{max-width:1280px;margin:0 auto;padding:0 var(--gutter)}
+
+header{padding:clamp(48px,9vw,120px) 0 clamp(32px,5vw,64px);border-bottom:1px solid var(--hair)}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);margin:0 0 20px}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(44px,8vw,104px);line-height:.95;letter-spacing:-.02em;margin:0;max-width:12ch}
+h1 em{color:var(--accent)}
+.lede{color:var(--ink-2);max-width:52ch;margin:24px 0 0;font-size:clamp(17px,1.4vw,19px)}
+
+main{padding:clamp(32px,5vw,64px) 0 clamp(64px,8vw,112px)}
+.grid{list-style:none;margin:0;padding:0;display:grid;gap:clamp(28px,4vw,48px) clamp(20px,3vw,40px);grid-template-columns:repeat(auto-fill,minmax(min(100%,460px),1fr))}
+
+.card a{display:block;text-decoration:none}
+.card__media{aspect-ratio:16/10;overflow:hidden;border-radius:10px;background:var(--surface);border:1px solid var(--hair)}
+.card__media img{width:100%;height:100%;object-fit:cover;object-position:left center;transition:transform .9s var(--ease)}
+.card a:hover .card__media img{transform:scale(1.03)}
+.card__body{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding-top:18px}
+.card h2{font-family:var(--serif);font-weight:400;font-size:clamp(26px,2.6vw,34px);line-height:1.1;margin:0}
+.card__meta{font-size:14px;color:var(--ink-2);margin:6px 0 0}
+.card__arrow{flex:none;font-size:14px;font-weight:600;color:var(--ink-2);transition:color .3s,transform .5s var(--ease)}
+.card a:hover .card__arrow{color:var(--accent);transform:translateX(4px)}
+
+footer{border-top:1px solid var(--hair);padding:28px 0 40px;font-size:14px;color:var(--ink-2)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <p class="eyebrow">Cre8tive Sync</p>
+    <h1>Brand <em>redesigns</em></h1>
+    <p class="lede">Proposals we have designed and built for businesses: what holds each brand back today, and what it could look like next.</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <!--
+      To add a redesign:
+      1. Put it in its own folder at the repo root, named with no spaces (e.g. Acme-Plumbing/index.html).
+      2. Save a 1200px-wide cover image to covers/ (e.g. covers/acme-plumbing.jpg).
+      3. Copy one <li class="card"> below and update the link, image, name and meta.
+    -->
+    <ul class="grid">
+      <li class="card">
+        <a href="IPS-Facility-Services/">
+          <div class="card__media"><img src="covers/ips-facility-services.jpg" alt="Cover of the IPS Facility Services proposal: 'IPS, prepared overnight' over a night map of Perth" width="1200" height="750" loading="lazy"></div>
+          <div class="card__body">
+            <div>
+              <h2>IPS Facility Services</h2>
+              <p class="card__meta">Commercial cleaning · Perth, WA · October 2026</p>
+            </div>
+            <span class="card__arrow" aria-hidden="true">View →</span>
+          </div>
+        </a>
+      </li>
+      <li class="card">
+        <a href="DivineFoods/">
+          <div class="card__media"><img src="covers/divine-foods.jpg" alt="Divine Foods homepage: 'Give in to a little bit of sugar' beside a cookie" width="1200" height="675" loading="lazy"></div>
+          <div class="card__body">
+            <div>
+              <h2>Divine Foods Aust.</h2>
+              <p class="card__meta">Café cookies &amp; Mini Bites · South Windsor, NSW</p>
+            </div>
+            <span class="card__arrow" aria-hidden="true">View →</span>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Cre8tive Sync</span>
+    <span>Concepts only. Not affiliated with the businesses shown.</span>
+  </div>
+</footer>
+
+</body>
+</html>

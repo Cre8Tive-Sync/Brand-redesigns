@@ -224,10 +224,20 @@ The pitch is also proof that Cre8tive Sync can be IPS's developers, so the page 
 
 Reduced motion: the cover map renders one still frame at 04:00, the night map follows the scroll without easing, and the portal shows each site already signed.
 
+## Social posts (launch week)
+
+Four still feed posts, each built at a true 1080 × 1350 (4:5) so the same file runs on Instagram, Facebook and LinkedIn. Each one is scaled to its frame for preview and exported at 1x or 2x with html-to-image, which is loaded only when someone clicks export.
+
+- One provocation per post, answered with a claim IPS can prove: 12,000+ cleans unseen (Notice), police-cleared keyholders (Trust), a competitor's excuse note against ticked, timed and signed reports (Proof), 36 months struck out to 0 (Switch).
+- Grounds follow the hour palette across the week: night, pre-dawn violet, dawn apricot, morning cream. Accents follow the Two Accents Rule.
+- 72px safe margins keep everything inside Instagram's 3:4 profile-grid crop. Headlines are Archivo 900 at 75% width, 110–150px. No important text below 27px.
+- Caveat is used only for the handwritten competitor note in post 3. It is never IPS's own voice.
+- Each post ships with Instagram, Facebook and LinkedIn captions plus alt text.
+
 ## Don'ts
 - Don't go back to grey slate or desaturated grounds; every dark ground is from the indigo family.
 - Don't use grey secondary text; tint it lilac (dark) or indigo (light).
 - Don't set headlines in sentence case or light weights.
-- Don't bounce, overshoot or spring. The only autoplay loops are the cover simulation and the social post previews.
+- Don't bounce, overshoot or spring. The only autoplay loop is the cover simulation.
 - Don't use alarm red for emphasis.
 - Don't present simulated figures as IPS performance data; every live number is either measured from the page or labelled sample data.
